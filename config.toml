@@ -1,0 +1,85 @@
+baseurl = "https://AtomicKotlin.github.io"
+languageCode = "en-us"
+title = "Learning Resources for the Kotlin Programming Language"
+theme = "hugo-material-docs"
+metadataformat = "yaml"
+canonifyurls = true
+# Enable Google Analytics by entering your tracking id
+googleAnalytics = ""
+
+[params]
+	# General information
+	# author = "Bruce Eckel"
+	description = "Learning Resources for the Kotlin Programming Language"
+
+	logo = "/images/AtomicKotlin-circle.png"
+	favicon = "images/favicon.ico"
+	banner_image = "/images/AtomicKotlinBanner.png"
+
+	permalink = "#"
+
+	# Custom assets
+	custom_css = []
+	custom_js  = []
+
+	# Syntax highlighting theme
+	highlight_css  = ""
+
+	[params.palette]
+    	primary = "#18ADFB"
+    	accent  = "red"
+    	header_color = "#18ADFB"
+    	footer_color = "#18ADFB"
+    	h1_ruler_color= "#18ADFB"
+
+    [params.font]
+    	text = "Ubuntu"
+    	code = "Ubuntu Mono"
+
+
+[social]
+	#twitter = ""
+	#github  = "AtomicKotlin/AtomicKotlin-hugo"
+	email   = "mindviewinc@gmail.com"
+
+[[menu.main]]
+  name   = "Atomic Kotlin"
+  url    = "atomickotlin/"
+  weight = 10
+
+[[menu.main]]
+  name   = "eBook (Early Access)"
+  url    = "ebook/"
+  weight = 20
+
+[[menu.main]]
+  name   = "Print Book"
+  url    = "printbook/"
+  weight = 30
+
+[[menu.main]]
+  name   = "Seminar"
+  url    = "seminar/"
+  weight = 40
+
+[[menu.main]]
+  name   = "Example Source Code"
+  url    = "examples/"
+  weight = 50
+
+[[menu.main]]
+	name   = "Exercises"
+	url    = "exercises/"
+	weight = 60
+
+[[menu.main]]
+	name   = "About"
+	url    = "about/"
+	weight = 200
+
+
+[blackfriday]
+	smartypants	= true
+	fractions = true
+	smartDashes = true
+	plainIDAnchors = true
