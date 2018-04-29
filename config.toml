@@ -27,7 +27,7 @@ googleAnalytics = ""
 
 	[params.palette]
     	primary = "#18ADFB"
-    	accent  = "red"
+    	accent  = "#18ADFB"
     	header_color = "#18ADFB"
     	footer_color = "#18ADFB"
     	h1_ruler_color= "#18ADFB"
