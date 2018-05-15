@@ -58,7 +58,7 @@ googleAnalytics = ""
   weight = 30
 
 [[menu.main]]
-  name   = "Seminar"
+  name   = "Seminar (Aug 20-24)"
   url    = "seminar/"
   weight = 40
 

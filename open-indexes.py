@@ -13,5 +13,10 @@ for index in base.rglob("Index.md"):
             indexed[weight] = index
 
 for wt in sorted(indexed.keys()):
-    print("{}: {}".format(wt, indexed[wt].relative_to(base)))
-    os.system("subl {}".format(indexed[wt]))
+    print(f"{wt}: {indexed[wt].relative_to(base)}")
+    os.system(f"subl {indexed[wt]}")
+
+config_toml = Path.cwd() / "config.toml"
+if config_toml.exists():
+    os.system(f"subl {config_toml}")
+
