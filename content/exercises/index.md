@@ -1,5 +1,5 @@
 ---
-title: Exercises
+title: Exercises & Solutions
 weight: 60
 ---
 
