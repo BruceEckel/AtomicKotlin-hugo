@@ -11,7 +11,7 @@ find out more at the site of his company,
 
 **Svetlana Isakova** began as a member of the Kotlin compiler team, and is now a
 developer advocate for JetBrains. She teaches Kotlin and speaks at conferences
-worldwide, and is coauthor of the book "Kotlin in Action."
+worldwide, and is coauthor of the book *Kotlin in Action*.
 
 Questions? Email Mindview <mindviewinc@gmail.com>
 
