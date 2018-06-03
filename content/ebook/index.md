@@ -1,5 +1,5 @@
 ---
-title: eBook (Early Access)
+title: eBook Sample & Early Access
 weight: 20
 ---
 

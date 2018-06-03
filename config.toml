@@ -48,7 +48,7 @@ googleAnalytics = ""
   weight = 10
 
 [[menu.main]]
-  name   = "eBook (Early Access)"
+  name   = "eBook Sample & Early Access"
   url    = "ebook/"
   weight = 20
 
