@@ -9,6 +9,6 @@ version of JetBrains IDEA }}.
 
 You can also compile, run, and test the examples using standalone tools on the
 command line. The example source code can be found in the associated [Github
-Repository](https://github.com/BruceEckel/AtomicKotlinExamples). The README
-for that repository contains complete instructions for configuring and running
-the code.
+Repository](https://github.com/BruceEckel/AtomicKotlinExamples). The README for
+that repository contains complete instructions for configuring and running the
+code.
