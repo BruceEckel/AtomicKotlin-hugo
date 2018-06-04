@@ -1,6 +1,6 @@
 ---
 title: eBook Sample & Early Access
-weight: 20
+weight: 30
 ---
 
 ## This site is under construction

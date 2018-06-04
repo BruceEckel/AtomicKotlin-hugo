@@ -1,6 +1,6 @@
 ---
 title: Example Source Code
-weight: 50
+weight: 60
 ---
 
 The easiest way to access and use the examples from the book is

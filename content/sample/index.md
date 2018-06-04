@@ -1,6 +1,6 @@
 ---
-title: Exercises & Solutions
-weight: 70
+title: Book Sample
+weight: 20
 ---
 
 ## This site is under construction
