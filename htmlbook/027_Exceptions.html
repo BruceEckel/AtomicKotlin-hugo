@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The word “exception” is used in the same sense as the phrase “I take exception to that.”</p>
 </blockquote>
 <p>An exceptional condition prevents the continuation of the current function or scope. At the point the problem occurs, you might not know what to do with it, but you <em>do</em> know that you cannot continue within the current context. You don’t have enough information to fix the problem. So you must stop and hand the problem to an outside context containing code qualified to take appropriate action.</p>
-<p>This atom covers the basics of <em>exceptions</em> as an error-reporting mechanism. Later in the book, in [Exception Handling], [Error Reporting], [Logging], and [Unit Testing], we’ll look at other ways to discover problems in your code.</p>
+<p>This atom covers the basics of <em>exceptions</em> as an error-reporting mechanism. Later in the book, in <a target="_blank" href="087_Exception_Handling.html">Exception Handling</a>, <a target="_blank" href="088_Error_Reporting.html">Error Reporting</a>, <a target="_blank" href="089_Logging.html">Logging</a>, and <a target="_blank" href="090_Unit_Testing.html">Unit Testing</a>, we’ll look at other ways to discover problems in your code.</p>
 <p>It’s important to distinguish an exceptional condition from a normal problem, in which you have enough information in the current context to cope with the difficulty. With an exceptional condition, you cannot continue processing. All you can do is leave, relegating the problem to an external context. This is what happens when you <em>throw an exception</em>. The exception is the object that is “thrown” from the site of the error.</p>
 <p>Consider <code>toInt()</code>, which converts a <code>String</code> to an <code>Int</code>. What happens if you call this function for a <code>String</code> that doesn’t contain an integer value?</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Exceptions/ToIntException.kt</span></a>
@@ -127,7 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="st">&quot;&quot;&quot;For input string: &quot;1$&quot;&quot;&quot;&quot;</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">}</a></code></pre></div>
 <p><code>capture()</code> produces a string containing the type of the exception together with a message describing what went wrong. <code>capture()</code> isn’t very helpful in normal programming—it’s designed specifically for this book, so that you can see the exception and know that the output has been checked by the book’s build system.</p>
-<p>Another strategy, when you can’t successfully produce the expected result, is to return <code>null</code> instead of that result. <code>null</code> is a special constant denoting “no value.” You can return <code>null</code> instead of a value of any type. Later in [Nullable Types] we’ll discuss how <code>null</code> affects the type of the resulting expression.</p>
+<p>Another strategy, when you can’t successfully produce the expected result, is to return <code>null</code> instead of that result. <code>null</code> is a special constant denoting “no value.” You can return <code>null</code> instead of a value of any type. Later in <a target="_blank" href="041_Nullable_Types.html">Nullable Types</a> we’ll discuss how <code>null</code> affects the type of the resulting expression.</p>
 <p>The Kotlin standard library contains <code>String.toIntOrNull()</code> which first checks whether a string contains an integer number, and then it either performs the conversion, or returns <code>null</code> if the conversion is impossible:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Exceptions/IntroducingNull.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
@@ -189,5 +189,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb7-18" data-line-number="18">}</a></code></pre></div>
 <p>Your goal is to generate the most detailed messages possible to simplify the support of your application in the future.</p>
 <p><strong>[1]</strong> shows how to throw an exception: the <code>throw</code> keyword followed by the exception to be thrown, along with any arguments it might need. Here we use the standard exception class <code>IllegalArgumentException</code>. Later we’ll show you how to define your own exception types and to make them specific to your circumstances.</p>
+<p class="copy">
+©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.
+</p>
+<p><br><br></p>
 </body>
 </html>

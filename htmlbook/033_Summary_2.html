@@ -90,9 +90,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 <h1 id="summary-2">Summary 2</h1>
 <blockquote>
-<p>This atom summarizes and reviews the atoms from <a href="#objects-everywhere">Objects Everywhere</a> through <a href="#property-accessors">Property Accessors</a>.</p>
+<p>This atom summarizes and reviews the atoms from <a target="_blank" href="020_Objects_Everywhere.html">Objects Everywhere</a> through <a target="_blank" href="032_Property_Accessors.html">Property Accessors</a>.</p>
 </blockquote>
-<p>If you’re an experienced programmer, this is your next atom after [Summary 1].</p>
+<p>If you’re an experienced programmer, this is your next atom after <a target="_blank" href="018_Summary_1.html">Summary 1</a>.</p>
 <p>Beginning programmers should read this atom and perform the exercises as review. If any information here isn’t clear to you, go back and study the atom for that particular topic.</p>
 <p>The topics appear in appropriate order for experienced programmers, which is not the same as the order of the atoms in the book. For example, we start by introducing packages and imports so we can use our minimal test framework for the rest of the atom.</p>
 <h2 id="imports-packages-testing">Imports, Packages &amp; Testing</h2>
@@ -112,7 +112,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="kw">val</span> <span class="va">x</span> = f()</a>
 <a class="sourceLine" id="cb2-6" data-line-number="6">}</a></code></pre></div>
-<p>The star after <code>libraryname</code> tells Kotlin to import all the components of a library. Now we can refer to <code>f()</code> without producing an error. You can also select components individually; details are in [Imports &amp; Packages].</p>
+<p>The star after <code>libraryname</code> tells Kotlin to import all the components of a library. Now we can refer to <code>f()</code> without producing an error. You can also select components individually; details are in <a target="_blank" href="025_Imports_and_Packages.html">Imports &amp; Packages</a>.</p>
 <p>An important library in this book is <code>atomictest</code>, our simple testing framework. Once it’s imported, you use <code>eq</code> (equals) and <code>neq</code> (not equals) almost as if they were language keywords:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Summary2/UsingAtomicTest.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
@@ -125,7 +125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-9" data-line-number="9">  pie neq <span class="st">&quot;Square&quot;</span></a>
 <a class="sourceLine" id="cb3-10" data-line-number="10">}</a></code></pre></div>
 <p>The ability to use <code>eq</code> without any dots or parentheses is called <em>infix notation</em>. <code>atomictest</code> defines <code>eq</code> in a special way, marking it as <code>infix</code>, which makes it possible to call it either in the regular way: <code>pi.eq(3.14)</code>, or using infix notation: <code>pi eq 3.14</code>. <code>eq</code> and <code>neq</code> are assertions of truth which also display the result from the left side of the <code>eq</code> statement, and an error message if the expression on the right of the <code>eq</code> doesn’t agree (or does agree, in the case of <code>neq</code>). This way you see verified results in the source code.</p>
-<p><code>atomictest</code> is defined in [Appendix B: AtomicTest], although it uses language features you will not understand at this point in the book.</p>
+<p><code>atomictest</code> is defined in <a target="_blank" href="102_Appendix_B_AtomicTest.html">Appendix B: AtomicTest</a>, although it uses language features you will not understand at this point in the book.</p>
 <h2 id="objects-everywhere">Objects Everywhere</h2>
 <p>Kotlin is a <em>hybrid object-functional</em> language: it supports both object-oriented and functional programming paradigms.</p>
 <p>Objects contain <code>val</code>s and <code>var</code>s to store data (these are called <em>properties</em>) and they perform operations using functions defined within a class, called <em>member functions</em> (when it’s unambiguous, we just say “functions”). A <em>class</em> defines properties and member functions for what is essentially a new, user-defined data type. When you create a <code>val</code> or <code>var</code> of a class, it’s called <em>creating an object</em> or sometimes <em>creating an instance</em>.</p>
@@ -394,7 +394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb12-8" data-line-number="8">    <span class="st">&quot;&quot;&quot;For input string: &quot;$1.9&quot;&quot;&quot;&quot;</span></a>
 <a class="sourceLine" id="cb12-9" data-line-number="9">}</a></code></pre></div>
 <p><code>capture()</code> is designed specifically for this book, so that you can see the exception and know that the output has been checked by the book’s build system.</p>
-<p>Another strategy when your function can’t successfully produce the expected result is to return <code>null</code>. Later in [Nullable Types] we’ll discuss how <code>null</code> affects the type of the resulting expression.</p>
+<p>Another strategy when your function can’t successfully produce the expected result is to return <code>null</code>. Later in <a target="_blank" href="041_Nullable_Types.html">Nullable Types</a> we’ll discuss how <code>null</code> affects the type of the resulting expression.</p>
 <p>To throw an exception, use the <code>throw</code> keyword followed by the exception you want to throw, along with any arguments it might need. <code>quadraticZeroes()</code> in the following example solves the <a href="https://en.wikipedia.org/wiki/Quadratic_formula">quadratic equation</a> which defines a parabola:</p>
 <p><strong>ax<sup>2</sup> + bx + c = 0</strong></p>
 <p>The solution is the <em>quadratic formula</em>:</p>
@@ -685,5 +685,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb22-25" data-line-number="25"><span class="co">*/</span></a></code></pre></div>
 <p>Inside the getter and setter, the stored value is manipulated indirectly using the <code>field</code> keyword, which is only accessible within these two functions. You can also create a property that doesn’t have a <code>field</code>, but simply calls the getter to produce a result.</p>
 <p>If you declare a <code>private</code> property, both accessors become <code>private</code>. You can make the setter <code>private</code> and the getter <code>public</code>. Then you can, for example, read the property outside the class, but only change its value inside the class. Custom property accessors allow control or modification of access to a property.</p>
+<p class="copy">
+©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.
+</p>
+<p><br><br></p>
 </body>
 </html>

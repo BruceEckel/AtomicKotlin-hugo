@@ -219,7 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb7-12" data-line-number="12">  list eq listOf(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb7-13" data-line-number="13">}</a></code></pre></div>
 <p>Note that <code>list</code> lacks mutation functions despite being originally created using <code>mutableListOf()</code> inside <code>getList()</code>. As <code>getList()</code> returns the result, the type becomes a <code>List&lt;Int&gt;</code>. The original object is still a <code>MutableList</code>, but it is viewed through the lens of a <code>List</code>.</p>
-<p>A <code>List</code> is <em>read-only</em>—you can read its contents but not write to it. If the underlying implementation is a <code>MutableList</code> and you retain a mutable reference to that implementation, you can still modify it via that mutable reference, and any read-only references will see those changes. This is another example of the problem of <em>aliasing</em>, which was introduced in [Constraining Visibility]:</p>
+<p>A <code>List</code> is <em>read-only</em>—you can read its contents but not write to it. If the underlying implementation is a <code>MutableList</code> and you retain a mutable reference to that implementation, you can still modify it via that mutable reference, and any read-only references will see those changes. This is another example of the problem of <em>aliasing</em>, which was introduced in <a target="_blank" href="024_Constraining_Visibility.html">Constraining Visibility</a>:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// Lists/MultipleListRefs.kt</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"></a>
@@ -234,5 +234,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb8-12" data-line-number="12">}</a></code></pre></div>
 <p><code>first</code> is an immutable reference (<code>val</code>) to the mutable object produced by <code>mutableListOf(1)</code>. <code>second</code> is aliased to <code>first</code>. <code>second</code> is a reference to a read-only view of that same object; read-only because <code>List&lt;Int&gt;</code> does not include any modification functions. Note that, without the <code>List&lt;Int&gt;</code> type declaration, Kotlin would infer that <code>second</code> was also a reference to a mutable object.</p>
 <p>We’re able to add one more element (<code>2</code>) to the object through the <code>first</code> reference, because <code>first</code> is a reference to a mutable list. Note that <code>second</code> observes these changes—it cannot change the list itself, even though the list does change.</p>
+<p class="copy">
+©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.
+</p>
+<p><br><br></p>
 </body>
 </html>

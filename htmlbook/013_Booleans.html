@@ -90,7 +90,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 <h1 id="booleans">Booleans</h1>
 <blockquote>
-<p>[If Expressions] introduced the “not” operator <code>!</code>, which negates a Boolean value.This atom introduces more <em>Boolean Algebra</em>.</p>
+<p><a target="_blank" href="010_If_Expressions.html">If Expressions</a> introduced the “not” operator <code>!</code>, which negates a Boolean value.This atom introduces more <em>Boolean Algebra</em>.</p>
 </blockquote>
 <p>We start with the operators “and” and “or”:</p>
 <ul>
@@ -181,5 +181,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The Boolean expressions are <code>sunny, temp &gt; 50, exercise,</code> and <code>hoursSleep &gt; 7</code>. We read <code>happy1</code> as “It’s sunny <em>and</em> the temperature is greater than 50 <em>or</em> I’ve exercised <em>and</em> had more than 7 hours of sleep.” But does <code>&amp;&amp;</code> have precedence over <code>||</code>, or the opposite?</p>
 <p>The expression in <strong>[1]</strong> uses Kotlin’s default evaluation order. This produces the same result as the expression in <strong>[2]</strong> because, without parentheses, the “ands” are evaluated first, then the “or”. The expression in <strong>[3]</strong> uses parentheses to produce a different result. In <strong>[3]</strong>, we’re only happy if we get at least 7 hours of sleep.</p>
 <p>In this case, parentheses make your intention clear to anyone who reads your code.</p>
+<p class="copy">
+©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.
+</p>
+<p><br><br></p>
 </body>
 </html>

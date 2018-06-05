@@ -125,7 +125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">Ontology</span></a>
 <a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">Ontology</span></a>
 <a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">*/</span></a></code></pre></div>
-<p>You can find the code for the <code>atomictest</code> package in [Appendix B: AtomicTest]. We don’t intend that you understand all the code for <code>AtomicTest.kt</code> right now, because it uses some features that we haven’t covered yet.</p>
+<p>You can find the code for the <code>atomictest</code> package in <a target="_blank" href="102_Appendix_B_AtomicTest.html">Appendix B: AtomicTest</a>. We don’t intend that you understand all the code for <code>AtomicTest.kt</code> right now, because it uses some features that we haven’t covered yet.</p>
 <p>To produce a clean, comfortable appearance, <code>AtomicTest</code> uses a Kotlin feature that you haven’t seen yet: the ability to write a function call <code>a.function(b)</code> in the text-like form:</p>
 <pre><code>a function b</code></pre>
 <p>This is called <em>infix notation</em>. Only functions defined using the <code>infix</code> keyword can be called this way. <code>AtomicTest.kt</code> defines the <code>infix</code> <code>eq</code> and <code>neq</code> used in <code>TestingExample.kt</code>:</p>
@@ -142,7 +142,7 @@ expression neq expected</code></pre>
 <h2 id="testing-as-part-of-programming">Testing as Part of Programming</h2>
 <p>Testing is most effective when it’s built into your software development process. Writing tests ensures you get the results you expect. Many people advocate writing tests <em>before</em> writing the implementation code—to be rigorous, you first make the test fail before you write the code to make it pass. This technique, called <em>Test Driven Development</em> (TDD), is a way to make sure that you’re really testing what you think you are. There’s a more complete description of TDD on Wikipedia (search for “Test_driven_development”).</p>
 <p>There’s another benefit to writing testably—it changes the way you think about and design your code. In the previous example, we could just display the results to the console. But the test mindset makes you think, “How will I test this?” When you create a function, you begin thinking that you should return something from the function, if for no other reason than to test that result. Functions that take one thing and transform it into something else tend to produce better designs, as well.</p>
-<p>Here’s a simplified example using TDD to implement the BMI calculation from [Number Types]. First, we write the tests, along with an initial implementation that fails (because we haven’t yet implemented the functionality):</p>
+<p>Here’s a simplified example using TDD to implement the BMI calculation from <a target="_blank" href="012_Number_Types.html">Number Types</a>. First, we write the tests, along with an initial implementation that fails (because we haven’t yet implemented the functionality):</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Testing/TDDFail.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">package</span> <span class="im">testing1</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
@@ -197,5 +197,9 @@ expression neq expected</code></pre>
 <a class="sourceLine" id="cb7-19" data-line-number="19">}</a></code></pre></div>
 <p>You may choose to add additional tests to ensure we have tested the boundary conditions completely.</p>
 <p>In the exercises for this book, we include tests that your code must pass.</p>
+<p class="copy">
+©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.
+</p>
+<p><br><br></p>
 </body>
 </html>

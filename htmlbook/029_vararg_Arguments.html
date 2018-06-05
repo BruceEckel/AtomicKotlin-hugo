@@ -92,7 +92,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p><code>vararg</code>s allow flexibly-sized argument lists.</p>
 </blockquote>
-<p>The [Lists] atom introduced <code>listOf()</code>, which takes any number of arguments and produces a <code>List</code>:</p>
+<p>The <a target="_blank" href="028_Lists.html">Lists</a> atom introduced <code>listOf()</code>, which takes any number of arguments and produces a <code>List</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Varargs/ListOf.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
@@ -181,5 +181,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">[7][9][32]</span></a>
 <a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">*/</span></a></code></pre></div>
 <p><code>List</code> and <code>Array</code> appear to have similar functionality—why are there two types? This comes from Kotlin’s requirement of compatibility with other languages, Java in particular. Choose <code>List</code>s by default when you need a sequence of elements. Use <code>Array</code>s only when a third-party API requests an <code>Array</code> from you, or you’re dealing with <code>vararg</code>s.</p>
+<p class="copy">
+©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.
+</p>
+<p><br><br></p>
 </body>
 </html>

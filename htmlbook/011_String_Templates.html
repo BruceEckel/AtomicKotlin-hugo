@@ -90,7 +90,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 <h1 id="string-templates">String Templates</h1>
 <blockquote>
-<p>A <em>string template</em> concisely displays multiple values within a string.</p>
+<p>A <em>string template</em> concisely displays multiple elements within a string.</p>
 </blockquote>
 <p>A string template inserts an identifier’s contents into a string. To use a string template, put a <code>$</code> before the identifier name:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// StringTemplates/StringTemplates.kt</span></a>
@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">11 + 4 = 15</span></a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">*/</span></a></code></pre></div>
 <ul>
-<li><strong>[1]</strong> <code>${if(condition) 'a' else 'b'}</code> is evaluated and the result is substituted for the entire <code>${}</code> expression.</li>
+<li><strong>[1]</strong> <code>if(condition) 'a' else 'b'</code> is evaluated and the result is substituted for the entire <code>${}</code> expression.</li>
 </ul>
 <p>To include a special character such as a quote inside a string you can either escape the special character with <code>\</code> (<em>backslash</em>), or use a string literal in triple quotes:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// StringTemplates/TripleQuotes.kt</span></a>
@@ -156,5 +156,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">s = &quot;value&quot;.</span></a>
 <a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
 <p>With triple quotes, you insert a value of an expression the same way you do it for a single-quoted string.</p>
+<p class="copy">
+©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.
+</p>
+<p><br><br></p>
 </body>
 </html>
