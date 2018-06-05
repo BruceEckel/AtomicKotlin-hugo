@@ -71,7 +71,7 @@
     src: url('verdanaz.ttf') format('truetype');
 }
 html, body {
-    width: 650px;
+    max-width: 650px;
     margin: 10px;
     font-family: "Georgia", serif;
 }
@@ -176,6 +176,18 @@ table, th, td {
     padding-right: 10px;
 }
 body { }
+
+.banner-image {
+    max-width: 90vw;
+    height: auto;
+}
+
+@media (min-width: 560px) {
+    .banner-image {
+        max-width: 500px;
+    }
+}
+
 h1.title {
     font-family: "Verdana";
     font-size: 4.5em;
