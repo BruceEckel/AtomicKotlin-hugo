@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Atomic Kotlin: Class_Delegation</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="atomickotlin-html.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+  <a href="https://atomickotlin.github.io/">
+    <img src="Banner.png" alt="Atomic Kotlin" width="500">
+  </a>
+</header>
+<h1 id="class-delegation">Class Delegation</h1>
+<blockquote>
+<p><strong>This Atom is Under Construction</strong></p>
+</blockquote>
+<blockquote>
+<p>Both composition and inheritance allow you to place subobjects inside your new class (composition explicitly does this—with inheritance it’s implicit).</p>
+</blockquote>
+<p>Use composition when you want the functionality of an existing class inside your new class, but not its interface. When your class needs to reuse an existing implementation <em>and</em> implement an interface, you have two options: inheritance and class delegation.</p>
+<p><em>Class delegation</em> is midway between inheritance and composition, because you place a member object in the class you’re building (like composition), but at the same time your class implements an interface of the member object (like inheritance).</p>
+<p>Class delegation makes composition as powerful for reuse as inheritance. In some cases you cannot inherit a class: when the superclass is not <code>open</code> or is <code>final</code>, or your new class is already extending another class. In the latter case you may want to simulate multiple inheritance (multiple inheritance is not supported in Kotlin). Class delegation can help here.</p>
+<p><strong>End of sample. See <a href="https://atomickotlin.github.io/">AtomicKotlin.com</a> for full early-access book.</strong></p>
+</body>
+</html>

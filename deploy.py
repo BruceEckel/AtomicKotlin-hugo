@@ -42,6 +42,8 @@ print(target/ "404")
 shutil.copytree(Path.cwd() / "404", target / "404")
 shutil.copy((Path.cwd() / "404.html"), target)
 
+shutil.copytree(Path.cwd() / "htmlbook", target / "htmlbook")
+
 # CNAME = Path.cwd() / "CNAME"
 # if CNAME.exists():
 #     print("copying CNAME")

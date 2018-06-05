@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Atomic Kotlin: Constraining_Visibility</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="atomickotlin-html.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+  <a href="https://atomickotlin.github.io/">
+    <img src="Banner.png" alt="Atomic Kotlin" width="500">
+  </a>
+</header>
+<h1 id="constraining-visibility">Constraining Visibility</h1>
+<blockquote>
+<p>All good writers—including those who write software—know that a piece of work isn’t good until it’s been rewritten, often many times.</p>
+</blockquote>
+<p>If you leave a piece of code in a drawer for a while and come back to it, you might see a much better way to do things. This is one of the prime motivations for <em>refactoring</em>, which rewrites working code to make it more readable, understandable, and thus maintainable.</p>
+<p>There is a tension, however, in this desire to change and improve your code. Consumers (<em>client programmers</em>) need aspects of your code to be stable. You want to change it; they want it to stay the same. Thus a primary consideration in object-oriented design is to <em>separate things that change from things that stay the same</em>.</p>
+<p>This is particularly important for libraries. Consumers of that library must rely on the parts they use. They don’t want to rewrite code for a new version of the library. On the flip side, the library creator must be free to make modifications and improvements, with the certainty that the client code won’t be affected by those changes.</p>
+<p>To solve this problem, Kotlin (along with a number of other languages) provides <em>access modifiers</em> to allow library creators to decide what is available to the client programmer. Kotlin’s access levels include <code>public</code>, <code>private</code>, <code>protected</code>, and <code>internal</code>. This atom covers the <code>public</code> and <code>private</code> modifiers, while the remaining modifiers are explained later in the book.</p>
+<p>An access modifier like <code>public</code> or <code>private</code> appears before the definition for a class, function or property. Each access modifier only controls the access for that particular definition.</p>
+<p>A <code>public</code> definition is available to everyone, in particular to the client programmer who uses the library. Thus, any changes to a <code>public</code> definition will impact client code. If you don’t provide a modifier, your definition is automatically <code>public</code>. For clarity, you might still sometimes explicitly specify <code>public</code>.</p>
+<p>Because a <code>private</code> definition is <em>not</em> available to everyone, you can generally change it without worry about how this will impact client programmers.</p>
+<p>If you declare a class, top-level function, or property as <code>private</code>, it is available only inside that same file:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Visibility/RecordAnimals.kt</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">private</span> <span class="kw">var</span> <span class="va">index</span> = <span class="dv">0</span>                  <span class="co">// [1]</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">private</span> <span class="kw">class</span> Animal(<span class="kw">val</span> <span class="va">name</span>: <span class="dt">String</span>) // [2]</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">private</span> <span class="kw">fun</span> recordAnimal(              // [<span class="va">3</span>]</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  <span class="va">animal</span>: <span class="dt">Animal</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">) {</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  println(<span class="st">&quot;Animal #$index: ${animal.name}&quot;</span>)</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">  index++</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="kw">fun</span> <span class="fu">recordAnimals</span>() {</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">  recordAnimal(Animal(<span class="st">&quot;Tiger&quot;</span>))</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">  recordAnimal(Animal(<span class="st">&quot;Antelope&quot;</span>))</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">}</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="kw">fun</span> <span class="fu">recordAnimalsCount</span>() {</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">  println(<span class="st">&quot;$index animals are here!&quot;</span>)</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">}</a></code></pre></div>
+<p>You can access <code>private</code> properties (<strong>[1]</strong>), classes (<strong>[2]</strong>), and functions (<strong>[3]</strong>) from other functions and classes in the <code>RecordAnimals.kt</code> file. Kotlin prevents you from accessing a <code>private</code> top-level declaration from another file, telling you it’s <code>private</code> within the file:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Visibility/ObserveAnimals.kt</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="co">// Can&#39;t access private members</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="co">// declared in another file.</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="co">// Class is private:</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">  <span class="co">// val rabbit = Animal(&quot;Rabbit&quot;)</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">  <span class="co">// Function is private:</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">  <span class="co">// recordAnimal(rabbit)</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">  <span class="co">// Property is private:</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">  <span class="co">// index++</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">  recordAnimals()</a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">  recordAnimalsCount()</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">}</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">Animal #0: Tiger</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">Animal #1: Antelope</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">2 animals are here!</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">*/</span></a></code></pre></div>
+<p>You can make private members of a class:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Visibility/Cookie.kt</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">class</span> Cookie(</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">private</span> <span class="kw">var</span> <span class="va">isReady</span>: <span class="dt">Boolean</span>     // [<span class="va">1</span>]</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">) {</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="kw">private</span> <span class="kw">fun</span> <span class="fu">crumble</span>() =          <span class="co">// [2]</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">    println(<span class="st">&quot;crumble&quot;</span>)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="kw">public</span> <span class="kw">fun</span> <span class="fu">bite</span>() =              <span class="co">// [3]</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">    println(<span class="st">&quot;bite&quot;</span>)</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">  <span class="kw">fun</span> <span class="fu">eatUp</span>() {                    <span class="co">// [4]</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">    isReady = <span class="kw">true</span>                 <span class="co">// [5]</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">    crumble()</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">    bite()</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">  }</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">}</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">  <span class="kw">val</span> <span class="va">x</span> = Cookie(<span class="kw">false</span>)</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21">  x.bite()</a>
+<a class="sourceLine" id="cb3-22" data-line-number="22">  <span class="co">// Can&#39;t access private members:</span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23">  <span class="co">// x.isReady</span></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24">  <span class="co">// x.crumble()</span></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25">  x.eatUp()</a>
+<a class="sourceLine" id="cb3-26" data-line-number="26">}</a>
+<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">bite</span></a>
+<a class="sourceLine" id="cb3-29" data-line-number="29"><span class="co">crumble</span></a>
+<a class="sourceLine" id="cb3-30" data-line-number="30"><span class="co">bite</span></a>
+<a class="sourceLine" id="cb3-31" data-line-number="31"><span class="co">*/</span></a></code></pre></div>
+<ul>
+<li><p><strong>[1]</strong> This property is <code>private</code> and can’t be used outside the containing class.</p></li>
+<li><p><strong>[2]</strong> This function is <code>private</code>.</p></li>
+<li><p><strong>[3]</strong> This function is <code>public</code> and can be used everywhere.</p></li>
+<li><p><strong>[4]</strong> No access modifier means <code>public</code> visibility.</p></li>
+<li><p><strong>[5]</strong> Only members of the same class can access <code>private</code> members.</p></li>
+</ul>
+<p>The <code>private</code> keyword means no one can access that member except the class that contains that member, via other members of that class. Other classes cannot access <code>private</code> members, so it’s as if you’re even insulating the class against yourself. On the other hand, it’s not unlikely that the code is developed by several collaborators. With <code>private</code>, you can freely change that member without worrying whether it affects another class in the same package. As a library designer you’ll typically keep everything as <code>private</code> as possible, and expose only functions and classes you want client programmers to use.</p>
+<p>Any member function that you’re certain is only a <em>helper function</em> for that class can be made <code>private</code> to ensure you don’t accidentally use it elsewhere in the package and thus prohibit yourself from changing or removing the function.</p>
+<p>The same is true for a <code>private</code> property inside a class. Unless you must expose the underlying implementation (which is less likely than you might think), make properties <code>private</code>. However, just because a reference to an object is <code>private</code> inside a class doesn’t mean some other object can’t have a <code>public</code> reference to the same object:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Visibility/MultipleRef.kt</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">class</span> Counter(<span class="kw">var</span> <span class="va">start</span>: <span class="dt">Int</span>) {</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">fun</span> <span class="fu">increment</span>() { start += <span class="dv">1</span> }</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="kw">override</span> <span class="kw">fun</span> <span class="fu">toString</span>() = start.toString()</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="kw">class</span> CounterHolder(<span class="va">counter</span>: <span class="dt">Counter</span>) {</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">  <span class="kw">private</span> <span class="kw">val</span> <span class="va">ctr</span> = counter</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">  <span class="kw">override</span> <span class="kw">fun</span> <span class="fu">toString</span>() =</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">    <span class="st">&quot;CounterHolder: &quot;</span> + ctr</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">  <span class="kw">val</span> <span class="va">c</span> = Counter(<span class="dv">11</span>)                 <span class="co">// [1]</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">  <span class="kw">val</span> <span class="va">ch</span> = CounterHolder(c)           <span class="co">// [2]</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">  println(ch)</a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">  c.increment()                       <span class="co">// [3]</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">  println(ch)</a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">  <span class="kw">val</span> <span class="va">ch2</span> = CounterHolder(Counter(<span class="dv">9</span>)) <span class="co">// [4]</span></a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">  println(ch2)</a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">}</a>
+<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co">CounterHolder: 11</span></a>
+<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">CounterHolder: 12</span></a>
+<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">CounterHolder: 9</span></a>
+<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">*/</span></a></code></pre></div>
+<ul>
+<li><p><strong>[1]</strong> <code>c</code> is now defined in the scope <em>surrounding</em> the creation of the <code>CounterHolder</code> object on the following line.</p></li>
+<li><p><strong>[2]</strong> Passing <code>c</code> in as the argument to the <code>CounterHolder</code> constructor means that the new <code>CounterHolder</code> is now referring to the same <code>Counter</code> object that <code>c</code> refers to.</p></li>
+<li><p><strong>[3]</strong> The <code>Counter</code> that is supposedly <code>private</code> inside <code>ch</code> can still be manipulated via <code>c</code>.</p></li>
+<li><p><strong>[4]</strong> <code>Counter(9)</code> has no other references but that inside the <code>CounterHolder</code>, thus it cannot be accessed or modified by anything except <code>ch2</code>.</p></li>
+</ul>
+<p>This phenomenon is called <em>aliasing</em> and can produce surprising behavior. Access modifiers are useful, but they are no panacea, and no substitute for programmer vigilance.</p>
+</body>
+</html>

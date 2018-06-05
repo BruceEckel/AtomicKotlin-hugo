@@ -1,0 +1,238 @@
+@font-face {
+    font-family: Ubuntu Mono;
+    font-style: normal;
+    font-weight: normal;
+    src: url('UbuntuMono-R.ttf') format('truetype');
+}
+@font-face {
+    font-family: Ubuntu Mono;
+    font-style: normal;
+    font-weight: bold;
+    src: url('UbuntuMono-B.ttf') format('truetype');
+}
+@font-face {
+    font-family: Ubuntu Mono;
+    font-style: italic;
+    font-weight: normal;
+    src: url('UbuntuMono-RI.ttf') format('truetype');
+}
+@font-face {
+    font-family: Ubuntu Mono;
+    font-style: italic;
+    font-weight: bold;
+    src: url('UbuntuMono-BI.ttf') format('truetype');
+}
+@font-face {
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    src: url('georgia.ttf') format('truetype');
+}
+@font-face {
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: bold;
+    src: url('georgiab.ttf') format('truetype');
+}
+@font-face {
+    font-family: Georgia;
+    font-style: italic;
+    font-weight: normal;
+    src: url('georgiai.ttf') format('truetype');
+}
+@font-face {
+    font-family: Georgia;
+    font-style: italic;
+    font-weight: bold;
+    src: url('georgiaz.ttf') format('truetype');
+}
+@font-face {
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: normal;
+    src: url('verdana.ttf') format('truetype');
+}
+@font-face {
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    src: url('verdanab.ttf') format('truetype');
+}
+@font-face {
+    font-family: Verdana;
+    font-style: italic;
+    font-weight: normal;
+    src: url('verdanai.ttf') format('truetype');
+}
+@font-face {
+    font-family: Verdana;
+    font-style: italic;
+    font-weight: bold;
+    src: url('verdanaz.ttf') format('truetype');
+}
+html, body {
+    width: 650px;
+    margin: 10px;
+    font-family: "Georgia", serif;
+}
+p {
+    margin: 0;
+    padding-top: 12px;
+}
+ul {
+    margin: 0;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+ol {
+    margin: 0;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Verdana";
+    text-align: left;
+}
+h1 {
+    font-size: 3.0em;
+    line-height: 115%;
+    text-indent: 70px;
+    padding-top: 30px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-image: url(Chapter-bullet.png);
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+}
+h2 {
+    font-size: 1.7em;
+    line-height: 120%;
+    padding: 0px 30px;
+    margin-bottom: 5px;
+    background-image: url(subhead-1-bullet.png);
+    background-size: 0.9em;
+    background-repeat: no-repeat;
+    background-position: 0px 3px;
+}
+h3 {
+    font-size: 1.4em;
+    line-height: 100%;
+    padding: 0px 20px;
+    margin-bottom: 5px;
+    background-image: url('subhead-2-bullet.png');
+    background-size: 0.7em;
+    background-repeat: no-repeat;
+    background-position: 0px 6px;
+}
+h4, h5, h6 {
+    font-size:1.2em;
+    line-height: 100%;
+    margin-bottom: 5px;
+}
+tr { page-break-inside: avoid; }
+code {
+    font-family:"Ubuntu Mono", monospace  !important;
+    font-weight: bold;
+    font-size: 1.1em;
+    /*page-break-inside: avoid;*/
+}
+.sourceCode {
+    font-family:"Ubuntu Mono", monospace  !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 1.0em;
+    line-height: 100%;
+    /*page-break-inside: avoid;*/
+}
+div.sourceCode {
+    padding-top: 12px;
+    margin: 0;
+}
+blockquote {
+    font: 1.15em Verdana;
+    border-left: 3px solid gray;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-bottom: 3px;
+    text-align: left;
+}
+blockquote p {
+    display: inline;
+}
+thead {
+    font-weight: bold;
+    font-size: 120%;
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+body { }
+h1.title {
+    font-family: "Verdana";
+    font-size: 4.5em;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+    line-height: 100%;
+    padding: 0 0 0 0;
+    margin: 70px 0 80px 0;
+    background-image:none!important;
+}
+p.author {
+    font-family: "Verdana";
+    font-size: 1.8em;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+    line-height: 90%;
+    padding: 0 0 0 0;
+    margin: 10px 0 0 0;
+    background-image:none!important;
+}
+p.publisher {
+    font-family: "Verdana";
+    font-size: 1.4em;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    margin: 100px 0 0 0;
+    padding: 0 0 0 0;
+}
+p.copy {
+    font-weight: bold;
+    font-size: 0.9em;
+    text-align: center;
+}
+p.isbn {
+    font-family:"Ubuntu Mono"
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center;
+}
+p.date {
+    font-family: "Verdana";
+    font-size: 1.1em;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+    padding: 0 0 0 0;
+    margin: 5px 0 0 0;
+}
+div.rights {
+    font-family: "Verdana";
+    font-size: 1.0em;
+    font-weight: normal;
+    font-style: italic;
+    text-align: center;
+    padding: 0 0 0 0;
+    margin: 10px 0 0 0;
+}

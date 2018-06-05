@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Atomic Kotlin: Booleans</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="atomickotlin-html.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+  <a href="https://atomickotlin.github.io/">
+    <img src="Banner.png" alt="Atomic Kotlin" width="500">
+  </a>
+</header>
+<h1 id="booleans">Booleans</h1>
+<blockquote>
+<p>[If Expressions] introduced the “not” operator <code>!</code>, which negates a Boolean value.This atom introduces more <em>Boolean Algebra</em>.</p>
+</blockquote>
+<p>We start with the operators “and” and “or”:</p>
+<ul>
+<li><p><code>&amp;&amp;</code> (and): Requires that <em>both</em> the Boolean expression on the left of the operator and the one on the right are <code>true</code>, to produce a <code>true</code> result.</p></li>
+<li><p><code>||</code> (or): Produces <code>true</code> if either the expression on the left or right of the operator is <code>true</code>, or if both are <code>true</code>.</p></li>
+</ul>
+<p>In this example, we determine whether a business is open or closed, based on the <code>hour</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Booleans/Booleans1.kt</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">val</span> <span class="va">hour</span> = <span class="dv">6</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="kw">val</span> <span class="va">open</span> = <span class="dv">9</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="kw">val</span> <span class="va">closed</span> = <span class="dv">20</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  println(<span class="st">&quot;Operating hours: $open - $closed&quot;</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  <span class="kw">val</span> <span class="va">isOpen</span> =</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="cf">if</span> (hour &gt;= <span class="kw">open</span> &amp;&amp; hour &lt;= closed) <span class="co">// [1]</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">      <span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="cf">else</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">      <span class="kw">false</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">  println(<span class="st">&quot;Open: $isOpen&quot;</span>)</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">}</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">Operating hours: 9 - 20</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">Open: false</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">*/</span></a></code></pre></div>
+<p>The <code>if</code> expression in <strong>[1]</strong> Checks whether <code>hour</code> is between opening time and closing time, so we combine the expressions with the Boolean <code>&amp;&amp;</code> (and).</p>
+<p>The <code>if</code> expression can be simplified. The result of the expression <code>if(cond) true else false</code> is just <code>cond</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Booleans/Booleans2.kt</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">val</span> <span class="va">hour</span> = <span class="dv">6</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="kw">val</span> <span class="va">open</span> = <span class="dv">9</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="kw">val</span> <span class="va">closed</span> = <span class="dv">20</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">  println(<span class="st">&quot;Operating hours: $open - $closed&quot;</span>)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">  <span class="kw">val</span> <span class="va">isOpen</span> = hour &gt;= <span class="kw">open</span> &amp;&amp; hour &lt;= closed</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">  println(<span class="st">&quot;Open: $isOpen&quot;</span>)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">Operating hours: 9 - 20</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">Open: false</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<p>Let’s reverse the logic and check whether the business is currently closed. The “or” operator <code>||</code> produces <code>true</code> if at least one of the conditions is satisfied:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Booleans/Booleans3.kt</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">val</span> <span class="va">hour</span> = <span class="dv">6</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="kw">val</span> <span class="va">open</span> = <span class="dv">9</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="kw">val</span> <span class="va">closed</span> = <span class="dv">20</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">  println(<span class="st">&quot;Operating hours: $open - $closed&quot;</span>)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="kw">val</span> <span class="va">isClosed</span> = hour &lt; <span class="kw">open</span> || hour &gt; closed</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">  println(<span class="st">&quot;Closed: $isClosed&quot;</span>)</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">Operating hours: 9 - 20</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">Closed: true</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<p>Using Boolean operators you can express complicated logic in compact expressions. However, things can easily become confusing. Strive for readability and specify your intentions explicitly.</p>
+<p>Here’s an example of a complicated Boolean expression where different evaluation order produces different results:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Booleans/EvaluationOrder.kt</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">val</span> <span class="va">sunny</span> = <span class="kw">true</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="kw">val</span> <span class="va">hoursSleep</span> = <span class="dv">6</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">  <span class="kw">val</span> <span class="va">exercise</span> = <span class="kw">false</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">  <span class="kw">val</span> <span class="va">temp</span> = <span class="dv">55</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">  <span class="co">// [1]:</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">  <span class="kw">val</span> <span class="va">happy1</span> = sunny &amp;&amp; temp &gt; <span class="dv">50</span> ||</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">    exercise &amp;&amp; hoursSleep &gt; <span class="dv">7</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">  println(happy1)</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">  <span class="co">// [2]:</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">  <span class="kw">val</span> <span class="va">sameHappy1</span> = (sunny &amp;&amp; temp &gt; <span class="dv">50</span>) ||</a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">    (exercise &amp;&amp; hoursSleep &gt; <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">  println(sameHappy1)</a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">  <span class="co">// [3]:</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">  <span class="kw">val</span> <span class="va">notSame</span> =</a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">    (sunny &amp;&amp; temp &gt; <span class="dv">50</span> || exercise) &amp;&amp;</a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">      hoursSleep &gt; <span class="dv">7</span></a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">  println(notSame)</a>
+<a class="sourceLine" id="cb4-24" data-line-number="24">}</a>
+<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">true</span></a>
+<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">true</span></a>
+<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co">false</span></a>
+<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">*/</span></a></code></pre></div>
+<p>The Boolean expressions are <code>sunny, temp &gt; 50, exercise,</code> and <code>hoursSleep &gt; 7</code>. We read <code>happy1</code> as “It’s sunny <em>and</em> the temperature is greater than 50 <em>or</em> I’ve exercised <em>and</em> had more than 7 hours of sleep.” But does <code>&amp;&amp;</code> have precedence over <code>||</code>, or the opposite?</p>
+<p>The expression in <strong>[1]</strong> uses Kotlin’s default evaluation order. This produces the same result as the expression in <strong>[2]</strong> because, without parentheses, the “ands” are evaluated first, then the “or”. The expression in <strong>[3]</strong> uses parentheses to produce a different result. In <strong>[3]</strong>, we’re only happy if we get at least 7 hours of sleep.</p>
+<p>In this case, parentheses make your intention clear to anyone who reads your code.</p>
+</body>
+</html>

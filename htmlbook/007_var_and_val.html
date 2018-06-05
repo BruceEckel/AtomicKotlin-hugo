@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Atomic Kotlin: var_and_val</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="atomickotlin-html.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+  <a href="https://atomickotlin.github.io/">
+    <img src="Banner.png" alt="Atomic Kotlin" width="500">
+  </a>
+</header>
+<h1 id="var-val"><code>var</code> &amp; <code>val</code></h1>
+<blockquote>
+<p>When you create an identifier that holds data, you must decide whether it can be reassigned.</p>
+</blockquote>
+<p><em>Identifiers</em> are the words you create so you can refer to elements in your program. The most basic decision you make about an identifier that refers to data is whether it can change its assignment during program execution, or if it can only be assigned once. This is controlled by two keywords:</p>
+<ul>
+<li><p><code>var</code>, short for <em>variable</em>, which means you can reassign its contents.</p></li>
+<li><p><code>val</code>, short for <em>value</em>, which means you can only assign to it once.</p></li>
+</ul>
+<p>You define a <code>var</code> like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">var</span> <span class="va">identifier</span> = initialization</a></code></pre></div>
+<p>The <code>var</code> keyword is followed by the identifier, an equals sign and then the initialization value. The identifier begins with a letter or an underscore, followed by letters, numbers and underscores. Upper and lower case are distinguished (so <code>thisvalue</code> and <code>thisValue</code> are different).</p>
+<p>Here are some <code>var</code> definitions:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// VarAndVal/Vars.kt</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">var</span> <span class="va">whole</span> = <span class="dv">11</span>          <span class="co">// [1]</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="kw">var</span> <span class="va">fractional</span> = <span class="fl">1.4</span>    <span class="co">// [2]</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="kw">var</span> <span class="va">words</span> = <span class="st">&quot;A value&quot;</span>   <span class="co">// [3]</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">  println(whole)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">  println(fractional)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">  println(words)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">11</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">1.4</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">A value</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">*/</span></a></code></pre></div>
+<p>In this book we mark lines with commented numbers in square brackets so we can refer to them in the text like this:</p>
+<ul>
+<li><p><strong>[1]</strong> Create a <code>var</code> named <code>whole</code> and store <code>11</code> in it.</p></li>
+<li><p><strong>[2]</strong> Store the “fractional number” <code>1.4</code> in the <code>var fractional</code>.</p></li>
+<li><p><strong>[3]</strong> Store some text (a <em>string</em>) in the <code>var words</code>.</p></li>
+</ul>
+<p>Note that <code>println()</code> can take any single value as an argument.</p>
+<p>As the name <em>variable</em> implies, a <code>var</code> can vary. That is, you can change the data stored in a <code>var</code>. We say that a <code>var</code> is <em>mutable</em>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// VarAndVal/AVarIsMutable.kt</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">var</span> <span class="va">sum</span> = <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  sum = sum + <span class="dv">2</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  sum += <span class="dv">3</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">  println(sum)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">6</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<p>The assignment <code>sum += 3</code> means the same as <code>sum = sum + 3</code>. The <code>+=</code> operator takes the previous value stored in <code>sum</code> and increases it by <code>3</code>, then assigns that new result back to <code>sum</code>.</p>
+<p>Changing the value stored in a <code>var</code> according to external requests is a useful way to comply with changes in the outside world. However, when the complexity of a program increases, your code is clearer, safer and easier to understand if the values represented by your identifiers cannot change—that is, they cannot be reassigned. We specify an unchanging identifier using the <code>val</code> keyword instead of <code>var</code>. A <code>val</code> can only be assigned once, when it is created:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">val</span> <span class="va">name</span> = initialization</a></code></pre></div>
+<p>The <code>val</code> keyword comes from <em>value</em> which indicates something that cannot change—it is <em>immutable</em>. Choose <code>val</code> instead of <code>var</code> whenever possible. The <code>Vars.kt</code> example at the beginning of this atom can be rewritten using <code>val</code>s:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// VarAndVal/Vals.kt</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="kw">val</span> <span class="va">whole</span> = <span class="dv">11</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="co">// whole = 15 // Error      // [1]</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">  <span class="kw">val</span> <span class="va">fractional</span> = <span class="fl">1.4</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">  <span class="kw">val</span> <span class="va">words</span> = <span class="st">&quot;Twas Brillig&quot;</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">  println(whole)</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">  println(fractional)</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  println(words)</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">}</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">11</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">1.4</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">Twas Brillig</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">*/</span></a></code></pre></div>
+<ul>
+<li><strong>[1]</strong> Once you initialize a <code>val</code>, you can’t reassign it. If we try to reassign <code>whole</code> to a different number, Kotlin complains, saying “Val cannot be reassigned.”</li>
+</ul>
+<p>It’s important to choose descriptive names for your identifiers. This makes your code easier to understand and often reduces the need for comments. In <code>Vals.kt</code>, you have no idea what <code>whole</code> represents. If your program is storing the number 11 to represent the time of day when you get coffee, it’s more obvious to others if you name it <code>coffeetime</code> and easier to read if it’s <code>coffeeTime</code> (conventional programming style makes the first letter lowercase).</p>
+<p><code>var</code>s come in handy when data must change as the program is running—which sounds like a common activity, but turns out to be avoidable in practice. That is, you can virtually always use a <code>val</code> instead of a <code>var</code> through some small code rewrites (or often, no rewrites at all).</p>
+<p>In general, your programs are easier to extend and maintain if you use <code>val</code>s. However, on rare occasions it’s too complex to solve a problem using only <code>val</code>s. For that reason, Kotlin gives you the flexibility of <code>var</code>s. However, as you spend more time with <code>val</code>s you’ll discover that you virtually never need <code>var</code>s and that your programs are safer and more reliable without them.</p>
+</body>
+</html>

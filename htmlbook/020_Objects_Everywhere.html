@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Atomic Kotlin: Objects_Everywhere</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="atomickotlin-html.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+  <a href="https://atomickotlin.github.io/">
+    <img src="Banner.png" alt="Atomic Kotlin" width="500">
+  </a>
+</header>
+<h1 id="objects-everywhere">Objects Everywhere</h1>
+<blockquote>
+<p>Objects store data using <em>properties</em> (<code>val</code>s and <code>var</code>s) and perform <em>operations</em> with this data using functions.</p>
+</blockquote>
+<p>A function intended only to work with a specific type of object is called a <em>member function</em>. A <em>class</em> defines properties and member functions for what is essentially a new data type. Properties and member functions together are called <em>members</em> of the corresponding class. Making a <code>val</code> or <code>var</code> of a class is called <em>creating an object</em> (the phrase <em>creating an instance</em> is also used). We even refer to instances of built-in types like <code>Double</code> or <code>Boolean</code> as objects.</p>
+<p>Consider Kotlin’s <code>IntRange</code> class:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// ObjectsEverywhere/IntRanges.kt</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">val</span> <span class="va">r1</span> = IntRange(<span class="dv">0</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="kw">val</span> <span class="va">r2</span> = IntRange(<span class="dv">5</span>, <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  println(r1)</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  println(r2)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">0..10</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">5..7</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<p>Each object has its own piece of storage in memory. For example, <code>IntRange</code> is a class, but a particular range <code>r1</code> from 0 to 10 is an object. It’s distinct from another range <code>r2</code> from 5 to 7. So we have a single <code>IntRange</code> <em>class</em>, and this example creates two objects (instances) of that class.</p>
+<p>Classes can have many operations (member functions). It’s easy to explore classes using an IDE (integrated development environment) that includes a feature called <em>code completion</em>. The accompanying course gives you specific guidelines about using code completion with IntelliJ Idea so you can see all the members of an object:</p>
+<figure>
+<img src="images/objectseverywhere/codeCompletion.png" title="Code completion" alt="Code Completion" /><figcaption>Code Completion</figcaption>
+</figure>
+<p>You can see that many operations are available for an <code>IntRange</code> object; some are simple and obvious, like <code>sum()</code>, and others require more understanding before you can use them. If you try calling one that needs arguments, the IDE will ask for those arguments.</p>
+<p>To know enough to call a member function, look it up in the Kotlin documentation, <a href="https://kotlinlang.org/api/latest/jvm/stdlib/index.html">available online</a>. Notice the magnifying glass icon in the top right area of the page. Click on that and type <code>IntRange</code> into the search box. Click on <code>kotlin.ranges &gt; IntRange</code> from the resulting search. You’ll see the documentation for the <code>IntRange</code> class. You can study all the member functions—the <em>API</em> (Application Programming Interface)—of the class. Although you won’t understand most of it at this time, it’s helpful to become comfortable looking things up in the Kotlin documentation.</p>
+<p>An <code>IntRange</code> is a kind of object, and a defining characteristic of objects is that you perform operations on them. Instead of “performing an operation,” we say <em>calling a member function</em>. To call a member function for an object, start with the object identifier, then a dot, then the name of the operation:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// ObjectsEverywhere/RangeSum.kt</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">val</span> <span class="va">r</span> = IntRange(<span class="dv">0</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  println(r.sum())</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">55</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">*/</span></a></code></pre></div>
+<p>Since <code>sum()</code> is a member function defined for <code>IntRange</code>, you call it by saying <code>r.sum()</code>, which adds up all the numbers in that <code>IntRange</code>.</p>
+<p>Earlier object-oriented languages used the phrase “sending a message” to describe calling a member function for an object. You can sometimes still see that terminology.</p>
+<p>You can examine the member functions available for basic types like <code>String</code> or <code>Int</code> by using the IDE’s <em>completion</em> feature with the corresponding identifier. Type the identifier, then a <code>.</code>, and the IDE will show you a list of possible member functions. For example, you can reverse a string or convert all the characters to lower case:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// ObjectsEverywhere/Strings.kt</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">val</span> <span class="va">s</span> = <span class="st">&quot;AbcD&quot;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  println(s.reversed())</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  println(s.toLowerCase())</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">DcbA</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">abcd</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<p>You can easily convert a string to an integer and back:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// ObjectsEverywhere/Conversion.kt</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">val</span> <span class="va">s</span> = <span class="st">&quot;123&quot;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">  println(s.toInt())</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">  <span class="kw">val</span> <span class="va">i</span> = <span class="dv">123</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">  println(i.toString())</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">123</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">123</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<p>Later in the book we’ll discuss strategies to handle situations when the string you want to convert doesn’t represent a correct integer value.</p>
+<p>You can also convert from one numerical type to another. In Kotlin, all conversions between number types are explicit, to avoid confusion. For example, you convert an <code>Int</code> expression <code>i</code> to a <code>Long</code> by calling <code>i.toLong()</code>, or to a <code>Double</code> using <code>toDouble()</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// ObjectsEverywhere/NumberConversions.kt</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">fraction</span>(<span class="va">numerator</span>: <span class="dt">Long</span>, <span class="va">denom</span>: <span class="dt">Long</span>) =</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  numerator.toDouble() / denom</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">  <span class="kw">val</span> <span class="va">num</span> = <span class="dv">1</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">  <span class="kw">val</span> <span class="va">den</span> = <span class="dv">2</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">  <span class="kw">val</span> <span class="va">f</span> = fraction(num.toLong(), den.toLong())</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  println(f)</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">}</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">0.5</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<p>For now, it’s enough to know what an object is and how to use it. Next, you’ll learn to define your own classes.</p>
+</body>
+</html>

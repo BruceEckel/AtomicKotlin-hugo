@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Atomic Kotlin: Hello_World</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="atomickotlin-html.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+  <a href="https://atomickotlin.github.io/">
+    <img src="Banner.png" alt="Atomic Kotlin" width="500">
+  </a>
+</header>
+<h1 id="hello-world">Hello, World!</h1>
+<blockquote>
+<p>“Hello, world!” is a program commonly used to demonstrate the basic syntax of programming languages.</p>
+</blockquote>
+<p>We’ll develop this program in several steps so you understand all its parts.</p>
+<p>First, let’s examine an empty program that does nothing at all:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// HelloWorld/EmptyProgram.kt</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="co">// Program code here ...</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">}</a></code></pre></div>
+<p>The example starts with a <em>comment</em>, which is illuminating text that is ignored by Kotlin. <code>//</code> (two forward slashes) begin a comment that goes to the end of the current line:</p>
+<pre><code>// Single-line comment</code></pre>
+<p>Kotlin ignores the <code>//</code> and everything after it, until the end of the line. On the following line, it pays attention again.</p>
+<p>The first line of each example in this book contains the name of the the subdirectory containing the source-code file—Here, <code>HelloWorld</code>—and the name of the file: <code>EmptyProgram.kt</code>. The example subdirectory for each atom corresponds to the name of that atom.</p>
+<p>A <em>keyword</em> is a special word reserved by the language and given special meaning. The keyword <code>fun</code> is short for <em>function</em>. A function is a collection of code that can be executed using that function’s name (we’ll spend a lot of time on functions throughout the book). The function’s name follows the <code>fun</code> keyword, so in this case it’s <code>main</code>.</p>
+<p><code>main</code> is actually a special name for a function; it indicates the “entry point” for a Kotlin program. A Kotlin program can have many functions with many different names, but <code>main</code> is the one that’s automatically called when you execute the program, to get everything started.</p>
+<p>The <em>argument list</em> follows the function name and is enclosed by parentheses. Arguments are separated by commas, so in this case we only have a single argument. Arguments are the way you hand pieces of data into the function from outside the function.</p>
+<p>An argument name can be anything (with some limitations we’ll discuss in a later atom). In this case the argument name is <code>args</code>, which is conventionally used for <code>main</code>.</p>
+<p>You’ll notice that <code>args</code> is followed by a colon. The colon indicates you are about to see the <em>type</em> of that argument—the kind of information the argument holds. In this case the type is <code>Array&lt;String&gt;</code>, which you can say aloud as “array of string.” An <code>Array</code> is a collection of identical elements, and a <code>String</code> is a sequence of characters, like a word, sentence, or paragraph. So an <code>Array&lt;String&gt;</code> is a collection of <code>String</code>s. That’s all you need to know for now, and we’ll study these items more in future atoms.</p>
+<p>After the argument list is the <em>function body</em>, starting with an opening brace (<code>{</code>) and ending with a closing brace (<code>}</code>). The function body consists of one or more <em>statements</em> or <em>expressions</em>. A statement produces an effect, and an expression yields a result.</p>
+<p>In this case there are no statements or expressions in the body, just a comment.</p>
+<p>You might wonder about the argument list. <code>args</code> is never seen or used again in the program, so why are we bothering with it? Why not just pass nothing at all using an empty argument list: <code>()</code>? Again, <code>main</code> is special. Here, it requires <code>Array&lt;String&gt;</code> as the only acceptable argument—it’s expecting zero or more <em>command line</em> arguments when the program is invoked. For every other function you define when writing Kotlin, you can choose to have any number or type of arguments.</p>
+<p>Now let’s make the program do something: display the phrase “Hello, world!” by adding a line in the <code>main</code> body:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// HelloWorld/HelloWorld.kt</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  println(<span class="st">&quot;Hello, world!&quot;</span>)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">/* Output:</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">Hello, world!</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">*/</span></a></code></pre></div>
+<p>The line that displays the greeting starts with <code>println</code>. Like <code>main</code>, <code>println</code> is a function. This shows how you <em>call</em> a function, which means to make it execute its function body. You give the function name, followed by parentheses containing one or more arguments. In this book, when we refer to a function in the prose, we’ll add parentheses after the name as a reminder that it is a function. Here, we say <code>println()</code>.</p>
+<p><code>println()</code> takes a single argument, which is a <code>String</code>. A <code>String</code> is defined by putting characters inside quotes.</p>
+<p><code>println()</code> moves the cursor to a new line after displaying its argument, so anything displayed afterwards goes on a separate line. You can use <code>print()</code> instead, which leaves the cursor on the same line.</p>
+<p>Unlike some languages, you don’t need a semicolon at the end of an expression in Kotlin. It’s only necessary if you put more than one expression on a single line (this is discouraged).</p>
+<p>In some examples in the book, we show the output at the end of the listing, inside a <em>multiline comment</em>. A multiline comment starts with a <code>/*</code> (a forward slash followed by an asterisk) and continues—including line breaks (which we call <em>newlines</em>)—until a <code>*/</code> (an asterisk followed by a forward slash) ends the comment:</p>
+<pre><code>/* A multiline comment
+Doesn&#39;t care
+about newlines */</code></pre>
+<p>It’s possible to have code on the same line <em>after</em> the closing <code>*/</code> of a comment, but it’s confusing, so people don’t usually do it.</p>
+<p>Comments should add information that isn’t obvious from reading the code. If comments just repeat what the code says, it becomes annoying and people start ignoring your comments. When code changes, programmers often forget to update comments, so it’s good practice to use comments judiciously, mainly for highlighting tricky aspects of your code.</p>
+</body>
+</html>

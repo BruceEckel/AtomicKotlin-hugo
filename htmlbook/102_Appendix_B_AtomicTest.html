@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Atomic Kotlin: Appendix_B_AtomicTest</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="atomickotlin-html.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+  <a href="https://atomickotlin.github.io/">
+    <img src="Banner.png" alt="Atomic Kotlin" width="500">
+  </a>
+</header>
+<h1 id="appendix-b-atomictest">Appendix B: AtomicTest</h1>
+<blockquote>
+<p>The test framework used to validate the example output in this book.</p>
+</blockquote>
+<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// AtomicTest/AtomicTest.kt</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">/*</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">A minimal test framework for the book, to</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">display results and introduce &amp; promote unit</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">testing early in the learning curve.</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">*/</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">package</span> <span class="im">atomictest</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">import</span> <span class="im">kotlin.math.abs</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="kw">private</span> <span class="kw">val</span> <span class="va">errorTag</span> = <span class="st">&quot;[Error]:&quot;</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="kw">private</span> <span class="kw">val</span> <span class="va">expectedExceptionMessage</span> =</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">  <span class="st">&quot;$errorTag Expected an exception&quot;</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="kw">private</span> <span class="kw">fun</span> &lt;<span class="dt">L</span>, <span class="dt">R</span>&gt; <span class="fu">runTest</span>(</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">  <span class="va">actual</span>: <span class="dt">L</span>,</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">  <span class="va">expected</span>: <span class="dt">R</span>,</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">  <span class="va">checkEquals</span>: <span class="dt">Boolean</span> = true,</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">  <span class="va">test</span>: () -&gt; <span class="dt">Boolean</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">) {</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">  println(actual)</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">  <span class="cf">if</span> (!test()) {</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">    print(errorTag)</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">    <span class="kw">val</span> <span class="va">message</span>: <span class="kw">String</span> =</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">      <span class="cf">if</span> (checkEquals)</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">        <span class="st">&quot;$actual != $expected&quot;</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">      <span class="cf">else</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">        <span class="st">&quot;$actual == $expected&quot;</span></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">    println(message)</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">  }</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">}</a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-33" data-line-number="33"><span class="co"> * Compares the string representation</span></a>
+<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="co"> * of the object with the string `value`.</span></a>
+<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="kw">infix</span> <span class="kw">fun</span> &lt;<span class="dt">T</span> : <span class="dt">Any</span>&gt; <span class="fu">T</span>.<span class="fu">eq</span>(<span class="va">value</span>: <span class="dt">String</span>) {</a>
+<a class="sourceLine" id="cb1-37" data-line-number="37">  runTest(<span class="kw">this</span>, value) {</a>
+<a class="sourceLine" id="cb1-38" data-line-number="38">    <span class="kw">this</span>.toString() == value</a>
+<a class="sourceLine" id="cb1-39" data-line-number="39">  }</a>
+<a class="sourceLine" id="cb1-40" data-line-number="40">}</a>
+<a class="sourceLine" id="cb1-41" data-line-number="41"></a>
+<a class="sourceLine" id="cb1-42" data-line-number="42"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-43" data-line-number="43"><span class="co"> * Checks that this object is</span></a>
+<a class="sourceLine" id="cb1-44" data-line-number="44"><span class="co"> * equal to `value`.</span></a>
+<a class="sourceLine" id="cb1-45" data-line-number="45"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-46" data-line-number="46"><span class="kw">infix</span> <span class="kw">fun</span> &lt;<span class="dt">T</span>&gt; <span class="fu">T</span>.<span class="fu">eq</span>(<span class="va">value</span>: <span class="dt">T</span>) {</a>
+<a class="sourceLine" id="cb1-47" data-line-number="47">  runTest(<span class="kw">this</span>, value) {</a>
+<a class="sourceLine" id="cb1-48" data-line-number="48">    <span class="kw">this</span> == value</a>
+<a class="sourceLine" id="cb1-49" data-line-number="49">  }</a>
+<a class="sourceLine" id="cb1-50" data-line-number="50">}</a>
+<a class="sourceLine" id="cb1-51" data-line-number="51"></a>
+<a class="sourceLine" id="cb1-52" data-line-number="52"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-53" data-line-number="53"><span class="co"> * Checks that this object is not</span></a>
+<a class="sourceLine" id="cb1-54" data-line-number="54"><span class="co"> * equal to `value`.</span></a>
+<a class="sourceLine" id="cb1-55" data-line-number="55"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-56" data-line-number="56"><span class="kw">infix</span> <span class="kw">fun</span> &lt;<span class="dt">T</span>&gt; <span class="fu">T</span>.<span class="fu">neq</span>(<span class="va">value</span>: <span class="dt">T</span>) {</a>
+<a class="sourceLine" id="cb1-57" data-line-number="57">  runTest(<span class="kw">this</span>, value, checkEquals = <span class="kw">false</span>) {</a>
+<a class="sourceLine" id="cb1-58" data-line-number="58">    <span class="kw">this</span> != value</a>
+<a class="sourceLine" id="cb1-59" data-line-number="59">  }</a>
+<a class="sourceLine" id="cb1-60" data-line-number="60">}</a>
+<a class="sourceLine" id="cb1-61" data-line-number="61"></a>
+<a class="sourceLine" id="cb1-62" data-line-number="62"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-63" data-line-number="63"><span class="co"> * Checks that a `Double` number is equal</span></a>
+<a class="sourceLine" id="cb1-64" data-line-number="64"><span class="co"> * to `value` within a positive delta.</span></a>
+<a class="sourceLine" id="cb1-65" data-line-number="65"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-66" data-line-number="66"><span class="kw">infix</span> <span class="kw">fun</span> <span class="fu">Double</span>.<span class="fu">eq</span>(<span class="va">value</span>: <span class="dt">Double</span>) {</a>
+<a class="sourceLine" id="cb1-67" data-line-number="67">  runTest(<span class="kw">this</span>, value) {</a>
+<a class="sourceLine" id="cb1-68" data-line-number="68">    abs(<span class="kw">this</span> - value) &lt; <span class="fl">0.0000001</span></a>
+<a class="sourceLine" id="cb1-69" data-line-number="69">  }</a>
+<a class="sourceLine" id="cb1-70" data-line-number="70">}</a>
+<a class="sourceLine" id="cb1-71" data-line-number="71"></a>
+<a class="sourceLine" id="cb1-72" data-line-number="72"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-73" data-line-number="73"><span class="co"> * Captures an exception and produces its name.</span></a>
+<a class="sourceLine" id="cb1-74" data-line-number="74"><span class="co"> * Usage:</span></a>
+<a class="sourceLine" id="cb1-75" data-line-number="75"><span class="co"> *   ```</span></a>
+<a class="sourceLine" id="cb1-76" data-line-number="76"><span class="co"> *   capture {</span></a>
+<a class="sourceLine" id="cb1-77" data-line-number="77"><span class="co"> *     // Code that fails</span></a>
+<a class="sourceLine" id="cb1-78" data-line-number="78"><span class="co"> *   } eq &quot;FailureException&quot;</span></a>
+<a class="sourceLine" id="cb1-79" data-line-number="79"><span class="co"> *   ```</span></a>
+<a class="sourceLine" id="cb1-80" data-line-number="80"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-81" data-line-number="81"><span class="kw">fun</span> <span class="fu">capture</span>(<span class="va">f</span>: () -&gt; <span class="dt">Unit</span>): <span class="dt">String</span> =</a>
+<a class="sourceLine" id="cb1-82" data-line-number="82">  <span class="cf">try</span> {</a>
+<a class="sourceLine" id="cb1-83" data-line-number="83">    f()</a>
+<a class="sourceLine" id="cb1-84" data-line-number="84">    expectedExceptionMessage</a>
+<a class="sourceLine" id="cb1-85" data-line-number="85">  } <span class="cf">catch</span> (e: Throwable) {</a>
+<a class="sourceLine" id="cb1-86" data-line-number="86">    e.javaClass.simpleName +</a>
+<a class="sourceLine" id="cb1-87" data-line-number="87">      (e.message?.let { <span class="st">&quot;: $it&quot;</span> } ?: <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb1-88" data-line-number="88">  }</a></code></pre></div>
+</body>
+</html>

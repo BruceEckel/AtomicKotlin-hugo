@@ -1,8 +1,9 @@
 @echo off
 hugo
 py -3 deploy.py
-cd ..\AtomicKotlin.github.io
-@echo on
-git commit -a -m "update"
-git push
-cd ..\AtomicKotlin-hugo
+echo deploy using github desktop
+rem cd ..\AtomicKotlin.github.io
+rem @echo on
+rem git commit -a -m "update"
+rem git push
+rem cd ..\AtomicKotlin-hugo
