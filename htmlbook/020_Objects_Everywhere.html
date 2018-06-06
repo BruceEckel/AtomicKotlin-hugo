@@ -84,7 +84,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </head>
 <body>
 <header>
-  <a href="https://atomickotlin.github.io/">
+  <a href="http://AtomicKotlin.com/">
     <img src="Banner.png" alt="Atomic Kotlin" class="banner-image">
   </a>
 </header>
@@ -108,9 +108,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
 <p>Each object has its own piece of storage in memory. For example, <code>IntRange</code> is a class, but a particular range <code>r1</code> from 0 to 10 is an object. It’s distinct from another range <code>r2</code> from 5 to 7. So we have a single <code>IntRange</code> <em>class</em>, and this example creates two objects (instances) of that class.</p>
 <p>Classes can have many operations (member functions). It’s easy to explore classes using an IDE (integrated development environment) that includes a feature called <em>code completion</em>. The accompanying course gives you specific guidelines about using code completion with IntelliJ Idea so you can see all the members of an object:</p>
-<figure>
-<img src="images/objectseverywhere/codeCompletion.png" title="Code completion" alt="Code Completion" /><figcaption>Code Completion</figcaption>
-</figure>
+<p><span class="inline-image"> <img src="images/objectseverywhere/codeCompletion.png" title="Code completion" alt="Code Completion" /> </span></p>
 <p>You can see that many operations are available for an <code>IntRange</code> object; some are simple and obvious, like <code>sum()</code>, and others require more understanding before you can use them. If you try calling one that needs arguments, the IDE will ask for those arguments.</p>
 <p>To know enough to call a member function, look it up in the Kotlin documentation, <a href="https://kotlinlang.org/api/latest/jvm/stdlib/index.html">available online</a>. Notice the magnifying glass icon in the top right area of the page. Click on that and type <code>IntRange</code> into the search box. Click on <code>kotlin.ranges &gt; IntRange</code> from the resulting search. You’ll see the documentation for the <code>IntRange</code> class. You can study all the member functions—the <em>API</em> (Application Programming Interface)—of the class. Although you won’t understand most of it at this time, it’s helpful to become comfortable looking things up in the Kotlin documentation.</p>
 <p>An <code>IntRange</code> is a kind of object, and a defining characteristic of objects is that you perform operations on them. Instead of “performing an operation,” we say <em>calling a member function</em>. To call a member function for an object, start with the object identifier, then a dot, then the name of the operation:</p>

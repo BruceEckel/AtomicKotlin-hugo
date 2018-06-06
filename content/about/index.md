@@ -15,6 +15,10 @@ worldwide, and is coauthor of the book *Kotlin in Action*.
 
 Questions? Email Mindview <mindviewinc@gmail.com>
 
++ This is a statically-generated site, and no cookies or other records are
+  captured here. If you wish to be informed of future activities, you can sign
+  up for the newsletter.
+
 + Site built with
 <a href="https://www.gohugo.io" target="_blank">Hugo</a>, using a theme derived from
 <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a>.

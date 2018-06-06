@@ -1,4 +1,4 @@
-baseurl = "https://AtomicKotlin.github.io"
+baseurl = "http://AtomicKotlin.com"
 languageCode = "en-us"
 title = "Learning Resources for the Kotlin Programming Language"
 theme = "hugo-material-docs"

@@ -84,7 +84,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </head>
 <body>
 <header>
-  <a href="https://atomickotlin.github.io/">
+  <a href="http://AtomicKotlin.com/">
     <img src="Banner.png" alt="Atomic Kotlin" class="banner-image">
   </a>
 </header>
@@ -102,7 +102,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">className</span>(<span class="va">a</span>: <span class="dt">Any</span>): <span class="dt">String</span> =</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5">  a::<span class="kw">class</span>.simpleName ?: &quot;&quot;</a></code></pre></div>
 <p><code>className()</code> takes an <code>Any</code> object and produces that object’s class name. To do this, we call <code>::class</code>, yielding a reference to a <code>KClass</code> object, which contains numerous properties and functions that allow you to discover information about, and to manipulate, that class. <code>simpleName</code> is one of those properties, producing the class name without any qualification. Because <code>simpleName</code> might produce a <code>null</code>, we handle it appropriately using <a target="_blank" href="042_Safe_Calls_and_The_Elvis_Operator.html">Safe Calls &amp; The Elvis Operator</a>.</p>
-<p><strong>End of sample. See <a href="https://atomickotlin.github.io/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
+<p><strong>End of sample. See <a href="https://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.
 </p>
