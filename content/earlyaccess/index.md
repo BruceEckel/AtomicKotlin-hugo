@@ -3,4 +3,5 @@ title: eBook Early Access
 weight: 30
 ---
 
-## This site is under construction
+The early-access edition of Atomic Kotlin is coming soon! Check back
+here in a while ...
