@@ -22,6 +22,10 @@ exercise periods will have benefits to both.
 
 Because this is a first-time experimental seminar, the price is $750 if your
 company is sending you and $250 for individuals.
+
+Note that the [Software Architecture Forum](http://softwarearchitectureforum.com/)
+takes place the week directly after the seminar, in case you'd like to spend a
+second week in Crested Butte immersed in fun technical explorations.
 <br><br>
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfadsecCeAkcuQI6iTPEqjsmBucV8kQNhXsU2af0-vh2K-zpg/viewform?embedded=true" width="600" height="720" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 
