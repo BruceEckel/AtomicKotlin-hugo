@@ -17,7 +17,7 @@ periods.
 
 A further experiment is that we will be inviting both programming novices (that
 is, some programming experience but relatively minimal) and experienced
-programmers to the seminar, with the idea that helping each other during the
+programmers to the seminar, with the idea that working together during the
 exercise periods will have benefits to both.
 
 Because this is a first-time experimental seminar, the price is $750 if your
