@@ -177,22 +177,14 @@ table, th, td {
 }
 body { }
 
-.banner-image {
+.banner-image, .inline-image img {
     max-width: 90vw;
     height: auto;
 }
 
-.inline-image {
-    max-width: 100vw;
-    height: auto;
-}
-
 @media (min-width: 560px) {
-    .banner-image {
+    .banner-image, .inline-image img {
         max-width: 500px;
-    }
-    .inline-image {
-        max-width: 560px;
     }
 }
 
