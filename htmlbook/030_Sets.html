@@ -81,6 +81,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
+  <script src="https://unpkg.com/kotlin-playground@1" data-selector=".kotlin-code"></script>
 </head>
 <body>
 <header>
@@ -93,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A <code>Set</code> is a collection that allows only one element of each value, and automatically prevents duplicates.</p>
 </blockquote>
 <p>The most common <code>Set</code> activity is to test for membership using <code>in</code> or <code>contains()</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Sets/Sets.kt</span></a>
+<div class="sourceCode kotlin-code" id="cb1" readonly><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Sets/Sets.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -127,7 +128,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-32" data-line-number="32">    setOf(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb1-33" data-line-number="33">  <span class="kw">set</span> - setOf(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">10</span>) eq</a>
 <a class="sourceLine" id="cb1-34" data-line-number="34">    setOf(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb1-35" data-line-number="35">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-35" data-line-number="35">}</a></code></pre>
+  <textarea class="readonly">
+ /* Below follows the code of the file the sample depends on. This code will be invisible in a new version of the Kotlin playground */
+    package atomictest
+import kotlin.math.abs
+
+private val errorTag = "[Error]:"
+private val expectedExceptionMessage =
+  "$errorTag Expected an exception"
+
+private fun <L, R> runTest(
+  actual: L,
+  expected: R,
+  checkEquals: Boolean = true,
+  test: () -> Boolean
+) {
+  println(actual)
+  if (!test()) {
+    print(errorTag)
+    val message: String =
+      if (checkEquals)
+        "$actual != $expected"
+      else
+        "$actual == $expected"
+    println(message)
+  }
+}
+
+infix fun <T : Any> T.eq(value: String) {
+  runTest(this, value) {
+    this.toString() == value
+  }
+}
+
+infix fun <T> T.eq(value: T) {
+  runTest(this, value) {
+    this == value
+  }
+}
+
+infix fun <T> T.neq(value: T) {
+  runTest(this, value, checkEquals = false) {
+    this != value
+  }
+}
+infix fun Double.eq(value: Double) {
+  runTest(this, value) {
+    abs(this - value) < 0.0000001
+  }
+}
+
+fun capture(f: () -> Unit): String =
+  try {
+    f()
+    expectedExceptionMessage
+  } catch (e: Throwable) {
+    e.javaClass.simpleName +
+      (e.message?.let { ": $it" } ?: "")
+  }
+  </textarea>
+</div>
 <p>This example shows:</p>
 <ol type="1">
 <li><p>Placing duplicate items into a <code>Set</code> automatically removes those duplicates.</p></li>
