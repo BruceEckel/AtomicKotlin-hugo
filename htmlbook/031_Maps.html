@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A <code>Map</code> connects <em>keys</em> to <em>values</em> and looks up a value when given a key.</p>
 </blockquote>
 <p>You create a <code>Map</code> by providing key-value pairs to <code>mapOf()</code>. Each key is separated from its associated value by <code>to</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Maps/Maps.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Maps/Maps.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -120,14 +120,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-25" data-line-number="25">  <span class="cf">for</span> ((key, value) <span class="kw">in</span> constants)      <span class="co">// [3]</span></a>
 <a class="sourceLine" id="cb1-26" data-line-number="26">    s += <span class="st">&quot;$key=$value, &quot;</span></a>
 <a class="sourceLine" id="cb1-27" data-line-number="27">  s eq <span class="st">&quot;Pi=3.141, e=2.718, phi=1.618, &quot;</span></a>
-<a class="sourceLine" id="cb1-28" data-line-number="28">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-28" data-line-number="28">}</a></code></div>
 <ul>
 <li><p><strong>[1]</strong> With a <code>Map</code>, the <code>[]</code> operator is used for lookup. You can produce all the keys using <code>keys()</code> and all the values using <code>values()</code>. <code>keys()</code> produces a <code>Set</code> because all keys in a <code>Map</code> must already be unique (otherwise you’d have ambiguity during a lookup).</p></li>
 <li><p><strong>[2]</strong> Iterating through a <code>Map</code> produces key-value pairs as map entries.</p></li>
 <li><p><strong>[3]</strong> You can unpack them as you iterate.</p></li>
 </ul>
 <p>A plain <code>Map</code> is read-only. Here’s a <code>MutableMap</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Maps/MutableMaps.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Maps/MutableMaps.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -139,11 +139,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-10" data-line-number="10">  m += <span class="dv">4</span> to <span class="st">&quot;four&quot;</span></a>
 <a class="sourceLine" id="cb2-11" data-line-number="11">  m eq mapOf(<span class="dv">5</span> to <span class="st">&quot;5ive&quot;</span>,</a>
 <a class="sourceLine" id="cb2-12" data-line-number="12">    <span class="dv">4</span> to <span class="st">&quot;four&quot;</span>, <span class="dv">6</span> to <span class="st">&quot;six&quot;</span>)</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">}</a></code></pre></div>
+<a class="sourceLine" id="cb2-13" data-line-number="13">}</a></code></div>
 <p><code>map[key] = value</code> adds or changes the <code>value</code> associated with <code>key</code>. Alternatively, you can explicitly add a pair by saying <code>map += key to value</code>.</p>
 <p><code>mapOf()</code> and <code>mutableMapOf()</code> create maps that preserve the order and will iterate in the order in which the elements were put into the map. However, it’s <em>not</em> guaranteed for any map you’re working with.</p>
 <p>A read-only <code>Map</code> doesn’t provide a way to mutate itself:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Maps/ReadOnlyMaps.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Maps/ReadOnlyMaps.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -156,11 +156,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-11" data-line-number="11">  <span class="kw">val</span> <span class="va">m2</span> = m + (<span class="dv">4</span> to <span class="st">&quot;four&quot;</span>)</a>
 <a class="sourceLine" id="cb3-12" data-line-number="12">  m2 eq mapOf(</a>
 <a class="sourceLine" id="cb3-13" data-line-number="13">    <span class="dv">5</span> to <span class="st">&quot;five&quot;</span>, <span class="dv">6</span> to <span class="st">&quot;six&quot;</span>, <span class="dv">4</span> to <span class="st">&quot;four&quot;</span>)</a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">}</a></code></pre></div>
+<a class="sourceLine" id="cb3-14" data-line-number="14">}</a></code></div>
 <p>The definition of <code>m</code> creates a <code>Map</code> associating <code>Int</code>s with <code>String</code>s. If we try to replace a <code>String</code>, the compiler produces an error.</p>
 <p>An expression with <code>+</code> just creates a new <code>Map</code> that includes both the old elements and the new one, but doesn’t affect the original <code>Map</code>. The only way to add an element is to create a new <code>Map</code>.</p>
 <p>A <code>Map</code> returns <code>null</code> if it doesn’t contain an entry for a given key. If you need a result that can’t be <code>null</code>, use <code>getValue()</code> and catch <code>NoSuchElementException</code> if the key is missing:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Maps/GetValue.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Maps/GetValue.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -170,9 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-8" data-line-number="8">    map.getValue(<span class="ch">&#39;b&#39;</span>)</a>
 <a class="sourceLine" id="cb4-9" data-line-number="9">  } eq <span class="st">&quot;NoSuchElementException: &quot;</span> +</a>
 <a class="sourceLine" id="cb4-10" data-line-number="10">    <span class="st">&quot;Key b is missing in the map.&quot;</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">}</a></code></pre></div>
+<a class="sourceLine" id="cb4-11" data-line-number="11">}</a></code></div>
 <p>You can store class instances as values in a <code>Map</code>. Here, we create a map to retrieve a <code>Contact</code> using a number <code>String</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Maps/ContactMap.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Maps/ContactMap.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">class</span> Contact(</a>
@@ -192,7 +192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-18" data-line-number="18">    cleo.number to cleo)</a>
 <a class="sourceLine" id="cb5-19" data-line-number="19">  contacts[<span class="st">&quot;1-234-567890&quot;</span>] eq miffy</a>
 <a class="sourceLine" id="cb5-20" data-line-number="20">  contacts[<span class="st">&quot;1-111-111111&quot;</span>] eq <span class="kw">null</span></a>
-<a class="sourceLine" id="cb5-21" data-line-number="21">}</a></code></pre></div>
+<a class="sourceLine" id="cb5-21" data-line-number="21">}</a></code></div>
 <p>It’s also possible to use class instances as keys in a <code>Map</code>, but that’s a bit trickier and we’ll discuss that later in the book.</p>
 <p><code>Map</code>s look like simple little databases. Although they are quite limited compared to a full-featured database, they are nonetheless remarkably useful (and far more efficient than a database).</p>
 <p class="copy">

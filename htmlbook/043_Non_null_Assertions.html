@@ -94,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>This claim is achieved using the double exclamation point, <code>!!</code>, called the <em>non-null assertion</em>. If this looks alarming, it should: believing that something can’t be <code>null</code> is the source of most <code>null</code>-related program failures (the rest come from not <em>realizing</em> that a <code>null</code> can happen).</p>
 <p><code>x!!</code> means “forget the fact that <code>x</code> might be <code>null</code>—I guarantee that it’s <em>not</em> <code>null</code>.” <code>x!!</code> produces the reference if <code>x</code> isn’t <code>null</code>; otherwise it throws an exception:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// NonNullAssertions/NonNullAssert.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// NonNullAssertions/NonNullAssert.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -107,7 +107,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-11" data-line-number="11">  capture {</a>
 <a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="kw">val</span> <span class="va">s3</span>: <span class="kw">String</span> = s2!!</a>
 <a class="sourceLine" id="cb1-13" data-line-number="13">  } eq <span class="st">&quot;KotlinNullPointerException&quot;</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-14" data-line-number="14">}</a></code></div>
 <p>The definition <code>val s3: String = s2!!</code> tells the compiler to ignore what it thinks it knows about <code>s2</code> and just assign it to <code>s3</code>, which is a non-nullable reference. Fortunately, there’s run-time support which throws an exception when it turns out <code>s2</code> is <code>null</code>.</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">

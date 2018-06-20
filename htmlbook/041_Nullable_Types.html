@@ -93,13 +93,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Consider a method that can sometimes produce results that “have no meaning.” When this happens, the method doesn’t produce an error per se; nothing went wrong, there’s just “no answer.”</p>
 </blockquote>
 <p>A good example is retrieving a value from a <code>Map</code>. If the <code>Map</code> doesn’t contain a value for a given key, it can’t give you an answer and returns a <code>null</code> reference to indicate “no value”:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// NullableTypes/NullInMaps.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// NullableTypes/NullInMaps.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="kw">val</span> <span class="va">map</span> = mapOf(<span class="dv">0</span> to <span class="st">&quot;yes&quot;</span>, <span class="dv">1</span> to <span class="st">&quot;no&quot;</span>)</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6">  map[<span class="dv">2</span>] eq <span class="kw">null</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-7" data-line-number="7">}</a></code></div>
 <p>Languages like Java allow a result to be either <code>null</code> or a meaningful value. Unfortunately, if you treat <code>null</code> the same way you treat a meaningful value, you get a dramatic failure.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> The creator of the <code>null</code> reference, <a href="https://en.wikipedia.org/wiki/Tony_Hoare">Tony Hoare</a>, refers to it as “my billion-dollar mistake” (although it has arguably cost much more than that).</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">

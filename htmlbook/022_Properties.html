@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A <em>property</em> is a <code>var</code> or <code>val</code> that’s part of a class.</p>
 </blockquote>
 <p>A <code>var</code> property can be reassigned, while a <code>val</code> property can’t. Each instance of a class gets its own storage for properties:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Properties/Cup.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Properties/Cup.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">class</span> Cup {</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">var</span> <span class="va">percentFull</span> = <span class="dv">0</span></a>
@@ -111,11 +111,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">50</span></a>
 <a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">100</span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">*/</span></a></code></div>
 <p>Defining a <code>var</code> or <code>val</code> inside a class looks just like defining it outside the class. However, the <code>var</code> or <code>val</code> becomes part of that class, and to refer to it, you must specify its object using dot notation as you see in the selections of <code>percentFull</code>.</p>
 <p><code>c1.percentFull</code> and <code>c2.percentFull</code> contain different values. This shows that each object has its own storage.</p>
 <p>A member function can refer to a property within its object without using a dot (that is, without qualifying it):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Properties/Cup2.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Properties/Cup2.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">class</span> Cup2 {</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">var</span> <span class="va">percentFull</span> = <span class="dv">0</span></a>
@@ -138,10 +138,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">50</span></a>
 <a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">100</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">*/</span></a></code></div>
 <p>The <code>add()</code> function tries to add <code>increase</code> to <code>percentFull</code> but ensures that it doesn’t go past 100%. The member function <code>add()</code>, like the property <code>percentFull</code>, is defined inside the class <code>Cup2</code>. To refer to either a property or member function from outside a class, you use a dot between the object and the name of the property or member function.</p>
 <p>You can declare a property at the top level:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Properties/TopLevelProperty.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Properties/TopLevelProperty.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">val</span> <span class="va">constant</span> = <span class="dv">42</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"></a>
@@ -149,10 +149,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="kw">fun</span> <span class="fu">inc</span>() {</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">  counter++</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">}</a></code></pre></div>
+<a class="sourceLine" id="cb3-9" data-line-number="9">}</a></code></div>
 <p>While declaring a constant (<code>val</code>) at the top level is a perfectly fine thing to do, declaring a mutable (<code>var</code>) top-level property is considered an <em>anti-pattern</em>. As your program becomes more complicated, it becomes harder to reason correctly about <em>shared mutable state</em>. If everyone in your code base can access the <code>var counter</code> (meaning <code>counter</code> is shared), you can’t guarantee that it’s always changed in a correct way: while <code>inc()</code> increases it by one every time, some other part of the program might erroneously decrease it by ten, producing obscure bugs. It’s better to hide this state inside a class. In <a target="_blank" href="024_Constraining_Visibility.html">Constraining Visibility</a> you’ll see how to make it truly hidden.</p>
 <p>To say that <code>var</code>s can be changed while <code>val</code>s cannot is an oversimplification. As an analogy, consider a <code>house</code> as a <code>val</code>, and a <code>sofa</code> inside the <code>house</code> as a <code>var</code>. You can change the <code>sofa</code> inside the <code>house</code> because it’s a <code>var</code>. You can’t reassign <code>house</code>, though, because it’s a <code>val</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Properties/ChangingAVal.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Properties/ChangingAVal.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">class</span> House {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">var</span> <span class="va">sofa</span>: <span class="kw">String</span> = <span class="st">&quot;&quot;</span></a>
@@ -170,10 +170,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">Simple sleeper sofa: $89.00</span></a>
 <a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">New leather sofa: $3,099.00</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">*/</span></a></code></div>
 <p>Although <code>house</code> is a <code>val</code>, its object can be modified because <code>sofa</code> in <code>class House</code> is a <code>var</code>.</p>
 <p>Defining <code>house</code> as a <code>val</code> only prevents it from being reassigned to a new object. If we make a property a <code>val</code>, it cannot be reassigned, as you would expect:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Properties/AnUnchangingVar.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Properties/AnUnchangingVar.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">class</span> Sofa {</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="kw">val</span> <span class="va">cover</span>: <span class="kw">String</span> = <span class="st">&quot;Loveseat cover&quot;</span></a>
@@ -185,10 +185,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="co">// sofa.cover = &quot;New cover&quot;</span></a>
 <a class="sourceLine" id="cb5-11" data-line-number="11">  <span class="co">// Reassigning a var:</span></a>
 <a class="sourceLine" id="cb5-12" data-line-number="12">  sofa = Sofa()</a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">}</a></code></pre></div>
+<a class="sourceLine" id="cb5-13" data-line-number="13">}</a></code></div>
 <p>Even though <code>sofa</code> is a <code>var</code>, its object cannot be modified because <code>cover</code> in <code>class Sofa</code> is a <code>val</code>. However, <code>sofa</code> can be reassigned to a new object.</p>
 <p>We’ve talked about identifiers like <code>house</code> and <code>sofa</code> as if they were objects. However, they actually just <em>refer</em> to objects—<code>house</code> and <code>sofa</code> are called <em>references</em>. One way to see this is to observe that two identifiers can reference the same object:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Properties/References.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Properties/References.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">class</span> Kitchen {</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="kw">var</span> <span class="va">table</span>: <span class="kw">String</span> = <span class="st">&quot;Round table&quot;</span></a>
@@ -208,7 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">kitchen2: Round table</span></a>
 <a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">kitchen1: Square table</span></a>
 <a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">kitchen2: Square table</span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">*/</span></a></code></div>
 <p>When <code>kitchen1</code> modifies <code>table</code>, <code>kitchen2</code> sees the modification. Displaying <code>kitchen1.table</code> and <code>kitchen2.table</code> produces the same output.</p>
 <p>Remember that <code>var</code> and <code>val</code> control references rather than objects. A <code>var</code> allows you to rebind a reference to a different object, and a <code>val</code> prevents you from doing so.</p>
 <p><em>Mutability</em> means an object can change its state. In the examples above, <code>class House</code> and <code>class Kitchen</code> produce mutable objects while <code>class Sofa</code> produces immutable objects.</p>

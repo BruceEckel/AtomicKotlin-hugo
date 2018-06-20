@@ -94,13 +94,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>We’ll develop this program in several steps so you understand all its parts.</p>
 <p>First, let’s examine an empty program that does nothing at all:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// HelloWorld/EmptyProgram.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// HelloWorld/EmptyProgram.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="co">// Program code here ...</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-5" data-line-number="5">}</a></code></div>
 <p>The example starts with a <em>comment</em>, which is illuminating text that is ignored by Kotlin. <code>//</code> (two forward slashes) begin a comment that goes to the end of the current line:</p>
-<pre><code>// Single-line comment</code></pre>
+<code>// Single-line comment</code>
 <p>Kotlin ignores the <code>//</code> and everything after it, until the end of the line. On the following line, it pays attention again.</p>
 <p>The first line of each example in this book contains the name of the the subdirectory containing the source-code file—Here, <code>HelloWorld</code>—and the name of the file: <code>EmptyProgram.kt</code>. The example subdirectory for each atom corresponds to the name of that atom.</p>
 <p>A <em>keyword</em> is a special word reserved by the language and given special meaning. The keyword <code>fun</code> is short for <em>function</em>. A function is a collection of code that can be executed using that function’s name (we’ll spend a lot of time on functions throughout the book). The function’s name follows the <code>fun</code> keyword, so in this case it’s <code>main</code>.</p>
@@ -112,22 +112,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this case there are no statements or expressions in the body, just a comment.</p>
 <p>You might wonder about the argument list. <code>args</code> is never seen or used again in the program, so why are we bothering with it? Why not just pass nothing at all using an empty argument list: <code>()</code>? Again, <code>main</code> is special. Here, it requires <code>Array&lt;String&gt;</code> as the only acceptable argument—it’s expecting zero or more <em>command line</em> arguments when the program is invoked. For every other function you define when writing Kotlin, you can choose to have any number or type of arguments.</p>
 <p>Now let’s make the program do something: display the phrase “Hello, world!” by adding a line in the <code>main</code> body:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// HelloWorld/HelloWorld.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// HelloWorld/HelloWorld.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  println(<span class="st">&quot;Hello, world!&quot;</span>)</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">}</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">Hello, world!</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">*/</span></a></code></div>
 <p>The line that displays the greeting starts with <code>println</code>. Like <code>main</code>, <code>println</code> is a function. This shows how you <em>call</em> a function, which means to make it execute its function body. You give the function name, followed by parentheses containing one or more arguments. In this book, when we refer to a function in the prose, we’ll add parentheses after the name as a reminder that it is a function. Here, we say <code>println()</code>.</p>
 <p><code>println()</code> takes a single argument, which is a <code>String</code>. A <code>String</code> is defined by putting characters inside quotes.</p>
 <p><code>println()</code> moves the cursor to a new line after displaying its argument, so anything displayed afterwards goes on a separate line. You can use <code>print()</code> instead, which leaves the cursor on the same line.</p>
 <p>Unlike some languages, you don’t need a semicolon at the end of an expression in Kotlin. It’s only necessary if you put more than one expression on a single line (this is discouraged).</p>
 <p>In some examples in the book, we show the output at the end of the listing, inside a <em>multiline comment</em>. A multiline comment starts with a <code>/*</code> (a forward slash followed by an asterisk) and continues—including line breaks (which we call <em>newlines</em>)—until a <code>*/</code> (an asterisk followed by a forward slash) ends the comment:</p>
-<pre><code>/* A multiline comment
+<code>/* A multiline comment
 Doesn&#39;t care
-about newlines */</code></pre>
+about newlines */</code>
 <p>It’s possible to have code on the same line <em>after</em> the closing <code>*/</code> of a comment, but it’s confusing, so people don’t usually do it.</p>
 <p>Comments should add information that isn’t obvious from reading the code. If comments just repeat what the code says, it becomes annoying and people start ignoring your comments. When code changes, programmers often forget to update comments, so it’s good practice to use comments judiciously, mainly for highlighting tricky aspects of your code.</p>
 <p class="copy">

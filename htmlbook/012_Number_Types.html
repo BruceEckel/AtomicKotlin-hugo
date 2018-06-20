@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Different types of numbers are stored in different ways.</p>
 </blockquote>
 <p>If you define an identifier and assign an integer value to it, Kotlin infers the <code>Int</code> type:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// NumberTypes/InferInt.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// NumberTypes/InferInt.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">val</span> <span class="va">million</span> = <span class="dv">1</span>_<span class="dv">000</span>_<span class="dv">000</span>  <span class="co">// Infers Int</span></a>
@@ -101,10 +101,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-6" data-line-number="6">}</a>
 <a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">1000000</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">*/</span></a></code></div>
 <p>Kotlin allows underscores in numerical values, to make numbers more readable.</p>
 <p>The basic mathematical operators for numbers are the same as the ones available in most programming languages: addition (<code>+</code>), subtraction (<code>-</code>), division (<code>/</code>), multiplication (<code>*</code>) and modulus (<code>%</code>, which produces the remainder from integer division):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// NumberTypes/Modulus.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// NumberTypes/Modulus.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">val</span> <span class="va">numerator</span>: <span class="kw">Int</span> = <span class="dv">19</span></a>
@@ -113,9 +113,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-7" data-line-number="7">}</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">9</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">*/</span></a></code></div>
 <p>Integer division truncates, rather than rounds, the result:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// NumberTypes/IntDivisionTruncates.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// NumberTypes/IntDivisionTruncates.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">val</span> <span class="va">numerator</span>: <span class="kw">Int</span> = <span class="dv">19</span></a>
@@ -124,29 +124,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-7" data-line-number="7">}</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">1</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">*/</span></a></code></div>
 <p>If the operation had rounded the result, the output would be <code>2</code>.</p>
 <p>Programming languages define the order in which operations are performed. The order of arithmetic operations is straightforward:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// NumberTypes/OpOrder.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// NumberTypes/OpOrder.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  println(<span class="dv">45</span> + <span class="dv">5</span> * <span class="dv">6</span>)</a>
 <a class="sourceLine" id="cb4-5" data-line-number="5">}</a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">75</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">*/</span></a></code></div>
 <p>The multiplication operation <code>5 * 6</code> is performed first, followed by the addition <code>45 + 30</code>.</p>
 <p>If you want <code>45 + 5</code> to happen first, use parentheses:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// NumberTypes/OpOrderParens.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// NumberTypes/OpOrderParens.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">  println( (<span class="dv">45</span> + <span class="dv">5</span>) * <span class="dv">6</span> )</a>
 <a class="sourceLine" id="cb5-5" data-line-number="5">}</a>
 <a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">300</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">*/</span></a></code></div>
 <p>As another example, let’s calculate <em>body mass index</em> (BMI), which is weight in kilograms divided by height in meters squared. If you have a BMI of less than <code>18.5</code>, you are underweight. Between <code>18.5</code> and <code>24.9</code> is normal weight. BMI of <code>25</code> and higher is overweight. Here, we see the preferred formatting style when you can’t fit all function arguments on a single line:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// NumberTypes/BMI.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// NumberTypes/BMI.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">getBmiStatus</span>(</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="va">kg</span>: <span class="dt">Double</span>,</a>
@@ -166,12 +166,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-18" data-line-number="18">}</a>
 <a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">Normal weight</span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">*/</span></a></code></div>
 <ul>
 <li><strong>[1]</strong> If you remove the parentheses, you divide <code>kg</code> by <code>heightM</code> then multiply that result by <code>heightM</code>. That’s a much larger number, and the wrong answer.</li>
 </ul>
 <p><code>BMI.kt</code> uses <code>Double</code>s for the weight and height. A <code>Double</code> holds very large and very small floating-point numbers. Here’s a version using <code>Int</code>s (for English units instead of metric):</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// NumberTypes/IntegerMath.kt</span></a>
+<div class="sourceCode" id="cb7"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// NumberTypes/IntegerMath.kt</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">getBmiStatusInt</span>(</a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="va">lbs</span>: <span class="dt">Int</span>,</a>
@@ -192,13 +192,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb7-19" data-line-number="19">}</a>
 <a class="sourceLine" id="cb7-20" data-line-number="20"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb7-21" data-line-number="21"><span class="co">Underweight</span></a>
-<a class="sourceLine" id="cb7-22" data-line-number="22"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-22" data-line-number="22"><span class="co">*/</span></a></code></div>
 <p>Why does the result differ from the previous version that uses <code>Double</code>s? When you divide an integer by another integer, Kotlin produces an integer result. The standard way to deal with the remainder during integer division is <em>truncation</em>, meaning “chop it off and throw it away” (there’s no rounding). So if you divide <code>5</code> by <code>2</code> you get <code>2</code>, and <code>7/10</code> is zero. When Kotlin calculates <code>bmi</code> in expression <strong>[1]</strong>, it divides <code>160</code> by <code>68 * 68</code> and gets zero. It then multiplies zero by <code>703.07</code> to get zero.</p>
 <p>To avoid this problem, first multiply by <code>703.07</code> to force the result type of the computation to be <code>Double</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">val</span> <span class="va">bmi</span> = <span class="fl">703.07</span> * lbs / (height * height)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">val</span> <span class="va">bmi</span> = <span class="fl">703.07</span> * lbs / (height * height)</a></code></div>
 <p>Note how using <code>Double</code> arguments in <code>BMI.kt</code>’s version of <code>getBmiStatus()</code> prevents this problem. Try to convert computations to the desired type as early as possible, otherwise you might lose accuracy.</p>
 <p>All programming languages have limits to what they can store within an integer. Kotlin’s <code>Int</code> type is restricted to the values between <code>-2</code><sup><code>31</code></sup> and <code>+2</code><sup><code>31</code></sup><code>-1</code>. (That constraint comes from the 32-bit representation for <code>Int</code> values). If you sum or multiply two <code>Int</code>s that are big enough, you’ll overflow the result:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">// NumberTypes/IntegerOverflow.kt</span></a>
+<div class="sourceCode" id="cb9"><code class="sourceCode kotlin"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">// NumberTypes/IntegerOverflow.kt</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="kw">val</span> <span class="va">i</span>: <span class="kw">Int</span> = <span class="kw">Int</span>.MAX_VALUE</a>
@@ -206,12 +206,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb9-6" data-line-number="6">}</a>
 <a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">-2</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">*/</span></a></code></div>
 <p><code>Int.MAX_VALUE</code> is the special predefined value which is the largest number an <code>Int</code> can hold.</p>
 <p>Not only do you get an output that is clearly not large—this is the effect of the overflow—but you also get a warning during compilation.</p>
 <p>To achieve better performance for numerical operations, Kotlin doesn’t prevent integer overflow, and it can’t always detect overflow during compilation. Preventing overflow is your responsibility as a developer.</p>
 <p>If your program contains large numbers, you can use <code>Long</code>s, which accommodate values from <code>-2</code><sup><code>63</code></sup> to <code>+2</code><sup><code>63</code></sup><code>-1</code>. To define a <code>val</code> of type <code>Long</code>, you can specify the type explicitly or put <code>L</code> at the end of a numeric literal, which tells the compiler to treat that value as a <code>Long</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">// NumberTypes/LongConstants.kt</span></a>
+<div class="sourceCode" id="cb10"><code class="sourceCode kotlin"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">// NumberTypes/LongConstants.kt</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="kw">val</span> <span class="va">i</span> = <span class="dv">0</span>          <span class="co">// Infers Int</span></a>
@@ -221,9 +221,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb10-8" data-line-number="8">}</a>
 <a class="sourceLine" id="cb10-9" data-line-number="9"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co">0 0</span></a>
-<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="co">*/</span></a></code></div>
 <p>By changing to <code>Long</code>s we prevent the overflow in <code>IntegerOverflow.kt</code> because <code>Long</code>s hold much larger values:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// NumberTypes/UsingLongs.kt</span></a>
+<div class="sourceCode" id="cb11"><code class="sourceCode kotlin"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// NumberTypes/UsingLongs.kt</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="kw">val</span> <span class="va">i</span> = <span class="kw">Int</span>.MAX_VALUE</a>
@@ -233,17 +233,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">4294967294</span></a>
 <a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">1000000000000</span></a>
-<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">*/</span></a></code></div>
 <p>Using a numeric literal in both <strong>[1]</strong> and <strong>[2]</strong> forces <code>Long</code> calculations, and also produces a result of type <code>Long</code>. The location where the <code>L</code> appears is unimportant. If one of the values is <code>Long</code>, the resulting expression is <code>Long</code>.</p>
 <p>Although they can hold much larger values than <code>Int</code>s, <code>Long</code>s still have size limitations:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co">// NumberTypes/BiggestLong.kt</span></a>
+<div class="sourceCode" id="cb12"><code class="sourceCode kotlin"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co">// NumberTypes/BiggestLong.kt</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb12-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb12-4" data-line-number="4">  println(<span class="kw">Long</span>.MAX_VALUE)</a>
 <a class="sourceLine" id="cb12-5" data-line-number="5">}</a>
 <a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">9223372036854775807</span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">*/</span></a></code></div>
 <p><code>Long.MAX_VALUE</code> is the special predefined value which is the largest number a <code>Long</code> can hold.</p>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.

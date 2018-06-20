@@ -96,7 +96,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In practice you rarely overload operators—usually only when you create your own library.</p>
 </blockquote>
 <p>However, you regularly <em>use</em> operators, often even without noticing. For example, the Kotlin standard library defines numerous operators that improve your experience with collections. Let’s look at some familiar code from a new angle:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// UsingOperators/NewAngle.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// UsingOperators/NewAngle.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -108,7 +108,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-10" data-line-number="10">  list[<span class="dv">2</span>] eq <span class="ch">&#39;x&#39;</span></a>
 <a class="sourceLine" id="cb1-11" data-line-number="11">  (<span class="ch">&#39;a&#39;</span> <span class="kw">in</span> list) eq <span class="kw">true</span> <span class="co">// operator contains()</span></a>
 <a class="sourceLine" id="cb1-12" data-line-number="12">  list.contains(<span class="ch">&#39;a&#39;</span>) eq <span class="kw">true</span> <span class="co">// Explicit call</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-13" data-line-number="13">}</a></code></div>
 <p>Accessing list elements using square brackets actually calls the overloaded <code>get()</code> and <code>set()</code> operators. <code>in</code> calls the overloaded <code>contains()</code>.</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">

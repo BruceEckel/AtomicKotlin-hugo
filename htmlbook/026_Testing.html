@@ -103,7 +103,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Although useful, ours is <em>not</em> a testing system for use in the workplace. Others have worked long and hard to create such test systems.</p>
 <p>To use our testing framework, we must first <code>import</code> it. The basic elements of the framework are <code>eq</code> (for <em>equals</em>) and <code>neq</code> (for <em>not equals</em>):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Testing/TestingExample.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Testing/TestingExample.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -124,16 +124,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">11</span></a>
 <a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">Ontology</span></a>
 <a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">Ontology</span></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">*/</span></a></code></div>
 <p>You can find the code for the <code>atomictest</code> package in <a target="_blank" href="102_Appendix_B_AtomicTest.html">Appendix B: AtomicTest</a>. We don’t intend that you understand all the code for <code>AtomicTest.kt</code> right now, because it uses some features that we haven’t covered yet.</p>
 <p>To produce a clean, comfortable appearance, <code>AtomicTest</code> uses a Kotlin feature that you haven’t seen yet: the ability to write a function call <code>a.function(b)</code> in the text-like form:</p>
-<pre><code>a function b</code></pre>
+<code>a function b</code>
 <p>This is called <em>infix notation</em>. Only functions defined using the <code>infix</code> keyword can be called this way. <code>AtomicTest.kt</code> defines the <code>infix</code> <code>eq</code> and <code>neq</code> used in <code>TestingExample.kt</code>:</p>
-<pre><code>expression eq expected
-expression neq expected</code></pre>
+<code>expression eq expected
+expression neq expected</code>
 <p>This system is flexible—almost anything works as a test expression. If <em>expected</em> is a string, then <em>expression</em> is converted to a string and the two strings are compared. Otherwise, <em>expression</em> and <em>expected</em> are compared directly (without converting them first). In either case, <em>expression</em> is displayed on the console so you see something happening when the program runs. Even when the tests succeed, you still get output showing the contents of the object on the left of <code>eq</code> or <code>neq</code>. If <em>expression</em> and <em>expected</em> are not equivalent, <code>AtomicTest</code> shows an error when the program runs.</p>
 <p>The last test in <code>TestingExample.kt</code> intentionally fails so you see an example of failure output. If the two values are not equal, Kotlin prints the message and stops executing the program. If you uncomment the last line and run the example above, you will see, after all the successful tests:</p>
-<pre><code>Error: Epistimology != Ontology</code></pre>
+<code>Error: Epistimology != Ontology</code>
 <p>That means the actual value stored in <code>v2</code> is not what it is claimed to be in the “expected” expression. <code>AtomicTest</code> then displays the string representations for both expected and actual values.</p>
 <p>Notice that if the <code>eq</code> or <code>neq</code> fails then all subsequent lines in the function never run; that’s because <code>AtomicTest</code> aborts the program’s execution.</p>
 <p>That’s all there is to it. <code>eq()</code> and <code>neq()</code> are the basic (infix) functions defined for <code>AtomicTest</code>—it truly is a minimal testing system. Now you can put <code>eq</code> and <code>neq</code> expressions anywhere in your examples to produce both a test and some console output, and verify the correctness of the programs simply by running them.</p>
@@ -143,7 +143,7 @@ expression neq expected</code></pre>
 <p>Testing is most effective when it’s built into your software development process. Writing tests ensures you get the results you expect. Many people advocate writing tests <em>before</em> writing the implementation code—to be rigorous, you first make the test fail before you write the code to make it pass. This technique, called <em>Test Driven Development</em> (TDD), is a way to make sure that you’re really testing what you think you are. There’s a more complete description of TDD on Wikipedia (search for “Test_driven_development”).</p>
 <p>There’s another benefit to writing testably—it changes the way you think about and design your code. In the previous example, we could just display the results to the console. But the test mindset makes you think, “How will I test this?” When you create a function, you begin thinking that you should return something from the function, if for no other reason than to test that result. Functions that take one thing and transform it into something else tend to produce better designs, as well.</p>
 <p>Here’s a simplified example using TDD to implement the BMI calculation from <a target="_blank" href="012_Number_Types.html">Number Types</a>. First, we write the tests, along with an initial implementation that fails (because we haven’t yet implemented the functionality):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Testing/TDDFail.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Testing/TDDFail.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">package</span> <span class="im">testing1</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"></a>
@@ -154,9 +154,9 @@ expression neq expected</code></pre>
 <a class="sourceLine" id="cb5-9" data-line-number="9">}</a>
 <a class="sourceLine" id="cb5-10" data-line-number="10"></a>
 <a class="sourceLine" id="cb5-11" data-line-number="11"><span class="kw">fun</span> <span class="fu">calculateBMI</span>(<span class="va">lbs</span>: <span class="dt">Int</span>, <span class="va">height</span>: <span class="dt">Int</span>) =</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">  <span class="st">&quot;Normal weight&quot;</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-12" data-line-number="12">  <span class="st">&quot;Normal weight&quot;</span></a></code></div>
 <p>Only the first test passes. The other tests fail and are commented. Next we add code to determine which weights are in which categories. However, <em>all</em> the tests will fail now:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Testing/TDDStillFails.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Testing/TDDStillFails.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">package</span> <span class="im">testing2</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -174,9 +174,9 @@ expression neq expected</code></pre>
 <a class="sourceLine" id="cb6-16" data-line-number="16">  <span class="kw">return</span> <span class="cf">if</span> (bmi &lt; <span class="fl">18.5</span>) <span class="st">&quot;Underweight&quot;</span></a>
 <a class="sourceLine" id="cb6-17" data-line-number="17">  <span class="cf">else</span> <span class="cf">if</span> (bmi &lt; <span class="dv">25</span>) <span class="st">&quot;Normal weight&quot;</span></a>
 <a class="sourceLine" id="cb6-18" data-line-number="18">  <span class="cf">else</span> <span class="st">&quot;Overweight&quot;</span></a>
-<a class="sourceLine" id="cb6-19" data-line-number="19">}</a></code></pre></div>
+<a class="sourceLine" id="cb6-19" data-line-number="19">}</a></code></div>
 <p>We’re using <code>Int</code>s instead of <code>Double</code>s, producing a zero result. The tests guide us to the fix:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// Testing/TDDWorks.kt</span></a>
+<div class="sourceCode" id="cb7"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// Testing/TDDWorks.kt</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">package</span> <span class="im">testing3</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"></a>
@@ -194,7 +194,7 @@ expression neq expected</code></pre>
 <a class="sourceLine" id="cb7-16" data-line-number="16">  <span class="kw">return</span> <span class="cf">if</span> (bmi &lt; <span class="fl">18.5</span>) <span class="st">&quot;Underweight&quot;</span></a>
 <a class="sourceLine" id="cb7-17" data-line-number="17">  <span class="cf">else</span> <span class="cf">if</span> (bmi &lt; <span class="dv">25</span>) <span class="st">&quot;Normal weight&quot;</span></a>
 <a class="sourceLine" id="cb7-18" data-line-number="18">  <span class="cf">else</span> <span class="st">&quot;Overweight&quot;</span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19">}</a></code></pre></div>
+<a class="sourceLine" id="cb7-19" data-line-number="19">}</a></code></div>
 <p>You may choose to add additional tests to ensure we have tested the boundary conditions completely.</p>
 <p>In the exercises for this book, we include tests that your code must pass.</p>
 <p class="copy">

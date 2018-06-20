@@ -94,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>Converting a <code>Collection</code> into a <code>Sequence</code> isn’t the only way to get the latter one. The standard library contains the <code>generateSequence()</code> function which lets you specify how to compute each new element.</p>
 <p>With <code>generateSequence()</code> you may generate an infinite sequence of natural numbers. You pass the first element in a sequence as an argument. Another argument is a lambda, which defines how each new element should be computed based on the previous element:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// MoreLibraryFunctions/NumberSequence1.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// MoreLibraryFunctions/NumberSequence1.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -103,7 +103,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-7" data-line-number="7">  naturalNumbers.take(<span class="dv">3</span>).toList() eq</a>
 <a class="sourceLine" id="cb1-8" data-line-number="8">    listOf(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9">  naturalNumbers.take(<span class="dv">10</span>).count() eq <span class="dv">10</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-10" data-line-number="10">}</a></code></div>
 <p>Note that <code>Sequence</code> doesn’t have a property <code>size</code> which is regular for <code>Collection</code>s, instead you can call <code>count()</code> function which emphasizes that it’s the terminal operation and all the elements will be actually counted rather than a stored value will be returned.</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">

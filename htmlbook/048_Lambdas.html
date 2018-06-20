@@ -94,14 +94,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>A <em>lambda</em> (also called a <em>function literal</em>) is a low-ceremony function: it has no name, requires a minimal amount of code to create, and you can insert it directly into other code.</p>
 <p>As a starting point, consider <code>map()</code>, which works with collections like <code>List</code>. <code>map()</code> takes its argument—a transformation function—and applies it to each element in a collection. It returns a new <code>List</code> containing all the transformed elements. Here, we transform each <code>List</code> item to a string surrounded with <code>[]</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Lambdas/BasicLambda.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Lambdas/BasicLambda.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="kw">val</span> <span class="va">list</span> = listOf(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="kw">val</span> <span class="va">result</span> = list.map({ n: <span class="kw">Int</span> -&gt; <span class="st">&quot;[$n]&quot;</span> })</a>
 <a class="sourceLine" id="cb1-7" data-line-number="7">  result eq listOf(<span class="st">&quot;[1]&quot;</span>,<span class="st">&quot;[2]&quot;</span>,<span class="st">&quot;[3]&quot;</span>,<span class="st">&quot;[4]&quot;</span>)</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-8" data-line-number="8">}</a></code></div>
 <p>Here, the lambda is used in the initialization of <code>result</code>; it is the code within the curly braces. The argument list is separated from the function body by an arrow <code>-&gt;</code> (the same arrow used in <code>when</code> expressions).</p>
 <p>The function body can be one or more expressions. The final expression becomes the return value of the lambda.</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>

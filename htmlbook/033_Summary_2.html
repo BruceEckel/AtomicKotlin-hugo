@@ -97,24 +97,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The topics appear in appropriate order for experienced programmers, which is not the same as the order of the atoms in the book. For example, we start by introducing packages and imports so we can use our minimal test framework for the rest of the atom.</p>
 <h2 id="imports-packages-testing">Imports, Packages &amp; Testing</h2>
 <p>Any number of reusable library components can be bundled under a single library name using the <code>package</code> keyword:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Summary2/ALibrary.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Summary2/ALibrary.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">package</span> <span class="im">com.yoururl.libraryname</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">// Components to reuse ...</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">fun</span> <span class="fu">f</span>() = <span class="st">&quot;result&quot;</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">fun</span> <span class="fu">f</span>() = <span class="st">&quot;result&quot;</span></a></code></div>
 <p>You can put multiple components in a single file, or spread components out among multiple files under the same package name. Here we’ve defined <code>f()</code> as the sole component.</p>
 <p>To make it unique, the package name conventionally begins with your reversed domain name. In this example, the domain name is <code>yoururl.com</code>.</p>
 <p>In Kotlin, the package name can be independent from the directory where its contents are located. Java requires that the directory structure correspond to the fully-qualified package name: in Java, all the content for the package <code>com.yoururl.libraryname</code> should be located under the <code>com/yoururl/libraryname</code> directory. For mixed Kotlin and Java projects, Kotlin’s style guide recommends the same practice. For pure Kotlin projects, put the directory <code>libraryname</code> at the top level of your project’s directory structure.</p>
 <p>An <code>import</code> statement brings one or more names into the current namespace:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Summary2/UseALibrary.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Summary2/UseALibrary.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">import</span> <span class="im">com.yoururl.libraryname.*</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="kw">val</span> <span class="va">x</span> = f()</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">}</a></code></pre></div>
+<a class="sourceLine" id="cb2-6" data-line-number="6">}</a></code></div>
 <p>The star after <code>libraryname</code> tells Kotlin to import all the components of a library. Now we can refer to <code>f()</code> without producing an error. You can also select components individually; details are in <a target="_blank" href="025_Imports_and_Packages.html">Imports &amp; Packages</a>.</p>
 <p>An important library in this book is <code>atomictest</code>, our simple testing framework. Once it’s imported, you use <code>eq</code> (equals) and <code>neq</code> (not equals) almost as if they were language keywords:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Summary2/UsingAtomicTest.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Summary2/UsingAtomicTest.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -123,14 +123,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-7" data-line-number="7">  pi eq <span class="fl">3.14</span></a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">  pie eq <span class="st">&quot;A round dessert&quot;</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">  pie neq <span class="st">&quot;Square&quot;</span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">}</a></code></pre></div>
+<a class="sourceLine" id="cb3-10" data-line-number="10">}</a></code></div>
 <p>The ability to use <code>eq</code> without any dots or parentheses is called <em>infix notation</em>. <code>atomictest</code> defines <code>eq</code> in a special way, marking it as <code>infix</code>, which makes it possible to call it either in the regular way: <code>pi.eq(3.14)</code>, or using infix notation: <code>pi eq 3.14</code>. <code>eq</code> and <code>neq</code> are assertions of truth which also display the result from the left side of the <code>eq</code> statement, and an error message if the expression on the right of the <code>eq</code> doesn’t agree (or does agree, in the case of <code>neq</code>). This way you see verified results in the source code.</p>
 <p><code>atomictest</code> is defined in <a target="_blank" href="102_Appendix_B_AtomicTest.html">Appendix B: AtomicTest</a>, although it uses language features you will not understand at this point in the book.</p>
 <h2 id="objects-everywhere">Objects Everywhere</h2>
 <p>Kotlin is a <em>hybrid object-functional</em> language: it supports both object-oriented and functional programming paradigms.</p>
 <p>Objects contain <code>val</code>s and <code>var</code>s to store data (these are called <em>properties</em>) and they perform operations using functions defined within a class, called <em>member functions</em> (when it’s unambiguous, we just say “functions”). A <em>class</em> defines properties and member functions for what is essentially a new, user-defined data type. When you create a <code>val</code> or <code>var</code> of a class, it’s called <em>creating an object</em> or sometimes <em>creating an instance</em>.</p>
 <p>An especially useful type of object is the <em>container</em> or <em>collection</em>: an object that holds other objects. In this book, we primarily use the <code>List</code> because it’s the most general-purpose sequence. Here we perform several operations on a <code>List</code> that holds <code>Double</code>s. <code>listOf()</code> creates a new <code>List</code> from its arguments:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Summary2/ListCollection.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Summary2/ListCollection.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -141,14 +141,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-9" data-line-number="9">  lst.max() eq <span class="fl">88.3</span></a>
 <a class="sourceLine" id="cb4-10" data-line-number="10">  lst.min() eq <span class="fl">19.2</span></a>
 <a class="sourceLine" id="cb4-11" data-line-number="11">  lst.sum() eq <span class="fl">129.6</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">}</a></code></pre></div>
+<a class="sourceLine" id="cb4-12" data-line-number="12">}</a></code></div>
 <p>No <code>import</code> statement is required to use a <code>List</code>. Kotlin uses square brackets for indexing into sequences. Indexing is zero-based.</p>
 <p>This example also shows some of the many standard library functions available for <code>List</code>s: <code>sorted()</code>, <code>reversed()</code>, <code>max()</code>, <code>min()</code> and <code>sum()</code>. To understand these functions, use the online <a href="https://kotlinlang.org/docs/reference/">Kotlin documentation</a>.</p>
 <p>When you call <code>sorted()</code> or <code>reversed()</code>, the <code>List lst</code> is not modified. Instead, a new <code>List</code> is created and returned, containing the desired result. This approach of never modifying the original object is consistent throughout Kotlin libraries and you should endeavor to follow this pattern when possible.</p>
 <h2 id="creating-classes">Creating Classes</h2>
 <p>A class definition consists of the <code>class</code> keyword, a name for the class, and an optional body. The body can contain function definitions and property definitions (<code>val</code>s and <code>var</code>s).</p>
 <p>This example defines a class without a body, and classes with properties:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Summary2/ClassBodies.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Summary2/ClassBodies.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">class</span> NoBody</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"></a>
@@ -165,11 +165,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-15" data-line-number="15">  <span class="kw">val</span> <span class="va">nb</span> = NoBody()</a>
 <a class="sourceLine" id="cb5-16" data-line-number="16">  <span class="kw">val</span> <span class="va">sb</span> = SomeBody()</a>
 <a class="sourceLine" id="cb5-17" data-line-number="17">  <span class="kw">val</span> <span class="va">eb</span> = EveryBody()</a>
-<a class="sourceLine" id="cb5-18" data-line-number="18">}</a></code></pre></div>
+<a class="sourceLine" id="cb5-18" data-line-number="18">}</a></code></div>
 <p>To create an instance of a class, put parentheses after its name, along with arguments if those are required.</p>
 <p>Properties within class bodies can be any type. <code>SomeBody</code> contains a property of type <code>String</code>, and <code>EveryBody</code>’s property is a <code>List</code> holding <code>SomeBody</code> objects.</p>
 <p>Here’s a class with member functions:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Summary2/Temperature.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Summary2/Temperature.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">class</span> Temperature {</a>
@@ -202,13 +202,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-31" data-line-number="31">  temp.getCelsius() eq <span class="fl">37.0</span></a>
 <a class="sourceLine" id="cb6-32" data-line-number="32">  temp.setCelsius(<span class="fl">100.0</span>)</a>
 <a class="sourceLine" id="cb6-33" data-line-number="33">  temp.getFahrenheit() eq <span class="fl">212.0</span></a>
-<a class="sourceLine" id="cb6-34" data-line-number="34">}</a></code></pre></div>
+<a class="sourceLine" id="cb6-34" data-line-number="34">}</a></code></div>
 <p>These member functions are just like the top-level functions we’ve defined <em>outside</em> of classes, except they belong to the class and have unqualified access to the other members of the class—such as <code>current</code> and <code>scale</code>. Member functions can also call other member functions in the class without qualification.</p>
 <ul>
 <li><strong>[1]</strong> <code>temp</code> is a <code>val</code>, but then we modify the <code>Temperature</code> object. The <code>val</code> definition prevents the reference <code>temp</code> from being reassigned to a new object; it does not restrict the behavior of the object itself.</li>
 </ul>
 <p>The following two classes are the foundation of a tic-tac-toe game:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// Summary2/TicTacToe.kt</span></a>
+<div class="sourceCode" id="cb7"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// Summary2/TicTacToe.kt</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">class</span> Cell {</a>
@@ -240,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb7-30" data-line-number="30">  grid.play(<span class="ch">&#39;X&#39;</span>, <span class="dv">1</span>, <span class="dv">1</span>) eq <span class="st">&quot;successful move&quot;</span></a>
 <a class="sourceLine" id="cb7-31" data-line-number="31">  grid.play(<span class="ch">&#39;X&#39;</span>, <span class="dv">1</span>, <span class="dv">1</span>) eq <span class="st">&quot;invalid move&quot;</span></a>
 <a class="sourceLine" id="cb7-32" data-line-number="32">  grid.play(<span class="ch">&#39;O&#39;</span>, <span class="dv">1</span>, <span class="dv">3</span>) eq <span class="st">&quot;invalid move&quot;</span></a>
-<a class="sourceLine" id="cb7-33" data-line-number="33">}</a></code></pre></div>
+<a class="sourceLine" id="cb7-33" data-line-number="33">}</a></code></div>
 <ul>
 <li><p><strong>[1]</strong> The <code>entry</code> property in <code>Cell</code> is a <code>var</code> so it can be modified. The single quotes in the initialization produce a <code>Char</code> type, so all assignments to <code>entry</code> must also be <code>Char</code>s.</p></li>
 <li><p><strong>[2]</strong> <code>set()</code> tests that the <code>Cell</code> is available and that you’ve passed the right character; it returns a <code>String</code> result to indicate success or failure.</p></li>
@@ -251,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <h2 id="constructors">Constructors</h2>
 <p>Constructors create new objects. You pass information to a constructor using its argument list, placed in parentheses directly after the class name. A constructor call thus looks like a function call, except that the initial letter of the “function” name is capitalized (assuming the class definition follows the Kotlin style guide) and the return value is an object of the constructor’s class:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// Summary2/WildAnimals.kt</span></a>
+<div class="sourceCode" id="cb8"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// Summary2/WildAnimals.kt</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw">class</span> Badger(<span class="va">id</span>: <span class="dt">String</span>, <span class="va">years</span>: <span class="dt">Int</span>) {</a>
@@ -286,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb8-33" data-line-number="33">    <span class="st">&quot;Snake: Garden, length: 2.4&quot;</span></a>
 <a class="sourceLine" id="cb8-34" data-line-number="34">  Moose(<span class="dv">16</span>, <span class="fl">7.2</span>) eq</a>
 <a class="sourceLine" id="cb8-35" data-line-number="35">    <span class="st">&quot;Moose, age: 16, height: 7.2&quot;</span></a>
-<a class="sourceLine" id="cb8-36" data-line-number="36">}</a></code></pre></div>
+<a class="sourceLine" id="cb8-36" data-line-number="36">}</a></code></div>
 <p>The arguments <code>id</code> and <code>years</code> in <code>Badger</code> are only available in the <em>constructor body</em>. The constructor body consists of the lines of code other than function definitions; in this case, it’s the definitions for <code>name</code> and <code>age</code>.</p>
 <p>Often you want the constructor arguments to be available in parts of the class other than the constructor body, but to save yourself the trouble of explicitly defining new identifiers as we did with <code>name</code> and <code>age</code>. If you define your arguments as <code>var</code>s or <code>val</code>s in the argument list, they becomes properties and are accessible everywhere in the class. Both <code>Snake</code> and <code>Moose</code> use this approach, and you can see that the constructor arguments are now available inside their respective <code>toString()</code> functions.</p>
 <p>Class arguments declared with <code>val</code> cannot be changed, but those declared with <code>var</code> can, as you expect.</p>
@@ -299,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you don’t provide a modifier, your definition is automatically <code>public</code>. For clarity in certain cases, programmers still sometimes redundantly specify <code>public</code>.</p>
 <p>Because a <code>private</code> definition is <em>not</em> available to everyone, you can generally change it without concern for the client programmer.</p>
 <p>If you define a class, top-level function, or property as <code>private</code>, it is available only inside that same file:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">// Summary2/Boxes.kt</span></a>
+<div class="sourceCode" id="cb9"><code class="sourceCode kotlin"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">// Summary2/Boxes.kt</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">private</span> <span class="kw">var</span> <span class="va">count</span> = <span class="dv">0</span>                   <span class="co">// [1]</span></a>
 <a class="sourceLine" id="cb9-4" data-line-number="4"></a>
@@ -328,10 +328,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb9-27" data-line-number="27"><span class="co">Box volume: 64</span></a>
 <a class="sourceLine" id="cb9-28" data-line-number="28"><span class="co">Box volume: 125</span></a>
 <a class="sourceLine" id="cb9-29" data-line-number="29"><span class="co">2 boxes</span></a>
-<a class="sourceLine" id="cb9-30" data-line-number="30"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb9-30" data-line-number="30"><span class="co">*/</span></a></code></div>
 <p>You can access <code>private</code> properties (<strong>[1]</strong>), classes (<strong>[2]</strong>), and functions (<strong>[3]</strong>) only from other functions and classes in the <code>Boxes.kt</code> file. Kotlin prevents you from accessing <code>private</code> top-level elements from another file, with a message about those being <code>private</code> within that file.</p>
 <p>Class members can be <code>private</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">// Summary2/JetPack.kt</span></a>
+<div class="sourceCode" id="cb10"><code class="sourceCode kotlin"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">// Summary2/JetPack.kt</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw">class</span> JetPack(</a>
 <a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="kw">private</span> <span class="kw">var</span> <span class="va">fuel</span>: <span class="dt">Double</span>     // [<span class="va">1</span>]</a>
@@ -364,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb10-31" data-line-number="31"><span class="co">OK</span></a>
 <a class="sourceLine" id="cb10-32" data-line-number="32"><span class="co">OK</span></a>
 <a class="sourceLine" id="cb10-33" data-line-number="33"><span class="co">Warning</span></a>
-<a class="sourceLine" id="cb10-34" data-line-number="34"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb10-34" data-line-number="34"><span class="co">*/</span></a></code></div>
 <ul>
 <li><p><strong>[1]</strong> <code>fuel</code> and <code>warning</code> are both <code>private</code> properties and can’t be used by non-members of <code>JetPack</code>.</p></li>
 <li><p><strong>[2]</strong> <code>burn()</code> is <code>private</code>, and thus only accessible inside <code>JetPack</code>.</p></li>
@@ -376,15 +376,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Any function you’re certain is only a <em>helper function</em> can be made <code>private</code> to ensure you don’t accidentally use it elsewhere in the package and thus prohibit yourself from changing or removing the function.</p>
 <h2 id="exceptions">Exceptions</h2>
 <p>Consider <code>toDouble()</code>, which converts a <code>String</code> to a <code>Double</code>. What happens if you call it for a <code>String</code> that doesn’t translate into a <code>Double</code>?</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// Summary2/ToDoubleException.kt</span></a>
+<div class="sourceCode" id="cb11"><code class="sourceCode kotlin"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// Summary2/ToDoubleException.kt</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="co">// val i = &quot;$1.9&quot;.toDouble()</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">}</a></code></pre></div>
+<a class="sourceLine" id="cb11-5" data-line-number="5">}</a></code></div>
 <p>Uncommenting the line in <code>main()</code> produces an exception. Here, the failing line is commented so we don’t stop the book’s build. The build checks whether each example compiles and runs as expected.</p>
 <p>When an exception is thrown, the current path of execution stops, and the exception object ejects from the current context. When an exception isn’t caught, the program aborts and displays a <em>stack trace</em> containing detailed information.</p>
 <p>To avoid displaying exceptions by commenting and uncommenting code, we use <code>atomictest.capture()</code>, which stores the exception and compares it to what we expect:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co">// Summary2/AtomicTestCapture.kt</span></a>
+<div class="sourceCode" id="cb12"><code class="sourceCode kotlin"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co">// Summary2/AtomicTestCapture.kt</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
 <a class="sourceLine" id="cb12-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb12-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -392,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb12-6" data-line-number="6">    <span class="st">&quot;$1.9&quot;</span>.toDouble()</a>
 <a class="sourceLine" id="cb12-7" data-line-number="7">  } eq <span class="st">&quot;NumberFormatException: &quot;</span> +</a>
 <a class="sourceLine" id="cb12-8" data-line-number="8">    <span class="st">&quot;&quot;&quot;For input string: &quot;$1.9&quot;&quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9">}</a></code></pre></div>
+<a class="sourceLine" id="cb12-9" data-line-number="9">}</a></code></div>
 <p><code>capture()</code> is designed specifically for this book, so that you can see the exception and know that the output has been checked by the book’s build system.</p>
 <p>Another strategy when your function can’t successfully produce the expected result is to return <code>null</code>. Later in <a target="_blank" href="041_Nullable_Types.html">Nullable Types</a> we’ll discuss how <code>null</code> affects the type of the resulting expression.</p>
 <p>To throw an exception, use the <code>throw</code> keyword followed by the exception you want to throw, along with any arguments it might need. <code>quadraticZeroes()</code> in the following example solves the <a href="https://en.wikipedia.org/wiki/Quadratic_formula">quadratic equation</a> which defines a parabola:</p>
@@ -405,7 +405,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>For zeroes to exist, <strong>b<sup>2</sup> - 4ac</strong> cannot be negative.</li>
 </ol>
 <p>If zeroes exist, there are two of them, so we create the <code>Roots</code> class to hold the return values:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">// Summary2/Quadratic.kt</span></a>
+<div class="sourceCode" id="cb13"><code class="sourceCode kotlin"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">// Summary2/Quadratic.kt</span></a>
 <a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">import</span> <span class="im">kotlin.math.sqrt</span></a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
 <a class="sourceLine" id="cb13-4" data-line-number="4"></a>
@@ -444,11 +444,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb13-37" data-line-number="37">  <span class="kw">val</span> <span class="va">roots</span> = quadraticZeroes(<span class="fl">3.0</span>, <span class="fl">8.0</span>, <span class="fl">5.0</span>)</a>
 <a class="sourceLine" id="cb13-38" data-line-number="38">  roots.root1 eq <span class="fl">-15.0</span></a>
 <a class="sourceLine" id="cb13-39" data-line-number="39">  roots.root2 eq <span class="fl">-9.0</span></a>
-<a class="sourceLine" id="cb13-40" data-line-number="40">}</a></code></pre></div>
+<a class="sourceLine" id="cb13-40" data-line-number="40">}</a></code></div>
 <p>Here we use the standard exception class <code>IllegalArgumentException</code>. Later we’ll show you how to define your own exception types and to make them specific to your circumstances. Your goal is to generate the most detailed messages possible, to simplify the support of your application in the future.</p>
 <h2 id="lists">Lists</h2>
 <p><code>List</code>s are Kotlin’s basic sequential container type, and are part of the standard Kotlin package so they’re available without any imports. You create an immutable list using <code>listOf()</code> and a mutable list using <code>mutableListOf()</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">// Summary2/MustableVsImmutableList.kt</span></a>
+<div class="sourceCode" id="cb14"><code class="sourceCode kotlin"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">// Summary2/MustableVsImmutableList.kt</span></a>
 <a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb14-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -471,11 +471,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb14-21" data-line-number="21"><span class="co">[i, j, k, l]</span></a>
 <a class="sourceLine" id="cb14-22" data-line-number="22"><span class="co">[i, j, l]</span></a>
 <a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">[]</span></a>
-<a class="sourceLine" id="cb14-24" data-line-number="24"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb14-24" data-line-number="24"><span class="co">*/</span></a></code></div>
 <p><code>add()</code>, and all other modification functions, do not work with <code>ints</code> because <code>ints</code> is immutable, and those functions are not part of a plain <code>List</code>. <code>for</code> loops work well with <code>List</code>s: <code>for(i in ints)</code> means <code>i</code> gets each value in <code>ints</code>.</p>
 <p><code>chars</code> is created as a <code>MutableList</code> and thus it can be directly modified using fucntions like <code>add()</code>, <code>remove()</code> and <code>clear()</code>.</p>
 <p>Next, we create a <code>List</code> of <code>String</code>s by breaking up a triple-quoted paragraph, then show the power of some of the library functions, and the ability to chain those functions together:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">// Summary2/ListOfStrings.kt</span></a>
+<div class="sourceCode" id="cb15"><code class="sourceCode kotlin"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">// Summary2/ListOfStrings.kt</span></a>
 <a class="sourceLine" id="cb15-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb15-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb15-4" data-line-number="4">  <span class="kw">val</span> <span class="va">jabber</span> = <span class="st">&quot;&quot;&quot;</span></a>
@@ -498,14 +498,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb15-21" data-line-number="21"><span class="co">[Did, and, in, wabe, mimsy, the, And]</span></a>
 <a class="sourceLine" id="cb15-22" data-line-number="22"><span class="co">[the, the, toves, wabe, were]</span></a>
 <a class="sourceLine" id="cb15-23" data-line-number="23"><span class="co">[slithy, the, toves, wabe, were]</span></a>
-<a class="sourceLine" id="cb15-24" data-line-number="24"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb15-24" data-line-number="24"><span class="co">*/</span></a></code></div>
 <p>The call to <code>split()</code> breaks the <code>String</code> according to its argument. In this case we use a <code>Regex</code> object, which creates a <em>regular expression</em>—a pattern that matches the parts to split. <code>\W</code> is a special pattern (the required extra <code>\</code> comes from Java) that means “not a word character,” and <code>+</code> means “one or more of the preceeding.” Thus <code>split()</code> will break at one or more non-word characters, and is the perfect formula for breaking a block of text into its component words.</p>
 <p>Next we display the beginning of the <code>List</code> using <code>take(n)</code>, which produces a new <code>List</code> containing the first <code>n</code> elements. <code>slice()</code> Produces a new <code>List</code> containing the elements selected by its <code>Range</code> argument, and this <code>Range</code> can include a <code>step</code>.</p>
 <p>Note the name <code>sorted()</code> instead of <code>sort()</code>. When you call <code>sorted()</code> it <em>produces</em> a sorted <code>List</code>, leaving the original <code>List</code> alone. <code>sort()</code> only works with a <code>MutableList</code>, and that list is changed directly (a.k.a. <em>sorted in place</em>).</p>
 <p>As the name implies, <code>takeLast(n)</code> produces a new <code>List</code> of the last <code>n</code> elements. You can see from the output that “the” is duplicated. This is eliminated by adding the <code>distinct()</code> function to the call chain.</p>
 <h2 id="parameterized-types">Parameterized Types</h2>
 <p>Sometimes Kotlin’s type inference requires help. In other cases, you you might want to be explicit about the type, for readability’s sake. Here, we tell Kotlin that <code>numbers</code> contain a <code>List</code> of <code>Int</code>s, while <code>strings</code> contain a <code>List</code> of <code>String</code>s:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co">// Summary2/ExplicitTyping.kt</span></a>
+<div class="sourceCode" id="cb16"><code class="sourceCode kotlin"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co">// Summary2/ExplicitTyping.kt</span></a>
 <a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb16-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -518,12 +518,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb16-11" data-line-number="11">}</a>
 <a class="sourceLine" id="cb16-12" data-line-number="12"></a>
 <a class="sourceLine" id="cb16-13" data-line-number="13"><span class="kw">fun</span> <span class="fu">toCharList</span>(<span class="va">s</span>: <span class="dt">String</span>): <span class="dt">List</span>&lt;<span class="dt">Char</span>&gt; =</a>
-<a class="sourceLine" id="cb16-14" data-line-number="14">  s.toList()</a></code></pre></div>
+<a class="sourceLine" id="cb16-14" data-line-number="14">  s.toList()</a></code></div>
 <p>For both the <code>numbers</code> and <code>strings</code> definitions, we add colons and the type declarations <code>List&lt;Int&gt;</code> and <code>List&lt;String&gt;</code>. The angle brackets denote a <em>type parameter</em>, allowing us to say, “the container holds objects of the type ‘parameter’.” You typically pronounce <code>List&lt;Int&gt;</code> as “list of <code>Int</code>.”</p>
 <p>A return value can also have a type parameter, as seen in <code>toCharList()</code>. You can’t just say it returns a <code>List</code>; Kotlin will complain, so you must give the type parameter as well.</p>
 <h2 id="vararg-arguments"><code>vararg</code> Arguments</h2>
 <p>The <code>vararg</code> keyword defines a function that takes any number of arguments. <code>vararg</code> is short for <em>variable argument list</em>, and allows you to pass any number of arguments of the specified type, including zero. The <code>vararg</code> becomes an <code>Array</code>, which is very similar to a <code>List</code>:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">// Summary2/VarArgs.kt</span></a>
+<div class="sourceCode" id="cb17"><code class="sourceCode kotlin"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">// Summary2/VarArgs.kt</span></a>
 <a class="sourceLine" id="cb17-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb17-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">varargs</span>(<span class="va">s</span>: <span class="dt">String</span>, <span class="kw">vararg</span> <span class="va">ints</span>: <span class="dt">Int</span>) {</a>
 <a class="sourceLine" id="cb17-4" data-line-number="4">  <span class="cf">for</span>(i <span class="kw">in</span> ints)</a>
@@ -536,10 +536,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb17-11" data-line-number="11">}</a>
 <a class="sourceLine" id="cb17-12" data-line-number="12"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb17-13" data-line-number="13"><span class="co">5 7 11 13 17 19 23 primes</span></a>
-<a class="sourceLine" id="cb17-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb17-14" data-line-number="14"><span class="co">*/</span></a></code></div>
 <p>A function definition may specify only one argument as <code>vararg</code>. Any argument in the list can be the <code>vararg</code>, but it’s usually simplest to do it for the last one.</p>
 <p>You can pass an <code>Array</code> of elements wherever a <code>vararg</code> is accepted. To create an array, use <code>arrayOf()</code> in the same way you use <code>listOf()</code>. Note that an <code>Array</code> is always mutable. To convert an <code>Array</code> into a sequence of arguments (not just a single element of type <code>Array</code>), use the <em>spread operator</em>, <code>*</code>:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co">// Summary2/ArraySpread.kt</span></a>
+<div class="sourceCode" id="cb18"><code class="sourceCode kotlin"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co">// Summary2/ArraySpread.kt</span></a>
 <a class="sourceLine" id="cb18-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb18-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb18-4" data-line-number="4">  <span class="kw">val</span> <span class="va">array</span> = intArrayOf(<span class="dv">4</span>, <span class="dv">5</span>)</a>
@@ -551,12 +551,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb18-10" data-line-number="10"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb18-11" data-line-number="11"><span class="co">1 2 3 4 5 6 x</span></a>
 <a class="sourceLine" id="cb18-12" data-line-number="12"><span class="co">7 8 9 10 11 y</span></a>
-<a class="sourceLine" id="cb18-13" data-line-number="13"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb18-13" data-line-number="13"><span class="co">*/</span></a></code></div>
 <p>If you pass an array of primitive types as in the example above, the <code>Array</code> creation function must be specifically typed. If you choose <code>arrayOf(4, 5)</code> instead of <code>intArrayOf(4, 5)</code>, the line <code>[1]</code> will produce an error complaining that <strong><em>inferred type is Array<Int> but IntArray was expected</em></strong>.</p>
 <p>The spread operator only works with arrays. If you have a <code>List</code> that you want to pass as a sequence of arguments, first convert it to an array and then apply the spread operator, as in <strong>[2]</strong>. Because the result is again an array of a primitive type, we must use the specific conversion function <code>toIntArray()</code>.</p>
 <h2 id="sets">Sets</h2>
 <p>A <code>Set</code> is a collection that allows only one element of each value, and automatically prevents duplicates.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co">// Summary2/ColorSet.kt</span></a>
+<div class="sourceCode" id="cb19"><code class="sourceCode kotlin"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co">// Summary2/ColorSet.kt</span></a>
 <a class="sourceLine" id="cb19-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb19-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb19-4" data-line-number="4"><span class="kw">val</span> <span class="va">colors</span> = <span class="st">&quot;&quot;&quot;</span></a>
@@ -582,7 +582,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb19-24" data-line-number="24"><span class="co">[Blue, Cyan, Green, Orange, Red, Yellow]</span></a>
 <a class="sourceLine" id="cb19-25" data-line-number="25"><span class="co">true</span></a>
 <a class="sourceLine" id="cb19-26" data-line-number="26"><span class="co">false</span></a>
-<a class="sourceLine" id="cb19-27" data-line-number="27"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb19-27" data-line-number="27"><span class="co">*/</span></a></code></div>
 <ul>
 <li><p><strong>[1]</strong> A triple-quoted <code>String</code> is <code>split()</code> using a <code>Regex</code> <em>regular expression</em> object. The special regular expression pattern <code>\W+</code> (the additional <code>\</code> is required by Java) means “any non-word character” (<code>\W</code>) occurring one or more times (<code>+</code>). We then sort the resulting <code>List</code>. Note there are two empty <code>String</code>s when <code>colors</code> is displayed.</p></li>
 <li><p><strong>[2]</strong> When <code>colors</code> is copied into the immutable <code>Set iSet</code>, one of the two empty <code>String</code>s is removed, because it is a duplicate. By “subtracting” an empty <code>String</code> using <code>- &quot;&quot;</code>, the other one is removed.</p></li>
@@ -594,7 +594,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The normal mathematical set operations such as union, intersection, difference, etc., are all available.</p>
 <h2 id="maps">Maps</h2>
 <p>A <code>Map</code> connects <em>keys</em> to <em>values</em> and looks up a value when given a key. You create a <code>Map</code> by providing key-value pairs to <code>mapOf()</code>. Each key is separated from its associated value by <code>to</code>:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">// Summary2/ASCIIMap.kt</span></a>
+<div class="sourceCode" id="cb20"><code class="sourceCode kotlin"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">// Summary2/ASCIIMap.kt</span></a>
 <a class="sourceLine" id="cb20-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb20-4" data-line-number="4">  <span class="kw">val</span> <span class="va">ascii</span> = mapOf(</a>
@@ -635,7 +635,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb20-39" data-line-number="39"><span class="co">{A=65, B=66, C=67, D=68, J=74, K=75}</span></a>
 <a class="sourceLine" id="cb20-40" data-line-number="40"><span class="co">{A=65, B=66, C=67, D=68, J=74, K=75, Z=90}</span></a>
 <a class="sourceLine" id="cb20-41" data-line-number="41"><span class="co">{A=100}</span></a>
-<a class="sourceLine" id="cb20-42" data-line-number="42"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb20-42" data-line-number="42"><span class="co">*/</span></a></code></div>
 <ul>
 <li><p><strong>[1]</strong> With a <code>Map</code>, the <code>[]</code> operator is used for lookup by handing it a key. You can produce all the keys using <code>keys</code> and all the values using <code>values</code>. <code>keys</code> produces a <code>Set</code> because all keys in a <code>Map</code> must already be unique (otherwise you’d have ambiguity during a lookup).</p></li>
 <li><p><strong>[2]</strong> Iterating through a <code>Map</code> produces key-value pairs as map entries.</p></li>
@@ -644,7 +644,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <h2 id="property-accessors">Property Accessors</h2>
 <p>This example appears to be straightforward access to the property <code>i</code>:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co">// Summary2/PropertyReadWrite.kt</span></a>
+<div class="sourceCode" id="cb21"><code class="sourceCode kotlin"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co">// Summary2/PropertyReadWrite.kt</span></a>
 <a class="sourceLine" id="cb21-2" data-line-number="2"><span class="kw">package</span> <span class="im">summary2</span></a>
 <a class="sourceLine" id="cb21-3" data-line-number="3"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb21-4" data-line-number="4"></a>
@@ -654,11 +654,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb21-8" data-line-number="8">  <span class="kw">val</span> <span class="va">data</span> = Data(<span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb21-9" data-line-number="9">  <span class="kw">data</span>.i eq <span class="dv">10</span> <span class="co">// Read the &#39;i&#39; property</span></a>
 <a class="sourceLine" id="cb21-10" data-line-number="10">  <span class="kw">data</span>.i = <span class="dv">20</span>  <span class="co">// Write to the &#39;i&#39; property</span></a>
-<a class="sourceLine" id="cb21-11" data-line-number="11">}</a></code></pre></div>
+<a class="sourceLine" id="cb21-11" data-line-number="11">}</a></code></div>
 <p>However, the compiler is actually calling functions to perform the read and write operations. The default behavior of those functions is to simply read and write the data stored in <code>i</code>. By writing <em>property accessors</em>, you change the actions that occur during reading and writing.</p>
 <p>The accessor used to get the value of a property is called a <em>getter</em>; you create your own getter by defining <code>get()</code>, directly after the property declaration. The accessor used to modify a mutable property is called a <em>setter</em>; you create your own setter by defining <code>set()</code> directly after the property declaration. The order of definition of getters and setters is unimportant, and you can define one without the other.</p>
 <p>In the following example, the property accessors imitate the default implementations generated by the compiler and display additional information so you can see that the property accessors are indeed called during reads and writes. We indent the <code>get()</code> and <code>set()</code> functions to visually associate them with the property, but the actual association happens because they are defined directly after that property:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co">// Summary2/GettersAndSetter.kt</span></a>
+<div class="sourceCode" id="cb22"><code class="sourceCode kotlin"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co">// Summary2/GettersAndSetter.kt</span></a>
 <a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">package</span> <span class="im">summary2</span></a>
 <a class="sourceLine" id="cb22-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb22-4" data-line-number="4"><span class="kw">class</span> GettersAndSetter {</a>
@@ -682,7 +682,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb22-22" data-line-number="22"><span class="co">set(2)</span></a>
 <a class="sourceLine" id="cb22-23" data-line-number="23"><span class="co">get()</span></a>
 <a class="sourceLine" id="cb22-24" data-line-number="24"><span class="co">2</span></a>
-<a class="sourceLine" id="cb22-25" data-line-number="25"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb22-25" data-line-number="25"><span class="co">*/</span></a></code></div>
 <p>Inside the getter and setter, the stored value is manipulated indirectly using the <code>field</code> keyword, which is only accessible within these two functions. You can also create a property that doesn’t have a <code>field</code>, but simply calls the getter to produce a result.</p>
 <p>If you declare a <code>private</code> property, both accessors become <code>private</code>. You can make the setter <code>private</code> and the getter <code>public</code>. Then you can, for example, read the property outside the class, but only change its value inside the class. Custom property accessors allow control or modification of access to a property.</p>
 <p class="copy">

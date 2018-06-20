@@ -94,13 +94,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>When you call a function (sometimes described as <em>invoking a function</em>), this mini-program is executed. A function combines a group of activities into a single name, and is the most basic way to organize your programs.</p>
 <p>Ordinarily, you pass information into a function, and the function uses that information to calculate a result, which it returns to you. The basic form of a function was introduced in <a target="_blank" href="006_Hello_World.html">Hello, World!</a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">functionName</span>(<span class="va">arg1</span>: <span class="dt">Type1</span>, <span class="va">arg2</span>: <span class="dt">Type2</span>, ...): <span class="dt">ReturnType</span> {</a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">functionName</span>(<span class="va">arg1</span>: <span class="dt">Type1</span>, <span class="va">arg2</span>: <span class="dt">Type2</span>, ...): <span class="dt">ReturnType</span> {</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">  lines of code</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="kw">return</span> result</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-4" data-line-number="4">}</a></code></div>
 <p>The arguments are the information you pass into the function, and each one has an identifier name followed by a colon and the type of that argument. The closing parenthesis of the argument list is followed by a colon and the type of result the function produces when you call it. The lines of code in the function body are enclosed in curly braces. The expression following the <code>return</code> keyword is the result the function produces when it’s finished.</p>
 <p>Here’s a simple function called <code>multiplyByTwo()</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Functions/MultiplyByTwo.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Functions/MultiplyByTwo.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">multiplyByTwo</span>(<span class="va">x</span>: <span class="dt">Int</span>): <span class="dt">Int</span> {  <span class="co">// [1]</span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">  println(<span class="st">&quot;Inside multiplyByTwo&quot;</span>) <span class="co">// [2]</span></a>
@@ -114,7 +114,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">Inside multiplyByTwo</span></a>
 <a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">10</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">*/</span></a></code></div>
 <ul>
 <li><p><strong>[1]</strong> Notice the <code>fun</code> keyword, the function name, and an argument list consisting of a single argument. When defining functions, you follow the argument list with a colon and the type that the function produces. Thus, this function takes an <code>Int</code> and returns an <code>Int</code>.</p></li>
 <li><p><strong>[2]</strong> These two lines are the body of the function. The final line returns the value of its calculation <code>x * 2</code> as the result of the function.</p></li>
@@ -123,7 +123,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>All the code inside a function is now executed by a single call, using the function name <code>multiplyByTwo()</code> as an abbreviation for that code. This is why functions are the most basic form of simplification and code reuse in programming. You can also think of a function as an expression with substitutable values (the arguments).</p>
 <p><code>println()</code> is also a function call—it just happens to be a function defined by Kotlin. We refer to such functions as <em>library functions</em>.</p>
 <p>If the function doesn’t provide a meaningful result, its return type is considered to be <code>Unit</code>. You can specify this type explicitly if you want, but Kotlin lets you omit it:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Functions/SayHello.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Functions/SayHello.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">sayHello</span>() {</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  println(<span class="st">&quot;Hallo!&quot;</span>)</a>
@@ -140,13 +140,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">Hallo!</span></a>
 <a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">Auf Wiedersehen!</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">*/</span></a></code></div>
 <p>Both <code>sayHello()</code> and <code>sayGoodbye()</code> have the same return type <code>Unit</code>, but the first one leaves out the explicit declaration, which means <code>Unit</code>. The <code>main()</code> function also returns <code>Unit</code>.</p>
 <p>If a function only consists of an expression, you can use the abbreviated syntax of an equals sign followed by the expression:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">functionName</span>(<span class="va">arg1</span>: <span class="dt">Type1</span>, <span class="va">arg2</span>: <span class="dt">Type2</span>, ...): <span class="dt">ReturnType</span> = expression</a></code></pre></div>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">functionName</span>(<span class="va">arg1</span>: <span class="dt">Type1</span>, <span class="va">arg2</span>: <span class="dt">Type2</span>, ...): <span class="dt">ReturnType</span> = expression</a></code></div>
 <p>A function body surrounded by curly braces is called a <em>block body</em>. A function body using the equals syntax is called an <em>expression body</em>.</p>
 <p>Here, the <code>multiplyByThree()</code> function uses an expression body:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Functions/MultiplyByThree.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Functions/MultiplyByThree.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">multiplyByThree</span>(<span class="va">x</span>: <span class="dt">Int</span>): <span class="dt">Int</span> = x * <span class="dv">3</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"></a>
@@ -155,10 +155,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-7" data-line-number="7">}</a>
 <a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">15</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">*/</span></a></code></div>
 <p>This is a short version of saying <code>return x * 3</code> inside a block body.</p>
 <p>With an expression body, the compiler can infer the return type of the function:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Functions/MultiplyByFour.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Functions/MultiplyByFour.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">multiplyByFour</span>(<span class="va">x</span>: <span class="dt">Int</span>) = x * <span class="dv">4</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"></a>
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-8" data-line-number="8">}</a>
 <a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">20</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">*/</span></a></code></div>
 <p>Kotlin infers that <code>multiplyByFour()</code> returns an <code>Int</code>.</p>
 <p>Kotlin can <em>only</em> infer return types for expression bodies. If a function has a block body and you omit its type, that function returns <code>Unit</code>.</p>
 <p>When writing functions, choose descriptive names to make reading the code easier and to reduce the need for code comments. Sometimes, we won’t be as explicit as we would prefer in this book because we’re constrained by line widths.</p>

@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>When creating a new object, you’ll typically initialize it by passing information to a <em>constructor</em>.</p>
 </blockquote>
 <p>A constructor is a special function that creates a new object. Just like a function, you pass information to a constructor using an argument list. The constructor argument list looks like a function argument list, but is placed directly after the class name:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Constructors/Arg.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Constructors/Arg.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">class</span> Alien(<span class="va">name</span>: <span class="dt">String</span>) {</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">val</span> <span class="va">greeting</span> = <span class="st">&quot;Poor $name!&quot;</span></a>
@@ -106,13 +106,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-11" data-line-number="11">}</a>
 <a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">Poor Mr.Meeseeks!</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">*/</span></a></code></div>
 <p>Creating an <code>Alien</code> object requires an argument (try it without one). The <code>name</code> argument is used to initialize the <code>greeting</code> property. However, <code>name</code> is not accessible outside the class body—try uncommenting the last line in <code>main()</code> to see the error.</p>
 <ul>
 <li><strong>[1]</strong> The <code>name</code> argument is only accessible inside the constructor.</li>
 </ul>
 <p>If you want the constructor argument to be visible outside the class body, declare it as a <code>var</code> or <code>val</code> in the argument list:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Constructors/VisibleArgs.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Constructors/VisibleArgs.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">class</span> MutableNameAlien(<span class="kw">var</span> <span class="va">name</span>: <span class="dt">String</span>)</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">class</span> FixedNameAlien(<span class="kw">val</span> <span class="va">name</span>: <span class="dt">String</span>)</a>
@@ -126,10 +126,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-12" data-line-number="12">  alien1.name = <span class="st">&quot;Parasite&quot;</span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13">  <span class="co">// Can&#39;t do this:</span></a>
 <a class="sourceLine" id="cb2-14" data-line-number="14">  <span class="co">// alien2.name = &quot;Parasite&quot;</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15">}</a></code></pre></div>
+<a class="sourceLine" id="cb2-15" data-line-number="15">}</a></code></div>
 <p>These class definitions have no explicit class bodies—the bodies are implied. Because <code>name</code> is declared using <code>var</code> or <code>val</code>, it becomes a property and is accessible outside the class body. Constructor arguments that are declared with <code>val</code> cannot be changed, but those that are declared with <code>var</code> can, as you expect.</p>
 <p>Your class can have many constructor arguments:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Constructors/MultipleArgs.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Constructors/MultipleArgs.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">class</span> AlienSpecies(</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">val</span> <span class="va">name</span>: <span class="dt">String</span>,</a>
@@ -153,10 +153,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">Shimshamian with 3 eyes, 2 hands and 2 legs</span></a>
 <a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">Grunglokian with 2 eyes, 4 hands and 2 legs</span></a>
-<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">*/</span></a></code></div>
 <p>All our classes so far are initialized in a trivial way: constructor arguments are assigned to properties. Constructors may contain non-trivial initialization logic as well, which is explained in [Non-trivial constructors] later.</p>
 <p>Whenever you use an object in a situation that expects a <code>String</code>, Kotlin produces a <code>String</code> representation of that object by calling its <code>toString()</code> member function. If you don’t write one, you still get a default <code>toString()</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Constructors/DisplayAlienSpecies.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Constructors/DisplayAlienSpecies.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">val</span> <span class="va">alien</span> =</a>
@@ -165,9 +165,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-7" data-line-number="7">}</a>
 <a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">/* Sample output:</span></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">AlienSpecies@4d7e1886</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">*/</span></a></code></div>
 <p>The default <code>toString()</code> isn’t too useful: it produces the class name and the physical address of the object (which varies from one run to the next). For better results, define your own <code>toString()</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Constructors/GoodAlien.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Constructors/GoodAlien.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">class</span> GoodAlien(<span class="kw">val</span> <span class="va">name</span>: <span class="dt">String</span>) {</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="kw">override</span> <span class="kw">fun</span> <span class="fu">toString</span>(): <span class="dt">String</span> {</a>
@@ -181,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-12" data-line-number="12">}</a>
 <a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">GoodAlien(&#39;Birdperson&#39;)</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">*/</span></a></code></div>
 <p>Here you see a new keyword: <code>override</code>. This is necessary (Kotlin insists on it) because <code>toString()</code> is already defined (the definition that produces the primitive result). <code>override</code> tells Kotlin that yes, we do actually want to replace the default <code>toString()</code> with our own definition. The explicitness of <code>override</code> makes it clear to the reader of the code what is happening and helps prevent mistakes.</p>
 <p>A good <code>toString()</code> is useful when debugging a program. Sometimes just looking inside an object is enough to see what’s going wrong.</p>
 <p class="copy">

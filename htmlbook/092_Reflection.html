@@ -96,11 +96,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Reflection</em> means taking an object and holding it up to a mirror, so it discovers things about itself.</p>
 </blockquote>
 <p>For example, we often want to find out an object’s class name:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Reflection/Name.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Reflection/Name.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">package</span> <span class="im">reflection</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">className</span>(<span class="va">a</span>: <span class="dt">Any</span>): <span class="dt">String</span> =</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">  a::<span class="kw">class</span>.simpleName ?: &quot;&quot;</a></code></pre></div>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  a::<span class="kw">class</span>.simpleName ?: &quot;&quot;</a></code></div>
 <p><code>className()</code> takes an <code>Any</code> object and produces that object’s class name. To do this, we call <code>::class</code>, yielding a reference to a <code>KClass</code> object, which contains numerous properties and functions that allow you to discover information about, and to manipulate, that class. <code>simpleName</code> is one of those properties, producing the class name without any qualification. Because <code>simpleName</code> might produce a <code>null</code>, we handle it appropriately using <a target="_blank" href="042_Safe_Calls_and_The_Elvis_Operator.html">Safe Calls &amp; The Elvis Operator</a>.</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">

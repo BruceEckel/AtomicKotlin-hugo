@@ -103,7 +103,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>That is, it produces a result.</p>
 <p>The <code>for</code> loop is a statement in Kotlin, so you cannot assign it, since there’s no result:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// ExpressionsStatements/ForIsAStatement.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// ExpressionsStatements/ForIsAStatement.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="co">// Can&#39;t do this:</span></a>
@@ -111,11 +111,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="co">// Compiler error message:</span></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="co">// for is not an expression, and</span></a>
 <a class="sourceLine" id="cb1-8" data-line-number="8">  <span class="co">// only expressions are allowed here</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-9" data-line-number="9">}</a></code></div>
 <p>A <code>for</code> loop is called for its side effects.</p>
 <p>An expression produces a value, which can be assigned or used as part of another expression, whereas a statement is always a top-level element.</p>
 <p>Every function call is an expression. Even if the function has the <code>Unit</code> return type and is called only for its side effects, the result can still be assigned. <code>Unit</code> is a legitimate return value, so a function producing <code>Unit</code> is an expression:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// ExpressionsStatements/UnitReturnType.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// ExpressionsStatements/UnitReturnType.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">unitFun</span>() = <span class="kw">Unit</span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"></a>
@@ -132,10 +132,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">kotlin.Unit</span></a>
 <a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">0</span></a>
 <a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">kotlin.Unit</span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">*/</span></a></code></div>
 <p>The <code>Unit</code> type contains a single value called <code>Unit</code>, which you can return directly, as seen in <code>unitFun()</code>. <code>println()</code> also returns <code>Unit</code>. <code>u1</code> captures the return value of <code>println()</code> and is explicitly declared as <code>Unit</code> while <code>u2</code> uses type inference.</p>
 <p>Because <code>if</code> creates an expression, its result can be assigned:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// ExpressionsStatements/AssigningAnIf.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// ExpressionsStatements/AssigningAnIf.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">val</span> <span class="va">result1</span> = <span class="cf">if</span> (<span class="dv">11</span> &gt; <span class="dv">42</span>) <span class="dv">9</span> <span class="cf">else</span> <span class="dv">5</span></a>
@@ -160,11 +160,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">5</span></a>
 <a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">53</span></a>
 <a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">kotlin.Unit</span></a>
-<a class="sourceLine" id="cb3-26" data-line-number="26"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-26" data-line-number="26"><span class="co">*/</span></a></code></div>
 <p>The first output line is <code>x &lt; y</code>, even though <code>result3</code> isn’t displayed until the end of <code>main()</code>. This happens because evaluating <code>result3</code> calls <code>println()</code>, and the evaluation happens when <code>result3</code> is defined.</p>
 <p>Notice that <code>a</code> is defined inside the block of code for <code>result2</code>. The result of the last expression becomes the result of the <code>if</code> expression; here, its the sum of 11 and 42. But what about <code>a</code>? Once you leave the block of the code (move outside the curly braces), you can’t access <code>a</code>. It is <em>temporary</em> and is discarded once you exit the <em>scope</em> of the block.</p>
 <p>The increment operator <code>i++</code> is also an expression, even if it looks like a statement. Kotlin follows the approach used by C-like languages and provides two versions of increment and decrement operators with slightly different semantics. The prefix operator is put before the operand, as in <code>++i</code>, and returns the value after the increment happens. You can read it as “first do the increment, then return the resulting value.” The postfix operator is put after the operand, as in <code>i++</code>, and returns the value of <code>i</code> before the increment occurs. You can read it as “first produce the result, then do the increment.”</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// ExpressionsStatements/PostfixVsPrefix.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// ExpressionsStatements/PostfixVsPrefix.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">var</span> <span class="va">i</span> = <span class="dv">10</span></a>
@@ -179,14 +179,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">11</span></a>
 <a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">21</span></a>
 <a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">21</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">*/</span></a></code></div>
 <p>The decrement operator similarly has two versions: <code>--i</code> and <code>i--</code>. Using these operators within other expressions is discouraged because it can produce confusing code:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// ExpressionsStatements/ConfusingOperator.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// ExpressionsStatements/ConfusingOperator.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="kw">var</span> <span class="va">i</span> = <span class="dv">1</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5">  println(i++ + ++i)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">}</a></code></pre></div>
+<a class="sourceLine" id="cb5-6" data-line-number="6">}</a></code></div>
 <p>Try to guess what the output will be, then check it.</p>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.

@@ -95,7 +95,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Indeed, creating new types comprises much of the activity in object-oriented programming. You create new types by defining <em>classes</em>.</p>
 <p>An object is a piece of the solution for a problem you’re trying to solve. Start by thinking of objects as expressing concepts. As a first approximation, if you discover a “thing” in your problem, represent that thing as an object in your solution. For example, suppose you are creating a program that manages animals in a zoo. Each animal becomes an object in your program.</p>
 <p>It makes sense to categorize the different types of animals based on how they behave, their needs, animals they get along with and those they fight with. Everything (that you care about for your solution) different about a species of animal is captured in the classification of that animal’s object. Kotlin uses the <code>class</code> keyword to create new types of objects:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// CreatingClasses/Animals.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// CreatingClasses/Animals.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">// Create some classes:</span></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">class</span> Giraffe</a>
@@ -120,7 +120,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co">Giraffe@1b6d3586</span></a>
 <a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co">Hippo@4554617c</span></a>
 <a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co">Bear@74a14482</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co">*/</span></a></code></div>
 <p>To define a class, start with the <code>class</code> keyword, followed by an identifier for your new class. The class name must begin with a letter (A-Z, upper or lower case), but can include things like numbers and underscores. Following convention, we capitalize the first letter of a class name, and lowercase the first letter of all <code>val</code>s and <code>var</code>s.</p>
 <p><code>Animals.kt</code> starts by defining three new classes, then creates four objects (also called <em>instances</em>) of those classes.</p>
 <p><code>Giraffe</code> is a class, but a particular five-year-old male giraffe that lives in Arizona is an <em>object.</em> When you create a new object, it’s different from all the others, so we give them names like <code>g1</code> and <code>g2.</code> You see their uniqueness in the rather cryptic output of the last four lines.</p>
@@ -129,7 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A function defined within a class belongs to that class. In Kotlin, such function is called a <em>member function</em> of the class. Some object-oriented languages like Java choose to call these <em>methods</em>, a term that came from early object-oriented languages like Smalltalk. To emphasize the functional nature of Kotlin, the designers chose to drop the term “method,” as some beginners found the distinction confusing. Instead, the term “function” is used everywhere.</p>
 <p>If it is unambiguous, we will just say “function.” If we need to make a distinction, functions that belong to a class are called <em>member functions</em>, while functions that exist by themselves and are not part of a class are called <em>top-level</em> functions.</p>
 <p>Here, the <code>bark()</code> function belongs to the <code>Dog</code> class:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// CreatingClasses/Dog.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// CreatingClasses/Dog.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">class</span> Dog {</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">fun</span> <span class="fu">bark</span>() = <span class="st">&quot;yip!&quot;</span></a>
@@ -137,10 +137,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8">  <span class="kw">val</span> <span class="va">dog</span> = Dog()</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">}</a></code></pre></div>
+<a class="sourceLine" id="cb2-9" data-line-number="9">}</a></code></div>
 <p>In <code>main()</code>, we create a <code>Dog</code> object and assign it to <code>val dog</code>, but don’t do anything else with that object. The compiler produces a warning about the fact that we don’t use <code>dog</code>.</p>
 <p>Member functions are called (<em>invoked</em>) with the object name, followed by a <code>.</code> (dot/period), followed by the function name and argument list. Here we call the <code>meow()</code> function and display the result:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// CreatingClasses/Cat.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// CreatingClasses/Cat.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">class</span> Cat {</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">fun</span> <span class="fu">meow</span>() = <span class="st">&quot;mew!&quot;</span></a>
@@ -154,10 +154,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-12" data-line-number="12">}</a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">mew!</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">*/</span></a></code></div>
 <p>Member functions act on particular instances of a class. When you call <code>meow()</code>, you must call it with an object. During the call, <code>meow()</code> can access other members of that object. Kotlin keeps track of the object of interest by quietly passing around a reference to that object. That reference is available as the keyword <code>this</code>.</p>
 <p>Member functions have special access to other elements within a class. You can access all the members inside a class either by explicitly using the <code>this</code> keyword, or without using a dot (that is, without <em>qualifying</em> it). Here, <code>exercise()</code> calls <code>speak()</code> via <code>this</code>, and then without qualification:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// CreatingClasses/Hamster.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// CreatingClasses/Hamster.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">class</span> Hamster {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">fun</span> <span class="fu">speak</span>() = <span class="st">&quot;squeak! &quot;</span></a>
@@ -173,7 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-14" data-line-number="14">}</a>
 <a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">squeak! squeak! Running on wheel</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">*/</span></a></code></div>
 <p>In <code>exercise()</code>, the two approaches for calling the <code>speak()</code> member function are equivalent: you can either use an explicit <code>this</code> or omit it.</p>
 <p>Sometimes you’ll see code using an explicit <code>this</code> when it doesn’t need to. This often comes from programmers who are used to a different language where <code>this</code> is either required, or part of some style. Using a feature when you don’t need it tends to be confusing for anyone reading that code—they spend time trying to figure out why you’re doing it. We recommend avoiding the unnecessary use of <code>this</code>.</p>
 <p>Outside the class, you must say <code>hamster.exercise()</code> and <code>hamster.speak()</code>.</p>

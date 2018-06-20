@@ -96,14 +96,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Calling Java libraries from Kotlin is intentionally very easy.</p>
 </blockquote>
 <p>To use a Java library class from Kotlin, just import it as you would in Java, create an instance, and call a function:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// fromkotlin/Random.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// fromkotlin/Random.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">import</span> <span class="im">java.util.*</span></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="kw">val</span> <span class="va">rand</span> = Random(<span class="dv">47</span>)</a>
 <a class="sourceLine" id="cb1-7" data-line-number="7">  rand.nextInt(<span class="dv">100</span>) eq <span class="dv">58</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-8" data-line-number="8">}</a></code></div>
 <p>As with creating any instance in Kotlin, you don’t need Java’s <code>new</code>. A class from a Java library works just like a native Kotlin class.</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">

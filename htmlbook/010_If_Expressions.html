@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>An <em>if expression</em> makes a choice.</p>
 </blockquote>
 <p>The <code>if</code> keyword checks an expression to see whether it’s <code>true</code> or <code>false</code> and performs an action based on the result. A true-or-false expression is called a <em>Boolean</em>, after the mathematician George Boole who invented the logic behind such expressions. Here’s a simple conditional that uses the <code>&gt;</code> (greater than) sign and shows Kotlin’s <code>if</code> keyword:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// IfExpressions/If1.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// IfExpressions/If1.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="cf">if</span> (<span class="dv">1</span> &gt; <span class="dv">0</span>)</a>
@@ -107,10 +107,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">It&#39;s true!</span></a>
 <a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">10 &lt; 11</span></a>
 <a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">ten is less than eleven</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">*/</span></a></code></div>
 <p>The expression inside the parentheses after the <code>if</code> must evaluate to <code>true</code> or <code>false</code>. If it is <code>true</code>, the following expression is executed. If you need to execute multiple lines, place them within curly braces.</p>
 <p>We can create a Boolean expression separately from where it is used:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// IfExpressions/If2.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// IfExpressions/If2.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">val</span> <span class="va">x</span>: <span class="kw">Boolean</span> = <span class="dv">1</span> &gt;= <span class="dv">1</span></a>
@@ -119,11 +119,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-7" data-line-number="7">}</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">It&#39;s true!</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">*/</span></a></code></div>
 <p>Because <code>x</code> is <code>Boolean</code>, the <code>if</code> can test it directly by saying <code>if(x)</code>.</p>
 <p>The Boolean <code>&gt;=</code> operator returns <code>true</code> if the expression on the left side of the operator is <em>greater than or equal</em> to that on the right. Likewise, <code>&lt;=</code> returns <code>true</code> if the expression on the left side is <em>less than or equal</em> to that on the right.</p>
 <p>The <code>else</code> keyword allows you to respond to both <code>true</code> and <code>false</code> paths:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// IfExpressions/If3.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// IfExpressions/If3.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">val</span> <span class="va">n</span>: <span class="kw">Int</span> = <span class="dv">-11</span></a>
@@ -134,9 +134,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-9" data-line-number="9">}</a>
 <a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">It&#39;s negative or zero</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">*/</span></a></code></div>
 <p>The <code>else</code> keyword is only used in conjunction with <code>if</code>. You are not limited to a single check—you can test multiple combinations by combining <code>else</code> and <code>if</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// IfExpressions/If4.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// IfExpressions/If4.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">val</span> <span class="va">n</span>: <span class="kw">Int</span> = <span class="dv">-11</span></a>
@@ -149,11 +149,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-11" data-line-number="11">}</a>
 <a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">It&#39;s negative</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">*/</span></a></code></div>
 <p>Here we use <code>==</code> to check two numbers for equality. To test for inequality, use <code>!=</code>.</p>
 <p>The typical pattern is to start with <code>if</code>, followed by as many <code>else if</code> clauses as you need, ending with a final <code>else</code> for anything that doesn’t match all the previous tests. When an <code>if</code> expression reaches a certain size and complexity you’ll probably want to use the <code>when</code> expression instead. <code>when</code> is described later in the book, in <a target="_blank" href="038_when_Expressions.html"><code>when</code> Expressions</a>.</p>
 <p>To test for the opposite of a Boolean expression, use the “not” operator <code>!</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// IfExpressions/If5.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// IfExpressions/If5.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="kw">val</span> <span class="va">y</span>: <span class="kw">Boolean</span> = <span class="kw">false</span></a>
@@ -162,10 +162,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-7" data-line-number="7">}</a>
 <a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">!y is true</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">*/</span></a></code></div>
 <p>You say <code>if(!y)</code> as “if not y.”</p>
 <p>The entire <code>if</code> is an expression, so it can produce a result:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// IfExpressions/If6.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// IfExpressions/If6.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="kw">val</span> <span class="va">result</span> = <span class="cf">if</span> (<span class="dv">99</span> &gt; <span class="dv">100</span>) <span class="dv">4</span> <span class="cf">else</span> <span class="dv">42</span></a>
@@ -173,9 +173,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-6" data-line-number="6">}</a>
 <a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">42</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">*/</span></a></code></div>
 <p>Let’s practice creating functions by writing one that takes a Boolean argument:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// IfExpressions/TrueOrFalse.kt</span></a>
+<div class="sourceCode" id="cb7"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// IfExpressions/TrueOrFalse.kt</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">trueOrFalse</span>(<span class="va">exp</span>: <span class="dt">Boolean</span>): <span class="dt">String</span> {</a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="cf">if</span> (exp)</a>
@@ -191,13 +191,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">It&#39;s true!</span></a>
 <a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co">It&#39;s false</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">*/</span></a></code></div>
 <ul>
 <li><strong>[1]</strong> Notice that <code>return</code> is not restricted to the end of the function. It says, “Leave this function and return this value.” The rest of the function after the <code>return</code> statement won’t be executed.</li>
 </ul>
 <p>The Boolean argument <code>exp</code> is passed to the function <code>trueOrFalse()</code>. If the argument is passed as an expression, such as <code>b &lt; 3</code>, that expression is first evaluated and the result is passed to the function. Here, <code>exp</code> is tested and if it is <code>true</code>, the following line is executed.</p>
 <p>Rather than using <code>return</code> as in the previous example, it’s more common to use the <code>else</code> keyword to produce the result as an expression:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// IfExpressions/OneOrTheOther.kt</span></a>
+<div class="sourceCode" id="cb8"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// IfExpressions/OneOrTheOther.kt</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">oneOrTheOther</span>(<span class="va">exp</span>: <span class="dt">Boolean</span>): <span class="dt">String</span> =</a>
 <a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="cf">if</span> (exp)</a>
@@ -213,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">True!</span></a>
 <a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co">False</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">*/</span></a></code></div>
 <p>Instead of writing the two expressions inside <code>trueOrFalse()</code>, <code>oneOrTheOther()</code> is now defined as a single expression. The result of that expression is the result of the function, so the <code>if</code> expression becomes the function body.</p>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.

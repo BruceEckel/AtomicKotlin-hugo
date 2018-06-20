@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Languages without support for default arguments often use overloading to imitate that feature.</p>
 </blockquote>
 <p>The term <em>overload</em> refers to the name of a function: You use the same name (“overload” that name) for different functions as long as the argument lists differ. Here, we overload the member function <code>f()</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Overloading/Overloading.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Overloading/Overloading.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">class</span> Overloading {</a>
@@ -105,7 +105,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="kw">val</span> <span class="va">o</span> = Overloading()</a>
 <a class="sourceLine" id="cb1-11" data-line-number="11">  o.f() eq <span class="dv">0</span></a>
 <a class="sourceLine" id="cb1-12" data-line-number="12">  o.f(<span class="dv">11</span>) eq <span class="dv">13</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-13" data-line-number="13">}</a></code></div>
 <p>In <code>Overloading</code>, you see two functions with the same name, <code>f()</code>. The function’s <em>signature</em> consists of the name, argument list and return type. Kotlin distinguishes one function from another by comparing signatures. When overloading functions, the argument lists must be unique—you cannot overload on return types.</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">

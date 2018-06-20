@@ -96,49 +96,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If any information here isn’t clear to you, study the associated atom for that topic—the sub-headings correspond to atom titles.</p>
 <h2 id="hello-world">Hello, World!</h2>
 <p>Kotlin supports both <code>//</code> single-line comments, and <code>/*</code>-to-<code>*/</code> multiline comments. A program’s entry point is the function <code>main()</code> which requires the following function signature:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Summary1/Hello.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Summary1/Hello.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  println(<span class="st">&quot;Hello, world!&quot;</span>)</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5">}</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">Hello, world!</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">*/</span></a></code></div>
 <p>The first line of each example in this book is a comment containing the name of the atom’s subdirectory, a <code>/</code>, and the name of the file. You can find all the extracted code examples via <em>AtomicScala.com</em>.</p>
 <p>Kotlin puts the type of an identifier after that identifier and a colon. The required argument (<code>args</code>) for <code>main()</code> is of type <code>Array&lt;String&gt;</code>.</p>
 <p><code>println()</code> is a standard library function which takes a single <code>String</code> argument (or an argument that can be converted to a <code>String</code>). <code>println()</code> moves the cursor to a new line after displaying its argument, while <code>print()</code> leaves the cursor on the same line.</p>
 <p>Kotlin does not require a semicolon at the end of an expression, only to separate multiple expressions or statements on a single line.</p>
 <h2 id="val-var-data-types"><code>val</code>, <code>var</code>, &amp; Data Types</h2>
 <p>To create an unchanging identifier, use the <code>val</code> keyword followed by the identifier name, a colon, and the type for that value. Next, use an equals sign and whatever you’re assigning to the <code>val</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">val</span> <span class="va">identifier</span>: Type = initialization</a></code></pre></div>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">val</span> <span class="va">identifier</span>: Type = initialization</a></code></div>
 <p>Once a <code>val</code> is assigned, it cannot be reassigned.</p>
 <p>Kotlin’s <em>type inference</em> can usually determine the type automatically, based on the initialization value. This produces a simpler definition:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">val</span> <span class="va">identifier</span> = initialization</a></code></pre></div>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">val</span> <span class="va">identifier</span> = initialization</a></code></div>
 <p>Thus, both of the following are valid:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">val</span> <span class="va">daysInFebruary</span> = <span class="dv">28</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">val</span> <span class="va">daysInMarch</span>: <span class="kw">Int</span> = <span class="dv">31</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">val</span> <span class="va">daysInFebruary</span> = <span class="dv">28</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">val</span> <span class="va">daysInMarch</span>: <span class="kw">Int</span> = <span class="dv">31</span></a></code></div>
 <p>A <code>var</code> (variable) definition looks the same, using <code>var</code> instead of <code>val</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">var</span> <span class="va">identifier1</span> = initialization</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">var</span> <span class="va">identifier2</span>: Type = initialization</a></code></pre></div>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">var</span> <span class="va">identifier1</span> = initialization</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">var</span> <span class="va">identifier2</span>: Type = initialization</a></code></div>
 <p>Unlike a <code>val</code>, you can modify a <code>var</code>, so the following is legal:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">var</span> <span class="va">hoursSpent</span> = <span class="dv">20</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">hoursSpent = <span class="dv">25</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">var</span> <span class="va">hoursSpent</span> = <span class="dv">20</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">hoursSpent = <span class="dv">25</span></a></code></div>
 <p>However, the <em>type</em> can’t be changed, so you get an error if you say:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1">hoursSpent = <span class="fl">30.5</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1">hoursSpent = <span class="fl">30.5</span></a></code></div>
 <p>Kotlin infers the <code>Int</code> type when <code>hoursSpent</code> is defined, so it won’t accept the change to a floating-point value.</p>
 <h2 id="functions">Functions</h2>
 <p>The basic named subroutine in Kotlin is the <em>function</em>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">functionName</span>(<span class="va">arg1</span>: <span class="dt">Type1</span>, <span class="va">arg2</span>: <span class="dt">Type2</span>, ...): <span class="dt">ReturnType</span> {</a>
+<div class="sourceCode" id="cb8"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">functionName</span>(<span class="va">arg1</span>: <span class="dt">Type1</span>, <span class="va">arg2</span>: <span class="dt">Type2</span>, ...): <span class="dt">ReturnType</span> {</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="co">// Lines of code ...</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="kw">return</span> result</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">}</a></code></pre></div>
+<a class="sourceLine" id="cb8-4" data-line-number="4">}</a></code></div>
 <p>The <code>fun</code> keyword is followed by the function name and the argument list in parentheses. Each argument must have an explicit type, because Kotlin cannot infer argument types. The function itself has a type, defined in the same way as a type for a <code>var</code> or <code>val</code>: a colon followed by the return type. A function’s type is the type of the returned result.</p>
 <p>The function signature is followed by the function body surrounded by curly braces. The <code>return</code> statement provides the function’s return value.</p>
 <p>You can use an abbreviated syntax if the function consists of a single expression:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">functionName</span>(<span class="va">arg1</span>: <span class="dt">Type1</span>, <span class="va">arg2</span>: <span class="dt">Type2</span>, ...): <span class="dt">ReturnType</span> = result</a></code></pre></div>
+<div class="sourceCode" id="cb9"><code class="sourceCode kotlin"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">functionName</span>(<span class="va">arg1</span>: <span class="dt">Type1</span>, <span class="va">arg2</span>: <span class="dt">Type2</span>, ...): <span class="dt">ReturnType</span> = result</a></code></div>
 <p>Instead of an opening curly brace, you see an equals sign followed by the result expression. When using this syntax you can omit the return type and the compiler will infer it.</p>
 <p>Here’s a function that produces the cube of its argument, and another one that adds an exclamation point to a <code>String</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">// Summary1/BasicFunctions.kt</span></a>
+<div class="sourceCode" id="cb10"><code class="sourceCode kotlin"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">// Summary1/BasicFunctions.kt</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">cube</span>(<span class="va">x</span>: <span class="dt">Int</span>): <span class="dt">Int</span> {</a>
 <a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="kw">return</span> x * x * x</a>
@@ -153,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb10-13" data-line-number="13"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb10-14" data-line-number="14"><span class="co">27</span></a>
 <a class="sourceLine" id="cb10-15" data-line-number="15"><span class="co">pop!</span></a>
-<a class="sourceLine" id="cb10-16" data-line-number="16"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb10-16" data-line-number="16"><span class="co">*/</span></a></code></div>
 <p><code>cube()</code> has a block body with an explicit <code>return</code> statement. <code>bang()</code>’s body is a single expression that produces the function’s return value. The <code>String</code> return type of <code>bang()</code> is inferred by the compiler.</p>
 <h2 id="booleans">Booleans</h2>
 <p>Kotlin provides standard operators from Boolean algebra:</p>
@@ -162,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>&amp;&amp;</code> (and) returns <code>true</code> only if <em>both</em> conditions are <code>true</code>.</p></li>
 <li><p><code>||</code> (or) returns <code>true</code> if at least one of the conditions is <code>true</code>.</p></li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// Summary1/Booleans.kt</span></a>
+<div class="sourceCode" id="cb11"><code class="sourceCode kotlin"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// Summary1/Booleans.kt</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="kw">val</span> <span class="va">hour</span> = <span class="dv">6</span></a>
@@ -180,11 +180,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb11-16" data-line-number="16"><span class="co">Open: false</span></a>
 <a class="sourceLine" id="cb11-17" data-line-number="17"><span class="co">Not open: true</span></a>
 <a class="sourceLine" id="cb11-18" data-line-number="18"><span class="co">Closed: true</span></a>
-<a class="sourceLine" id="cb11-19" data-line-number="19"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-19" data-line-number="19"><span class="co">*/</span></a></code></div>
 <p>Look at <code>isOpen</code>’s initializer—the <code>&amp;&amp;</code> checks to see whether both conditions are <code>true</code>. Since the first condition <code>hour &gt;= opens</code> is <code>false</code> (6 am is too early), the result of the whole expression becomes <code>false</code>. On the contrary, <code>isClosed</code> is <code>true</code> if at least one of the conditions is <code>true</code>. Because <code>hour &lt; opens</code> is <code>true</code>, the whole condition is <code>true</code>.</p>
 <h2 id="if-expressions"><code>if</code> Expressions</h2>
 <p>An <code>if</code> expression produces a result, which can be assigned to a <code>var</code> or <code>val</code>. Here you also see the use of the <code>else</code> keyword:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co">// Summary1/IfResult.kt</span></a>
+<div class="sourceCode" id="cb12"><code class="sourceCode kotlin"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co">// Summary1/IfResult.kt</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb12-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="kw">val</span> <span class="va">result</span> = <span class="cf">if</span> (<span class="dv">99</span> &lt; <span class="dv">100</span>) <span class="dv">4</span> <span class="cf">else</span> <span class="dv">42</span></a>
@@ -192,9 +192,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb12-6" data-line-number="6">}</a>
 <a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">4</span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">*/</span></a></code></div>
 <p>Either branch of a <code>if</code> expression can be a multiline block of code, surrounded by curly braces:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">// Summary1/IfExpression.kt</span></a>
+<div class="sourceCode" id="cb13"><code class="sourceCode kotlin"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">// Summary1/IfExpression.kt</span></a>
 <a class="sourceLine" id="cb13-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb13-4" data-line-number="4">  <span class="kw">val</span> <span class="va">activity</span> = <span class="st">&quot;swimming&quot;</span></a>
@@ -216,12 +216,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb13-20" data-line-number="20"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb13-21" data-line-number="21"><span class="co">Operating hours: 9 - 20</span></a>
 <a class="sourceLine" id="cb13-22" data-line-number="22"><span class="co">true</span></a>
-<a class="sourceLine" id="cb13-23" data-line-number="23"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb13-23" data-line-number="23"><span class="co">*/</span></a></code></div>
 <p>A value defined inside a block of code, such as <code>opens</code>, is not accessible outside the scope of that block. Because they are defined <em>globally</em> to the <code>if</code> expression, <code>activity</code> and <code>hour</code> are accessible inside the <code>if</code> expression.</p>
 <p>The result of the <code>if</code> expression is the result of the last expression of the chosen branch; here, it’s <code>hour &gt;= opens &amp;&amp; hour &lt;= closes</code> which is <code>true</code>.</p>
 <h2 id="string-templates">String templates</h2>
 <p>You can insert a value within a string using string templates. Use a <code>$</code> before the identifier name:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">// Summary1/StrTemplates.kt</span></a>
+<div class="sourceCode" id="cb14"><code class="sourceCode kotlin"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">// Summary1/StrTemplates.kt</span></a>
 <a class="sourceLine" id="cb14-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb14-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="kw">val</span> <span class="va">answer</span> = <span class="dv">42</span></a>
@@ -235,14 +235,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co">Found 42!</span></a>
 <a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co">a</span></a>
 <a class="sourceLine" id="cb14-14" data-line-number="14"><span class="co">printing a $1</span></a>
-<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">*/</span></a></code></div>
 <ul>
 <li><p><strong>[1]</strong> <code>$answer</code> substitutes the value contained in <code>answer</code>.</p></li>
 <li><p><strong>[2]</strong> <code>${if(condition) 'a' else 'b'}</code> evaluates and substitutes the result of the expression inside <code>${}</code>.</p></li>
 <li><p><strong>[3]</strong> If the <code>$</code> is followed by anything unrecognizable as a program identifier, nothing special happens.</p></li>
 </ul>
 <p>Use triple-quoted strings to store multiline text or text with special characters:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">// Summary1/ThreeQuotes.kt</span></a>
+<div class="sourceCode" id="cb15"><code class="sourceCode kotlin"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">// Summary1/ThreeQuotes.kt</span></a>
 <a class="sourceLine" id="cb15-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb15-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">json</span>(<span class="va">q</span>: <span class="dt">String</span>, <span class="va">a</span>: <span class="dt">Int</span>) = <span class="st">&quot;&quot;&quot;{</span></a>
 <a class="sourceLine" id="cb15-4" data-line-number="4"><span class="st">  &quot;question&quot; : &quot;$q&quot;,</span></a>
@@ -257,11 +257,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb15-13" data-line-number="13"><span class="co">  &quot;question&quot; : &quot;The Ultimate&quot;,</span></a>
 <a class="sourceLine" id="cb15-14" data-line-number="14"><span class="co">  &quot;answer&quot; : 42</span></a>
 <a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co">}</span></a>
-<a class="sourceLine" id="cb15-16" data-line-number="16"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb15-16" data-line-number="16"><span class="co">*/</span></a></code></div>
 <p>You don’t need to escape special characters like <code>&quot;</code> within a triple-quoted string. (In a regular string you write <code>\&quot;</code> to insert a double quote). As with normal strings, you can insert an identifier or an expression using <code>$</code> inside a triple-quoted string.</p>
 <h2 id="number-types">Number types</h2>
 <p>Kotlin distinguishes integer types (<code>Int</code>, <code>Long</code>) and floating point types (<code>Double</code>). A whole number constant is <code>Int</code> by default, <code>Long</code> if you append an <code>L</code>, and <code>Double</code> if it contains a decimal point:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co">// Summary1/NumberTypes.kt</span></a>
+<div class="sourceCode" id="cb16"><code class="sourceCode kotlin"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co">// Summary1/NumberTypes.kt</span></a>
 <a class="sourceLine" id="cb16-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb16-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb16-4" data-line-number="4">  <span class="kw">val</span> <span class="va">n</span> = <span class="dv">1000</span>    <span class="co">// Int</span></a>
@@ -271,9 +271,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb16-8" data-line-number="8">}</a>
 <a class="sourceLine" id="cb16-9" data-line-number="9"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb16-10" data-line-number="10"><span class="co">1000 1000 1000.0</span></a>
-<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="co">*/</span></a></code></div>
 <p>An <code>Int</code> holds values between -2<sup>31</sup> and +2<sup>31</sup>-1. Integral values can overflow; for example, adding anything to <code>Int.MAX_VALUE</code> produces an overflow:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">// Summary1/Overflow.kt</span></a>
+<div class="sourceCode" id="cb17"><code class="sourceCode kotlin"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">// Summary1/Overflow.kt</span></a>
 <a class="sourceLine" id="cb17-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb17-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb17-4" data-line-number="4">  println(<span class="kw">Int</span>.MAX_VALUE + <span class="dv">1</span>)</a>
@@ -282,11 +282,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb17-7" data-line-number="7"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb17-8" data-line-number="8"><span class="co">-2147483648</span></a>
 <a class="sourceLine" id="cb17-9" data-line-number="9"><span class="co">2147483648</span></a>
-<a class="sourceLine" id="cb17-10" data-line-number="10"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb17-10" data-line-number="10"><span class="co">*/</span></a></code></div>
 <p>In the second <code>println()</code> statement we append <code>L</code> to <code>1</code>, forcing the whole expression to be of type <code>Long</code>, which avoids the overflow.</p>
 <p>When you divide an <code>Int</code> with another <code>Int</code>, Kotlin produces an <code>Int</code> result, and any remainder is truncated. So <code>1/2</code> produces <code>0</code>. If a <code>Double</code> is involved, the <code>Int</code> is <em>promoted</em> to <code>Double</code> before the operation, so <code>1.0/2</code> produces <code>0.5</code>.</p>
 <p>You might expect <code>d1</code> in the following to produce <code>3.4</code>:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co">// Summary1/Truncation.kt</span></a>
+<div class="sourceCode" id="cb18"><code class="sourceCode kotlin"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co">// Summary1/Truncation.kt</span></a>
 <a class="sourceLine" id="cb18-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb18-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb18-4" data-line-number="4">  <span class="kw">val</span> <span class="va">d1</span>: <span class="kw">Double</span> = <span class="fl">3.0</span> + <span class="dv">2</span> / <span class="dv">5</span></a>
@@ -297,16 +297,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb18-9" data-line-number="9"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb18-10" data-line-number="10"><span class="co">3.0</span></a>
 <a class="sourceLine" id="cb18-11" data-line-number="11"><span class="co">3.4</span></a>
-<a class="sourceLine" id="cb18-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb18-12" data-line-number="12"><span class="co">*/</span></a></code></div>
 <p>It doesn’t: Because of evaluation order, Kotlin first divides <code>2</code> by <code>5</code>, and integer math produces <code>0</code>, yielding an answer of <code>3.0</code>. The same evaluation order <em>does</em> produce the expected result for <code>d2</code>. <code>2.0</code> divided by <code>5</code> produces <code>0.4</code>. The <code>3</code> is promoted to a <code>Double</code> because we add it to a <code>Double</code> (<code>0.4</code>), which produces <code>3.4</code>.</p>
 <p>Understanding evaluation order helps you to decipher what a program does, both with logical operations (Boolean expressions) and with mathematical operations. If you’re not sure what order Kotlin will evaluate expressions, use parentheses to force your intention. This also makes it clear to those reading your code.</p>
 <h2 id="repetition-with-while">Repetition with <code>while</code></h2>
 <p>The <code>while</code> keyword loops as long as a controlling <em>Boolean-expression</em> continues to produce <code>true</code>:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="cf">while</span> (<span class="kw">Boolean</span>-expression) {</a>
+<div class="sourceCode" id="cb19"><code class="sourceCode kotlin"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="cf">while</span> (<span class="kw">Boolean</span>-expression) {</a>
 <a class="sourceLine" id="cb19-2" data-line-number="2">  <span class="co">// Code to be repeated</span></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3">}</a></code></pre></div>
+<a class="sourceLine" id="cb19-3" data-line-number="3">}</a></code></div>
 <p>The <em>Boolean expression</em> is evaluated once at the beginning of the loop and again before each further iteration through the block.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">// Summary1/While.kt</span></a>
+<div class="sourceCode" id="cb20"><code class="sourceCode kotlin"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">// Summary1/While.kt</span></a>
 <a class="sourceLine" id="cb20-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">testCondition</span>(<span class="va">i</span>: <span class="dt">Int</span>) = i &lt; <span class="dv">100</span></a>
 <a class="sourceLine" id="cb20-4" data-line-number="4"></a>
@@ -319,15 +319,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb20-11" data-line-number="11">}</a>
 <a class="sourceLine" id="cb20-12" data-line-number="12"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb20-13" data-line-number="13"><span class="co">..........</span></a>
-<a class="sourceLine" id="cb20-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb20-14" data-line-number="14"><span class="co">*/</span></a></code></div>
 <p>The compiler infers <code>Boolean</code> as the result type for <code>test_condition()</code>.</p>
 <p>The short versions of assignment operators are available for all mathematical operations (<code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>). Kotlin also supports the increment and decrement operators <code>++</code> and <code>--</code>, in both prefix and postfix form.</p>
 <p><code>while</code> can be used with the <code>do</code> keyword:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="cf">do</span> {</a>
+<div class="sourceCode" id="cb21"><code class="sourceCode kotlin"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="cf">do</span> {</a>
 <a class="sourceLine" id="cb21-2" data-line-number="2">  <span class="co">// Code to be repeated</span></a>
-<a class="sourceLine" id="cb21-3" data-line-number="3">} <span class="cf">while</span> (<span class="kw">Boolean</span>-expression)</a></code></pre></div>
+<a class="sourceLine" id="cb21-3" data-line-number="3">} <span class="cf">while</span> (<span class="kw">Boolean</span>-expression)</a></code></div>
 <p>Rewriting <code>While.kt</code>:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co">// Summary1/DoWhile.kt</span></a>
+<div class="sourceCode" id="cb22"><code class="sourceCode kotlin"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co">// Summary1/DoWhile.kt</span></a>
 <a class="sourceLine" id="cb22-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb22-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb22-4" data-line-number="4">  <span class="kw">var</span> <span class="va">i</span> = <span class="dv">0</span></a>
@@ -338,11 +338,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb22-9" data-line-number="9">}</a>
 <a class="sourceLine" id="cb22-10" data-line-number="10"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb22-11" data-line-number="11"><span class="co">..........</span></a>
-<a class="sourceLine" id="cb22-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb22-12" data-line-number="12"><span class="co">*/</span></a></code></div>
 <p>The sole difference between <code>while</code> and <code>do-while</code> is that the body of the <code>do- while</code> always executes at least once, even if the Boolean expression produces <code>false</code> the first time.</p>
 <h2 id="looping-and-ranges">Looping and Ranges</h2>
 <p>Many programming languages containing the <code>for</code> keyword often index into an iterable object by counting through integers. Instead, Kotlin’s <code>for</code> focuses on iterable objects like ranges and strings. For example, this <code>for</code> selects each character in the string <code>&quot;Kotlin&quot;</code>:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co">// Summary1/StringIteration.kt</span></a>
+<div class="sourceCode" id="cb23"><code class="sourceCode kotlin"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co">// Summary1/StringIteration.kt</span></a>
 <a class="sourceLine" id="cb23-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb23-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb23-4" data-line-number="4">  <span class="cf">for</span> (c <span class="kw">in</span> <span class="st">&quot;Kotlin&quot;</span>) {</a>
@@ -353,10 +353,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb23-9" data-line-number="9">}</a>
 <a class="sourceLine" id="cb23-10" data-line-number="10"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb23-11" data-line-number="11"><span class="co">K o t l i n</span></a>
-<a class="sourceLine" id="cb23-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb23-12" data-line-number="12"><span class="co">*/</span></a></code></div>
 <p><code>c</code> can’t be explicitly defined as either a <code>var</code> or <code>val</code>—Kotlin automatically makes it a <code>val</code>.</p>
 <p>You can step through integral values using ranges:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co">// Summary1/RangeOfInt.kt</span></a>
+<div class="sourceCode" id="cb24"><code class="sourceCode kotlin"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co">// Summary1/RangeOfInt.kt</span></a>
 <a class="sourceLine" id="cb24-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb24-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb24-4" data-line-number="4">  <span class="cf">for</span> (i <span class="kw">in</span> <span class="dv">1</span>..<span class="dv">10</span>)</a>
@@ -364,11 +364,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb24-6" data-line-number="6">}</a>
 <a class="sourceLine" id="cb24-7" data-line-number="7"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb24-8" data-line-number="8"><span class="co">1 2 3 4 5 6 7 8 9 10</span></a>
-<a class="sourceLine" id="cb24-9" data-line-number="9"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb24-9" data-line-number="9"><span class="co">*/</span></a></code></div>
 <p>Creating a range with <code>..</code> includes both bounds, but <code>until</code> excludes the top endpoint: <code>1 until 10</code> is the same as <code>1..9</code>. You can specify an increment value using <code>step</code>: <code>1..21 step 3</code>.</p>
 <h2 id="the-in-keyword">The <code>in</code> Keyword</h2>
 <p>The same <code>in</code> that provides <code>for</code> loop iteration also allows you to check membership in a range. <code>!in</code> tells if the tested value <em>isn’t</em> in the range:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co">// Summary1/Membership.kt</span></a>
+<div class="sourceCode" id="cb25"><code class="sourceCode kotlin"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co">// Summary1/Membership.kt</span></a>
 <a class="sourceLine" id="cb25-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb25-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">inNumRange</span>(<span class="va">n</span>: <span class="dt">Int</span>) = n <span class="kw">in</span> <span class="dv">50</span>..<span class="dv">100</span></a>
 <a class="sourceLine" id="cb25-4" data-line-number="4"></a>
@@ -389,7 +389,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb25-19" data-line-number="19"><span class="co">100 true</span></a>
 <a class="sourceLine" id="cb25-20" data-line-number="20"><span class="co">K true</span></a>
 <a class="sourceLine" id="cb25-21" data-line-number="21"><span class="co">k false</span></a>
-<a class="sourceLine" id="cb25-22" data-line-number="22"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb25-22" data-line-number="22"><span class="co">*/</span></a></code></div>
 <p><code>in</code> can also be used to test membership in floating-point ranges, although such ranges can only be defined using <code>..</code> and not <code>until</code>.</p>
 <h2 id="expression-statements">Expression &amp; Statements</h2>
 <p>The smallest useful fragment of code in most programming languages is either a <em>statement</em> or an <em>expression</em>. These have one simple difference:</p>
@@ -401,12 +401,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>That is, an expression produces a result, while a statement does not. Because it doesn’t return anything, a statement must change the state of its surroundings (that is, create a <em>side effect</em>) to do anything useful.</p>
 <p>Almost everything in Kotlin is an expression:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">val</span> <span class="va">hours</span> = <span class="dv">10</span></a>
+<div class="sourceCode" id="cb26"><code class="sourceCode kotlin"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">val</span> <span class="va">hours</span> = <span class="dv">10</span></a>
 <a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw">val</span> <span class="va">minutesPerHour</span> = <span class="dv">60</span></a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="kw">val</span> <span class="va">minutes</span> = hours * minutesPerHour</a></code></pre></div>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="kw">val</span> <span class="va">minutes</span> = hours * minutesPerHour</a></code></div>
 <p>In each case, everything to the right of the <code>=</code> is an expression, which produces a result that is assigned to the identifier on the left.</p>
 <p>Some functions, like <code>println()</code>, don’t seem to produce a result, but because they are still expressions, they must return <em>something</em>. Kotlin has a special <code>Unit</code> type for these:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co">// Summary1/UnitReturn.kt</span></a>
+<div class="sourceCode" id="cb27"><code class="sourceCode kotlin"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co">// Summary1/UnitReturn.kt</span></a>
 <a class="sourceLine" id="cb27-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb27-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb27-4" data-line-number="4">  <span class="kw">val</span> <span class="va">result</span> = println(<span class="st">&quot;returns Unit&quot;</span>)</a>
@@ -415,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb27-7" data-line-number="7"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb27-8" data-line-number="8"><span class="co">returns Unit</span></a>
 <a class="sourceLine" id="cb27-9" data-line-number="9"><span class="co">kotlin.Unit</span></a>
-<a class="sourceLine" id="cb27-10" data-line-number="10"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb27-10" data-line-number="10"><span class="co">*/</span></a></code></div>
 <p>Experienced programmers should go to <a target="_blank" href="033_Summary_2.html">Summary 2</a> after working the exercises for this atom.</p>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.

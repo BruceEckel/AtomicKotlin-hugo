@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This feature defines helper functions indistinguishable from built-in language syntax. Such functions make it easy to create <em>domain-specific languages</em> (DSLs), covered later in <a target="_blank" href="093_Domain_Specific_Languages.html">Domain-Specific Languages</a>.</p>
 </blockquote>
 <p>The Kotlin standard library contains numerous useful helper functions. For example, <code>StringBuilder</code> is a modifiable object that builds a <code>String</code>. You can append <code>String</code> representations of different objects, and it returns an immutable <code>String</code> when you call <code>toString()</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// LambdaWithReceiver/StringBuilder.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// LambdaWithReceiver/StringBuilder.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -103,7 +103,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-8" data-line-number="8">    stringBuilder.append(ch)           <span class="co">// [3]</span></a>
 <a class="sourceLine" id="cb1-9" data-line-number="9">  stringBuilder.toString() eq          <span class="co">// [4]</span></a>
 <a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="st">&quot;Alphabet: abcdefghijklmnopqrstuvwxyz&quot;</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-11" data-line-number="11">}</a></code></div>
 <p><code>append()</code> automatically calls <code>toString()</code> on its argument and appends the result.</p>
 <p><code>StringBuilder</code> uses the <em>Builder</em> design pattern. When you want to build objects of a specific <code>X</code> type, the <em>Builder</em> pattern delegates the construction logic to an <code>XBuilder</code> class. This pattern works well when you can’t or don’t want to add modifying methods to <code>X</code>: when <code>X</code> is either immutable, or constructed once and allows only limited modifications.</p>
 <p><code>StringBuilder.kt</code> is simple, but somewhat verbose: we must repeat the name <code>stringBuilder</code> multiple times. Moreover, for each new case we also repeat the lines that create <code>StringBuilder</code> and produce the result (lines <strong>[1]</strong> and <strong>[4]</strong>), while what really differs in each case is what we append to <code>stringBuilder</code> (lines <strong>[2]</strong> and <strong>[3]</strong>).</p>

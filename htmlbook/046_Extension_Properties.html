@@ -93,9 +93,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Just as functions can be extension functions, properties can be <em>extension properties</em>.</p>
 </blockquote>
 <p>The receiver type specification for extension properties is similar to the syntax for extension functions—the type comes right before the function or property name:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">ReceiverType</span>.<span class="fu">extensionFunction</span>() { ... }</a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">ReceiverType</span>.<span class="fu">extensionFunction</span>() { ... }</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">val</span> <span class="va">ReceiverType</span>.extensionProperty: PropType</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="kw">get</span>() { ... }</a></code></pre></div>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="kw">get</span>() { ... }</a></code></div>
 <p>An extension property requires a custom getter. Since extensions don’t belong to the class they extend, they don’t have the necessary access to store the value of the extension property—thus there can be no <code>set()</code>. The property value must be computed during each access:</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">

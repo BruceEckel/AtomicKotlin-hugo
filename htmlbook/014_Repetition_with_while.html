@@ -93,11 +93,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Computers are excellent at performing repetitious tasks—so you don’t have to.</p>
 </blockquote>
 <p>The most basic form of repetition uses the <code>while</code> keyword. This loops over the same block as long as a controlling <em>Boolean expression</em> continues to produce <code>true</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">while</span> (<span class="kw">Boolean</span>-expression) {</a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">while</span> (<span class="kw">Boolean</span>-expression) {</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="co">// Code to be repeated</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-3" data-line-number="3">}</a></code></div>
 <p>The Boolean expression is evaluated once at the beginning of the loop and again before each further iteration through the block.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// RepetitionWithWhile/WhileLoop.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// RepetitionWithWhile/WhileLoop.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">condition</span>(<span class="va">i</span>: <span class="dt">Int</span>) = i &lt; <span class="dv">100</span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"></a>
@@ -110,19 +110,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-11" data-line-number="11">}</a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">..........</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">*/</span></a></code></div>
 <p>In <code>condition()</code>, the comparison operator <code>&lt;</code> produces a <code>Boolean</code> result, so the compiler infers <code>Boolean</code> as the result type for <code>condition()</code>.</p>
 <p>The conditional expression for the <code>while</code> says: “repeat the statements in the body as long as <code>condition()</code> returns <code>true</code>.”</p>
 <ul>
 <li><strong>[1]</strong> The <code>+=</code> operator adds <code>10</code> to <code>i</code> and assigns the result to <code>i</code> in a single operation. This is equivalent to:</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1">i = i + <span class="dv">10</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1">i = i + <span class="dv">10</span></a></code></div>
 <p>There’s a second way to use <code>while</code>, in conjunction with the <code>do</code> keyword:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="cf">do</span> {</a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="cf">do</span> {</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="co">// Code to be repeated</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">} <span class="cf">while</span> (<span class="kw">Boolean</span>-expression)</a></code></pre></div>
+<a class="sourceLine" id="cb4-3" data-line-number="3">} <span class="cf">while</span> (<span class="kw">Boolean</span>-expression)</a></code></div>
 <p>Rewriting <code>WhileLoop.kt</code> to use a <code>do-while</code> produces:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// RepetitionWithWhile/DoWhileLoop.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// RepetitionWithWhile/DoWhileLoop.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="kw">var</span> <span class="va">i</span> = <span class="dv">0</span></a>
@@ -133,10 +133,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-9" data-line-number="9">}</a>
 <a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">..........</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">*/</span></a></code></div>
 <p>The sole difference between <code>while</code> and <code>do-while</code> is that the body of the <code>do- while</code> always executes at least once, even if the Boolean expression evaluates to <code>false</code> the first time. In a <code>while</code>, if the conditional is <code>false</code> the first time, then the body never executes. In practice, <code>do-while</code> is less common than <code>while</code>.</p>
 <p>The short versions of assignment operators are available for all mathematical operations (<code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>). Here, we see <code>-=</code> and <code>%=</code> in use:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// RepetitionWithWhile/AssignmentOperators.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// RepetitionWithWhile/AssignmentOperators.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="kw">var</span> <span class="va">n</span> = <span class="dv">10</span></a>
@@ -156,10 +156,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">10 - 3 - 3 - 3 = 1</span></a>
 <a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">10 % 3 = 1</span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">*/</span></a></code></div>
 <p>We find the remainder of the integer division of two natural numbers by first using a <code>while</code> loop, then using the remainder operator.</p>
 <p>Adding <code>1</code> and subtracting <code>1</code> from a number are so common that they have their own increment and decrement operators: <code>++</code> and <code>--</code>. You can replace <code>i += 1</code> with <code>i++</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// RepetitionWithWhile/IncrementOperator.kt</span></a>
+<div class="sourceCode" id="cb7"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// RepetitionWithWhile/IncrementOperator.kt</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="kw">var</span> <span class="va">i</span> = <span class="dv">0</span></a>
@@ -170,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb7-9" data-line-number="9">}</a>
 <a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">....</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">*/</span></a></code></div>
 <p>In practice, <code>while</code> loops are not used for iterating over a range of numbers. The <code>for</code> loop is used instead. This is covered in the next atom.</p>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.

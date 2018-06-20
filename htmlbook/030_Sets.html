@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A <code>Set</code> is a collection that allows only one element of each value, and automatically prevents duplicates.</p>
 </blockquote>
 <p>The most common <code>Set</code> activity is to test for membership using <code>in</code> or <code>contains()</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Sets/Sets.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Sets/Sets.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -127,7 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-32" data-line-number="32">    setOf(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb1-33" data-line-number="33">  <span class="kw">set</span> - setOf(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">10</span>) eq</a>
 <a class="sourceLine" id="cb1-34" data-line-number="34">    setOf(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb1-35" data-line-number="35">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-35" data-line-number="35">}</a></code></div>
 <p>This example shows:</p>
 <ol type="1">
 <li><p>Placing duplicate items into a <code>Set</code> automatically removes those duplicates.</p></li>
@@ -137,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Set difference can be expressed with either <code>subtract()</code> or the minus operator (<code>-</code>).</p></li>
 </ol>
 <p>To remove duplicates from a <code>List</code>, convert it to a <code>Set</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Sets/RemoveDuplicates.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Sets/RemoveDuplicates.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -146,10 +146,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-7" data-line-number="7">  list.distinct() eq listOf(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9">  <span class="st">&quot;abbcc&quot;</span>.toSet() eq setOf(<span class="ch">&#39;a&#39;</span>, <span class="ch">&#39;b&#39;</span>, <span class="ch">&#39;c&#39;</span>)</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">}</a></code></pre></div>
+<a class="sourceLine" id="cb2-10" data-line-number="10">}</a></code></div>
 <p>Alternatively, you can use <code>distinct()</code>, which returns a <code>List</code>. You may call <code>toSet()</code> on a <code>String</code> to convert it into a set of characters.</p>
 <p>As with <code>List</code>, Kotlin provides two creation functions for <code>Set</code>. <code>setOf()</code> is read-only. To create a mutable <code>Set</code>, use <code>mutableSetOf()</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Sets/MutableSet.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Sets/MutableSet.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -159,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="kw">set</span> eq setOf(<span class="dv">42</span>)</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="kw">set</span> -= <span class="dv">42</span></a>
 <a class="sourceLine" id="cb3-10" data-line-number="10">  <span class="kw">set</span> eq setOf&lt;<span class="kw">Int</span>&gt;()</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">}</a></code></pre></div>
+<a class="sourceLine" id="cb3-11" data-line-number="11">}</a></code></div>
 <p>The operators <code>+=</code> and <code>-=</code> add and remove elements to <code>Set</code>s, just as with <code>List</code>s.</p>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.

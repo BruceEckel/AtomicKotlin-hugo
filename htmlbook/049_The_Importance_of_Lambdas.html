@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Lambdas can seem like syntactic sugar, but they provide important power to your programming.</p>
 </blockquote>
 <p>Code often manipulates the contents of a collection, and typically repeats these manipulations with minor modifications. Consider selecting elements from a collection, such as people under a given age, employees with a specific role, citizens of a particular city, or unfinished orders. Here’s an example that selects even numbers from a list. Suppose we don’t have a rich library of functions for working with collections—we’d have to implement our own <code>filterEven()</code> operation:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// ImportanceOfLambdas/FilterEven.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// ImportanceOfLambdas/FilterEven.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">filterEven</span>(<span class="va">nums</span>: <span class="dt">List</span>&lt;<span class="va">Int</span>&gt;): <span class="dt">List</span>&lt;<span class="dt">Int</span>&gt; {</a>
@@ -107,7 +107,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-12" data-line-number="12"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-13" data-line-number="13">  filterEven(listOf(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)) eq</a>
 <a class="sourceLine" id="cb1-14" data-line-number="14">  listOf(<span class="dv">2</span>, <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-15" data-line-number="15">}</a></code></div>
 <p>If an element has a remainder of 0 when divided by 2, it’s appended to the result.</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">

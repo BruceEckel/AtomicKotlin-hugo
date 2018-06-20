@@ -96,7 +96,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This atom covers the basics of <em>exceptions</em> as an error-reporting mechanism. Later in the book, in <a target="_blank" href="087_Exception_Handling.html">Exception Handling</a>, <a target="_blank" href="088_Error_Reporting.html">Error Reporting</a>, <a target="_blank" href="089_Logging.html">Logging</a>, and <a target="_blank" href="090_Unit_Testing.html">Unit Testing</a>, we’ll look at other ways to discover problems in your code.</p>
 <p>It’s important to distinguish an exceptional condition from a normal problem, in which you have enough information in the current context to cope with the difficulty. With an exceptional condition, you cannot continue processing. All you can do is leave, relegating the problem to an external context. This is what happens when you <em>throw an exception</em>. The exception is the object that is “thrown” from the site of the error.</p>
 <p>Consider <code>toInt()</code>, which converts a <code>String</code> to an <code>Int</code>. What happens if you call this function for a <code>String</code> that doesn’t contain an integer value?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Exceptions/ToIntException.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Exceptions/ToIntException.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">erroneousCode</span>() {</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="co">// Uncomment this line to get an exception:</span></a>
@@ -105,19 +105,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9">  erroneousCode()</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-10" data-line-number="10">}</a></code></div>
 <p>Uncommenting line <strong>[1]</strong> produces an exception. Here, the failing line is commented so we don’t stop the book’s build, which checks whether each example compiles and runs as expected.</p>
 <p>When an exception is thrown, the path of execution—the one that can’t be continued—stops, and the exception object ejects from the current context. Here, it exits the context of <code>erroneousCode()</code> and goes out to the context of <code>main()</code>. In this case, Kotlin only <em>reports</em> the error; the programmer has presumably made a mistake and must fix the code.</p>
 <p>When an exception isn’t caught, the program aborts and displays a <em>stack trace</em> containing detailed information. If you uncomment line <strong>[1]</strong> in <code>ToIntException.kt</code>, you’ll see the following output:</p>
-<pre class="text"><code>Exception in thread &quot;main&quot; java.lang.NumberFormatException: For input string: &quot;1$&quot;
+<code>Exception in thread &quot;main&quot; java.lang.NumberFormatException: For input string: &quot;1$&quot;
   at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
   at java.lang.Integer.parseInt(Integer.java:580)
   at java.lang.Integer.parseInt(Integer.java:615)
   at ToIntExceptionKt.erroneousCode(at ToIntException.kt:5)
-  at ToIntExceptionKt.main(at ToIntException.kt:9)</code></pre>
+  at ToIntExceptionKt.main(at ToIntException.kt:9)</code>
 <p>The stack trace gives details such as the file and line where the exception occurred, so you can quickly discover the issue. The last two lines show the problem: in line 9 of <code>main()</code> we call <code>erroneousCode()</code>. Then, more precisely, in line 5 of <code>erroneousCode()</code> we call <code>toInt()</code>. To find the source of the problem you usually need to find the line before the call into a standard library function.</p>
 <p>To avoid commenting and uncommenting code in order to display exceptions, we use a function from the <code>AtomicTest</code> package: <code>atomictest.capture()</code>. It stores the exception and compares it to what we expect:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Exceptions/IntroducingCapture.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Exceptions/IntroducingCapture.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -125,20 +125,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-6" data-line-number="6">    <span class="st">&quot;1$&quot;</span>.toInt()</a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">  } eq <span class="st">&quot;NumberFormatException: &quot;</span> +</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="st">&quot;&quot;&quot;For input string: &quot;1$&quot;&quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">}</a></code></pre></div>
+<a class="sourceLine" id="cb3-9" data-line-number="9">}</a></code></div>
 <p><code>capture()</code> produces a string containing the type of the exception together with a message describing what went wrong. <code>capture()</code> isn’t very helpful in normal programming—it’s designed specifically for this book, so that you can see the exception and know that the output has been checked by the book’s build system.</p>
 <p>Another strategy, when you can’t successfully produce the expected result, is to return <code>null</code> instead of that result. <code>null</code> is a special constant denoting “no value.” You can return <code>null</code> instead of a value of any type. Later in <a target="_blank" href="041_Nullable_Types.html">Nullable Types</a> we’ll discuss how <code>null</code> affects the type of the resulting expression.</p>
 <p>The Kotlin standard library contains <code>String.toIntOrNull()</code> which first checks whether a string contains an integer number, and then it either performs the conversion, or returns <code>null</code> if the conversion is impossible:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Exceptions/IntroducingNull.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Exceptions/IntroducingNull.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="st">&quot;1$&quot;</span>.toIntOrNull() eq <span class="kw">null</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">}</a></code></pre></div>
+<a class="sourceLine" id="cb4-6" data-line-number="6">}</a></code></div>
 <p><code>null</code> is a simple way to indicate that something went wrong. You’ll learn later in the book that it is also quite problematic, and is something you generally want to avoid.</p>
 <p>Suppose you’re doing something where you might divide by zero—before doing so, you should check for that condition. But what does it mean that the denominator is zero? Maybe you know how to deal with a zero denominator within the problem you’re trying to solve. If it’s an unexpected value, however, you cannot continue that execution path.</p>
 <p>Here we calculate an average income over a period of months:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Exceptions/AverageIncome.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Exceptions/AverageIncome.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">package</span> <span class="im">firstversion</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"></a>
@@ -150,10 +150,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-10" data-line-number="10">  capture {</a>
 <a class="sourceLine" id="cb5-11" data-line-number="11">    averageIncome(<span class="dv">5000</span>, <span class="dv">0</span>)</a>
 <a class="sourceLine" id="cb5-12" data-line-number="12">  } eq <span class="st">&quot;ArithmeticException: / by zero&quot;</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">}</a></code></pre></div>
+<a class="sourceLine" id="cb5-13" data-line-number="13">}</a></code></div>
 <p>If <code>months</code> is zero, the division in <code>averageIncome()</code> throws an <code>ArithmeticException</code>. Unfortunately, this doesn’t tell us anything about why this error occurred, what the denominator means and whether it can legally be zero in the first place. This is clearly a bug in the code. <code>averageIncome()</code> should have a strategy for a <code>months</code> of <code>0</code> that prevents a divide-by-zero error.</p>
 <p>Let’s modify <code>averageIncome()</code> to produce more information about the source of the problem. One solution is to return <code>null</code> as the result. If <code>months</code> is zero, we can’t return a regular integer value as a result, so we return <code>null</code> instead:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Exceptions/AverageIncomeWithNull.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Exceptions/AverageIncomeWithNull.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">package</span> <span class="im">withnull</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"></a>
@@ -166,10 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-11" data-line-number="11"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb6-12" data-line-number="12">  averageIncome(<span class="dv">3300</span>, <span class="dv">3</span>) eq <span class="dv">1100</span></a>
 <a class="sourceLine" id="cb6-13" data-line-number="13">  averageIncome(<span class="dv">5000</span>, <span class="dv">0</span>) eq <span class="kw">null</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">}</a></code></pre></div>
+<a class="sourceLine" id="cb6-14" data-line-number="14">}</a></code></div>
 <p>Kotlin forces you to handle <code>null</code>s to prevent subsequent indistinguishable errors. Code that uses <code>null</code> forces you to check whether a value is <code>null</code> before you can do something meaningful with it. Even if you want to simply display output to the user, it’s better to say “No full month periods have passed,” rather than “Your average income for the period is: null.”</p>
 <p>Instead of executing <code>averageIncome()</code> with the wrong arguments, you can throw an exception—escape and force some other part of the program to manage the issue. You <em>could</em> just allow <code>ArithmeticException</code> to be automatically used, but it’s more useful to throw a specific exception with a message containing as much detail as possible. When, after a couple of years in production, your application suddenly throws an exception because a new feature calls <code>averageIncome()</code> without properly checking the arguments, you’ll be grateful for that detailed message:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// Exceptions/AverageIncomeWithException.kt</span></a>
+<div class="sourceCode" id="cb7"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// Exceptions/AverageIncomeWithException.kt</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">package</span> <span class="im">properexception</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"></a>
@@ -186,7 +186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb7-15" data-line-number="15">    averageIncome(<span class="dv">5000</span>, <span class="dv">0</span>)</a>
 <a class="sourceLine" id="cb7-16" data-line-number="16">  } eq <span class="st">&quot;IllegalArgumentException: &quot;</span> +</a>
 <a class="sourceLine" id="cb7-17" data-line-number="17">    <span class="st">&quot;Months can&#39;t be zero&quot;</span></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18">}</a></code></pre></div>
+<a class="sourceLine" id="cb7-18" data-line-number="18">}</a></code></div>
 <p>Your goal is to generate the most detailed messages possible to simplify the support of your application in the future.</p>
 <p><strong>[1]</strong> shows how to throw an exception: the <code>throw</code> keyword followed by the exception to be thrown, along with any arguments it might need. Here we use the standard exception class <code>IllegalArgumentException</code>. Later we’ll show you how to define your own exception types and to make them specific to your circumstances.</p>
 <p class="copy">

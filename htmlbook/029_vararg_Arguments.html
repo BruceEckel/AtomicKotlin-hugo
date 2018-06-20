@@ -93,24 +93,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>vararg</code>s allow flexibly-sized argument lists.</p>
 </blockquote>
 <p>The <a target="_blank" href="028_Lists.html">Lists</a> atom introduced <code>listOf()</code>, which takes any number of arguments and produces a <code>List</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Varargs/ListOf.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Varargs/ListOf.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-5" data-line-number="5">  listOf(<span class="dv">1</span>) eq <span class="st">&quot;[1]&quot;</span></a>
 <a class="sourceLine" id="cb1-6" data-line-number="6">  listOf(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>) eq <span class="st">&quot;[a, b]&quot;</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-7" data-line-number="7">}</a></code></div>
 <p>Using the <code>vararg</code> keyword, you can define a function that works just like <code>listOf()</code>: it can take any number of arguments. <code>vararg</code> is short for <em>variable argument list</em>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Varargs/VariableArgLists.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Varargs/VariableArgLists.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">v</span>(<span class="va">s</span>: <span class="dt">String</span>, <span class="kw">vararg</span> <span class="va">d</span>: <span class="dt">Double</span>) {}</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb2-6" data-line-number="6">  v(<span class="st">&quot;abc&quot;</span>, <span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">3.0</span>, <span class="fl">4.0</span>)</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">}</a></code></pre></div>
+<a class="sourceLine" id="cb2-7" data-line-number="7">}</a></code></div>
 <p>A function definition may specify only one argument as <code>vararg</code>. Although it’s possible to specify any item in the argument list as <code>vararg</code>, it’s usually simplest to do it for the last one.</p>
 <p><code>vararg</code> allows you to pass any number (including zero) of arguments of the specified type. The <code>vararg</code> arguments are accessed using the argument name, which becomes an <code>Array</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Varargs/VarargSum.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Varargs/VarargSum.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">sum</span>(<span class="kw">vararg</span> <span class="va">numbers</span>: <span class="dt">Int</span>): <span class="dt">Int</span> {</a>
@@ -124,10 +124,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-12" data-line-number="12">  sum(<span class="dv">13</span>, <span class="dv">27</span>, <span class="dv">44</span>) eq <span class="dv">84</span></a>
 <a class="sourceLine" id="cb3-13" data-line-number="13">  sum(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>) eq <span class="dv">36</span></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14">  sum() eq <span class="dv">0</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">}</a></code></pre></div>
+<a class="sourceLine" id="cb3-15" data-line-number="15">}</a></code></div>
 <p>We’ve been using <code>Array</code> throughout the book because it’s part of the standard way to define <code>main()</code>. <code>Array</code>s and <code>List</code>s have very similar interfaces, but are implemented differently—<code>List</code> is a regular library class while <code>Array</code> has special low-level support. In day-to-day programming, you’ll just use a <code>List</code> whenever you need a simple sequence; <code>Array</code> is used mainly in mixed Kotlin and Java projects, when Java code expects or returns <code>Array</code>s.</p>
 <p>Because <code>List</code> and <code>Array</code> are very similar, in most cases you can just ignore the fact that <code>vararg</code> produces an <code>Array</code> and just treat it as if it were a <code>List</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Varargs/VarargLikeList.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Varargs/VarargLikeList.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">checkOperations</span>(<span class="kw">vararg</span> <span class="va">ints</span>: <span class="dt">Int</span>) {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  println(<span class="st">&quot;Size: ${ints.size}&quot;</span>)</a>
@@ -146,9 +146,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">Min: -3</span></a>
 <a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">Max: 10</span></a>
 <a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">Average: 5.0</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">*/</span></a></code></div>
 <p>You can pass an <code>Array</code> of elements wherever a <code>vararg</code> is accepted. To create an array, use <code>arrayOf()</code> in the same way you use <code>listOf()</code>. Note that an <code>Array</code> is always mutable. To convert an <code>Array</code> into a sequence of arguments (not just a single element of type <code>Array</code>), use the <em>spread operator</em>, <code>*</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Varargs/SpreadOperator.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Varargs/SpreadOperator.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -159,11 +159,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="kw">val</span> <span class="va">list</span> = listOf(<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>)</a>
 <a class="sourceLine" id="cb5-11" data-line-number="11">  sum(*list.toIntArray()) eq <span class="dv">30</span>  <span class="co">// [2]</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">}</a></code></pre></div>
+<a class="sourceLine" id="cb5-12" data-line-number="12">}</a></code></div>
 <p>If you pass an array of primitive types (like <code>Int</code>, <code>Double</code> or <code>Boolean</code>) as in the example above, the <code>Array</code> creation function must be specifically typed. If you choose <code>arrayOf(4, 5)</code> instead of <code>intArrayOf(4, 5)</code>, the line <code>[1]</code> will produce an error complaining that <strong><em>inferred type is Array<Int> but IntArray was expected</em></strong>.</p>
 <p>The spread operator only works with arrays. If you have a <code>List</code> that you want to pass as a sequence of arguments, first convert it to an array and then apply the spread operator, as in <strong>[2]</strong>. Because the result is an array of a primitive type, we must again use the specific conversion function <code>toIntArray()</code>.</p>
 <p>The spread operator is especially helpful when you must pass <code>vararg</code> arguments to another function that also expects <code>vararg</code>s:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Varargs/TwoFunctionsWithVarargs.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Varargs/TwoFunctionsWithVarargs.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">first</span>(<span class="kw">vararg</span> <span class="va">numbers</span>: <span class="dt">Int</span>) {</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="cf">for</span> (i <span class="kw">in</span> numbers) {</a>
@@ -179,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-14" data-line-number="14">}</a>
 <a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">[7][9][32]</span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">*/</span></a></code></div>
 <p><code>List</code> and <code>Array</code> appear to have similar functionality—why are there two types? This comes from Kotlin’s requirement of compatibility with other languages, Java in particular. Choose <code>List</code>s by default when you need a sequence of elements. Use <code>Array</code>s only when a third-party API requests an <code>Array</code> from you, or you’re dealing with <code>vararg</code>s.</p>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.

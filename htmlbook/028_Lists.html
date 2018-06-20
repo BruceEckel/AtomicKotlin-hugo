@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A <code>List</code> is a <em>container</em>—something that holds other objects.</p>
 </blockquote>
 <p>Containers are also called <em>collections</em>. <code>List</code>s are part of the standard Kotlin package so they’re available without any imports. In the following example, we create a <code>List</code> populated with <code>Int</code>s by calling the function <code>listOf()</code> with initialization values:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Lists/Lists.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Lists/Lists.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -109,14 +109,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-14" data-line-number="14"></a>
 <a class="sourceLine" id="cb1-15" data-line-number="15">  <span class="co">// &quot;[]&quot; is &quot;Indexing&quot;:</span></a>
 <a class="sourceLine" id="cb1-16" data-line-number="16">  ints[<span class="dv">4</span>] eq <span class="dv">11</span>                        <span class="co">// [3]</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-17" data-line-number="17">}</a></code></div>
 <ul>
 <li><p><strong>[1]</strong> Displaying a <code>List</code> uses square brackets in the output.</p></li>
 <li><p><strong>[2]</strong> <code>for</code> loops work well with <code>List</code>s: <code>for(i in ints)</code> means <code>i</code> gets each value in <code>ints</code>. You don’t even declare <code>val i</code> or give its type; Kotlin knows from the context that <code>i</code> is a <code>for</code> loop identifier, and takes care of it for you.</p></li>
 <li><p><strong>[3]</strong> Square brackets are used to <em>index</em> into the <code>List</code>. A <code>List</code> keeps its elements in initialization order, and you select them individually by number. Like most programming languages, Kotlin starts indexing at element zero, which in this case produces the value <code>99</code>. Thus, the index of <code>4</code> produces a value of <code>11</code>.</p></li>
 </ul>
 <p>Forgetting that indexing starts at zero is responsible for the so-called <em>off-by-one</em> error. If you try to use an index beyond the last element in the <code>List</code>, Kotlin will throw an exception to inform you that something has gone wrong. The exception will display an error message telling you it’s an <code>IndexOutOfBoundsException</code> so you can figure out what the problem is:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Lists/OutOfBounds.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Lists/OutOfBounds.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.*</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -124,10 +124,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-6" data-line-number="6">  capture {</a>
 <a class="sourceLine" id="cb2-7" data-line-number="7">    ints[<span class="dv">3</span>]</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8">  } eq <span class="st">&quot;ArrayIndexOutOfBoundsException: 3&quot;</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">}</a></code></pre></div>
+<a class="sourceLine" id="cb2-9" data-line-number="9">}</a></code></div>
 <p>In a language like Kotlin we often don’t select elements one at a time, but instead <em>iterate</em> through a whole container using <code>in</code>—an approach that eliminates off-by-one errors.</p>
 <p><code>List</code> can hold all different types. Here, we create a <code>List</code> of <code>Double</code>s and a <code>List</code> of <code>String</code>s:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Lists/ListUsefulFunction.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Lists/ListUsefulFunction.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -147,11 +147,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-18" data-line-number="18">  strings.first() eq <span class="st">&quot;Twas&quot;</span></a>
 <a class="sourceLine" id="cb3-19" data-line-number="19">  strings.takeLast(<span class="dv">2</span>) eq</a>
 <a class="sourceLine" id="cb3-20" data-line-number="20">    listOf(<span class="st">&quot;Slithy&quot;</span>, <span class="st">&quot;Toves&quot;</span>)</a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">}</a></code></pre></div>
+<a class="sourceLine" id="cb3-21" data-line-number="21">}</a></code></div>
 <p>This shows some of <code>List</code>’s operations. Note the name “sorted” instead of “sort.” When you call <code>sorted()</code> it <em>produces</em> a new <code>List</code> containing the same elements as the old, in sorted order—but it leaves the original <code>List</code> alone. Calling it “sort” implies that the original <code>List</code> is changed directly (a.k.a. <em>sorted in place</em>). Throughout Kotlin, you see this tendency of “leaving the original object alone and producing a new object.” <code>reversed()</code> produces a new <code>List</code> as well, ordered end to beginning.</p>
 <h2 id="parameterized-types">Parameterized Types</h2>
 <p>We consider it a good idea to let Kotlin infer types whenever possible. It tends to make the code cleaner and easier to read. Sometimes, however, Kotlin can’t figure out what type to use (if so, it complains) and we must help. In other cases, you have some reason that you want to be explicit about the type, for readability’s sake. For example, here’s how we explicitly tell Kotlin the type contained in a <code>List</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Lists/ParameterizedTypes.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Lists/ParameterizedTypes.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -165,12 +165,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-12" data-line-number="12">    listOf(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>)</a>
 <a class="sourceLine" id="cb4-13" data-line-number="13">  numbers eq numbers2</a>
 <a class="sourceLine" id="cb4-14" data-line-number="14">  strings eq strings2</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15">}</a></code></pre></div>
+<a class="sourceLine" id="cb4-15" data-line-number="15">}</a></code></div>
 <p>The initialization values tell the Kotlin compiler that <code>numbers</code> contains a <code>List</code> of <code>Int</code>s, while <code>strings</code> contains a <code>List</code> of <code>String</code>s, so it infers those types.</p>
 <p><code>numbers2</code> and <code>strings2</code> are explicitly-typed versions of <code>numbers</code> and <code>strings</code>. On the left sides we add colons and the type declarations <code>List&lt;Int&gt;</code> and <code>List&lt;String&gt;</code>. The angle brackets are new here; they denote a <em>type parameter</em>, allowing us to say, “the container holds objects of the type ‘parameter’.” You typically pronounce <code>List&lt;Int&gt;</code> as “list of <code>Int</code>.”</p>
 <p>Type parameters are useful for elements other than containers, but you often see them with container-like objects. In this book we normally use <code>List</code> as a basic container.</p>
 <p>Return values can also have type parameters:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Lists/ParameterizedReturn.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// Lists/ParameterizedReturn.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">// Return type is inferred:</span></a>
@@ -184,12 +184,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-12" data-line-number="12"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb5-13" data-line-number="13">  inferred(<span class="ch">&#39;a&#39;</span>, <span class="ch">&#39;b&#39;</span>) eq <span class="st">&quot;[a, b]&quot;</span></a>
 <a class="sourceLine" id="cb5-14" data-line-number="14">  explicit(<span class="ch">&#39;y&#39;</span>, <span class="ch">&#39;z&#39;</span>) eq <span class="st">&quot;[y, z]&quot;</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15">}</a></code></pre></div>
+<a class="sourceLine" id="cb5-15" data-line-number="15">}</a></code></div>
 <p>Kotlin infers the return type for <code>inferred()</code>. The definition of <code>explicit()</code> specifies the function return type. You can’t just say it returns a <code>List</code>; Kotlin will complain, so you must give the type parameter as well. When you specify the return type of a function, Kotlin enforces your intention.</p>
 <h2 id="read-only-and-mutable-lists">Read-only and Mutable Lists</h2>
 <p>If you don’t explicitly say you want a mutable <code>List</code>, you won’t get one. <code>listOf()</code> produces a read-only list without mutating functions.</p>
 <p>If you’re creating a list gradually (you don’t have all the elements at creation time), call <code>mutableListOf()</code>. This produces a <code>MutableList</code> which can be modified:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Lists/MutableList.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// Lists/MutableList.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -202,10 +202,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-11" data-line-number="11">  list += listOf(<span class="dv">5</span>, <span class="dv">6</span>)</a>
 <a class="sourceLine" id="cb6-12" data-line-number="12"></a>
 <a class="sourceLine" id="cb6-13" data-line-number="13">  list eq listOf(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">}</a></code></pre></div>
+<a class="sourceLine" id="cb6-14" data-line-number="14">}</a></code></div>
 <p>You can add elements to a <code>MutableList</code> using <code>add()</code> and <code>addAll()</code>, or the shortcut <code>+=</code> which adds a single element or another collection. Because <code>list</code> is given no initial elements, we must tell the compiler what type it is with the <code>&lt;Int&gt;</code> specification.</p>
 <p>A <code>MutableList</code> can be treated as a <code>List</code>, in which case it cannot be changed. You can’t, however, treat a read-only <code>List</code> as a <code>MutableList</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// Lists/MutListIsList.kt</span></a>
+<div class="sourceCode" id="cb7"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// Lists/MutListIsList.kt</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">getList</span>(): <span class="dt">List</span>&lt;<span class="dt">Int</span>&gt; {</a>
@@ -217,10 +217,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb7-10" data-line-number="10">  <span class="kw">val</span> <span class="va">list</span> = getList()</a>
 <a class="sourceLine" id="cb7-11" data-line-number="11">  <span class="co">// list += 3 // Error</span></a>
 <a class="sourceLine" id="cb7-12" data-line-number="12">  list eq listOf(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">}</a></code></pre></div>
+<a class="sourceLine" id="cb7-13" data-line-number="13">}</a></code></div>
 <p>Note that <code>list</code> lacks mutation functions despite being originally created using <code>mutableListOf()</code> inside <code>getList()</code>. As <code>getList()</code> returns the result, the type becomes a <code>List&lt;Int&gt;</code>. The original object is still a <code>MutableList</code>, but it is viewed through the lens of a <code>List</code>.</p>
 <p>A <code>List</code> is <em>read-only</em>—you can read its contents but not write to it. If the underlying implementation is a <code>MutableList</code> and you retain a mutable reference to that implementation, you can still modify it via that mutable reference, and any read-only references will see those changes. This is another example of the problem of <em>aliasing</em>, which was introduced in <a target="_blank" href="024_Constraining_Visibility.html">Constraining Visibility</a>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// Lists/MultipleListRefs.kt</span></a>
+<div class="sourceCode" id="cb8"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// Lists/MultipleListRefs.kt</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -231,7 +231,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb8-9" data-line-number="9">  first += <span class="dv">2</span></a>
 <a class="sourceLine" id="cb8-10" data-line-number="10">  <span class="co">// second sees the change:</span></a>
 <a class="sourceLine" id="cb8-11" data-line-number="11">  second eq listOf(<span class="dv">1</span>, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">}</a></code></pre></div>
+<a class="sourceLine" id="cb8-12" data-line-number="12">}</a></code></div>
 <p><code>first</code> is an immutable reference (<code>val</code>) to the mutable object produced by <code>mutableListOf(1)</code>. <code>second</code> is aliased to <code>first</code>. <code>second</code> is a reference to a read-only view of that same object; read-only because <code>List&lt;Int&gt;</code> does not include any modification functions. Note that, without the <code>List&lt;Int&gt;</code> type declaration, Kotlin would infer that <code>second</code> was also a reference to a mutable object.</p>
 <p>We’re able to add one more element (<code>2</code>) to the object through the <code>first</code> reference, because <code>first</code> is a reference to a mutable list. Note that <code>second</code> observes these changes—it cannot change the list itself, even though the list does change.</p>
 <p class="copy">

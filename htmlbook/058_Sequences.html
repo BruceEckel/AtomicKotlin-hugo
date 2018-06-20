@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A Kotlin <code>Sequence</code> is like a <code>List</code>, but you can <em>only</em> iterate through a <code>Sequence</code>—you cannot index into a <code>Sequence</code>. This restriction enables a <code>Sequence</code> to very efficiently perform chained operations.</p>
 </blockquote>
 <p>Operations on <code>List</code>s are performed <em>eagerly</em>—they always happen right away. For a long chain of <code>List</code> operations, the subsequent operation is started only after the previous result is produced. Here, every element in <code>list</code> is taken through the entire chain of operations:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Sequences/EagerEvaluation.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Sequences/EagerEvaluation.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">atomictest.eq</span></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -109,7 +109,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-14" data-line-number="14">  <span class="kw">val</span> <span class="va">mid2</span> = mid1.map { it * it }</a>
 <a class="sourceLine" id="cb1-15" data-line-number="15">  mid2 eq listOf(<span class="dv">4</span>, <span class="dv">16</span>)</a>
 <a class="sourceLine" id="cb1-16" data-line-number="16">  mid2.any { it &lt; <span class="dv">10</span> } eq <span class="kw">true</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-17" data-line-number="17">}</a></code></div>
 <p>Eager evaluation is intuitive and straightforward, but can be suboptimal. Because the last operation in <code>EagerEvaluation.kt</code> is <code>any()</code>, it would make more sense to stop after the first matching element is found. For a long sequence, this optimization might be much faster than evaluating every element and then searching for a single match.</p>
 <p><strong>End of sample. See <a href="http://atomickotlin.com/earlyaccess/">AtomicKotlin.com</a> for full early-access book.</strong></p>
 <p class="copy">

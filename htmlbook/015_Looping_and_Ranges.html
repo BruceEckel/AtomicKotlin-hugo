@@ -93,10 +93,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>for</code> keyword repeats a loop by iterating over a sequence of values.</p>
 </blockquote>
 <p>This set of values can be a range of integers, a string, or, as we’ll see later in the book, a collection of items. We use the <code>in</code> keyword to indicate stepping through values:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">for</span> (v <span class="kw">in</span> values)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">for</span> (v <span class="kw">in</span> values)</a></code></div>
 <p>Each time through the loop, <code>v</code> is given the next element in <code>values</code>.</p>
 <p>Here, a <code>for</code> loop repeats an action a fixed number of times:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// ForAndRanges/RepeatThreeTimes.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// ForAndRanges/RepeatThreeTimes.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="cf">for</span> (i <span class="kw">in</span> <span class="dv">1</span>..<span class="dv">3</span>)</a>
@@ -106,10 +106,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">Hey 1!</span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">Hey 2!</span></a>
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">Hey 3!</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">*/</span></a></code></div>
 <p>The output shows the index <code>i</code> receiving each value in the range from 1 to 3. Each of these values is used in the loop.</p>
 <p>A <em>range</em> is an interval of values defined by a pair of endpoints. There are two main ways to define ranges:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// ForAndRanges/DefiningRanges.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// ForAndRanges/DefiningRanges.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">val</span> <span class="va">range1</span> = <span class="dv">1</span>..<span class="dv">10</span>             <span class="co">// [1]</span></a>
@@ -120,14 +120,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">1..10</span></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">0..9</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">*/</span></a></code></div>
 <ul>
 <li><p><strong>[1]</strong> When you use <code>..</code> syntax to declare a range, both bounds are included within the range.</p></li>
 <li><p><strong>[2]</strong> Use <code>until</code> to exclude the end. Here, <code>10</code> is not part of the range, as you can see in the output.</p></li>
 </ul>
 <p>Printing a range conveniently displays the range in a readable format.</p>
 <p>Here, we sum the numbers from 10 to 100:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// ForAndRanges/SumUsingRange.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// ForAndRanges/SumUsingRange.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">var</span> <span class="va">sum</span> = <span class="dv">0</span></a>
@@ -137,9 +137,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-8" data-line-number="8">}</a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">sum = 5005</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">*/</span></a></code></div>
 <p>You can iterate over a range with a step or in reverse order:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// ForAndRanges/ForWithRanges.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// ForAndRanges/ForWithRanges.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">showRange</span>(<span class="va">r</span>: <span class="dt">IntProgression</span>) {</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="cf">for</span> (i <span class="kw">in</span> r)</a>
@@ -163,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">0 2 4 6 8     // 0..8 step 2</span></a>
 <a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">0 3 6 9     // 0..9 step 3</span></a>
 <a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">9 6 3     // 9 downTo 3 step 3</span></a>
-<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">*/</span></a></code></div>
 <ul>
 <li><p><strong>[1]</strong> <code>downTo</code> produces a decreasing range.</p></li>
 <li><p><strong>[2]</strong> You can specify a step to traverse a range. Here, the range steps by a value of two instead of one.</p></li>
@@ -171,7 +171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>In each case, the sequence of numbers form an arithmetic progression, so <code>showRange()</code> accepts an <code>IntProgression</code> argument, which is a general type that includes <code>Int</code> ranges.</p>
 <p>You can iterate over a range of characters. Here, we iterate from <code>a</code> to <code>z</code> using <code>for</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// ForAndRanges/ForWithCharRange.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// ForAndRanges/ForWithCharRange.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="cf">for</span> (c <span class="kw">in</span> <span class="ch">&#39;a&#39;</span>..<span class="ch">&#39;z&#39;</span>)</a>
@@ -179,10 +179,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-6" data-line-number="6">}</a>
 <a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">abcdefghijklmnopqrstuvwxyz</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">*/</span></a></code></div>
 <p>You can iterate over a range of elements which are whole quantities, like integers and characters, but not floating-point values.</p>
 <p>Square brackets access characters by index. Because we start counting characters in a string at zero, <code>s[0]</code> selects the first character of the string <code>s</code>. <code>s.lastIndex</code> produces the final index number:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// ForAndRanges/IndexIntoString.kt</span></a>
+<div class="sourceCode" id="cb7"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// ForAndRanges/IndexIntoString.kt</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="kw">val</span> <span class="va">s</span> = <span class="st">&quot;abc&quot;</span></a>
@@ -191,10 +191,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb7-7" data-line-number="7">}</a>
 <a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">bcd</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">*/</span></a></code></div>
 <p>Sometimes people say <code>s[0]</code> more precisely as “the zeroth character.”</p>
 <p>Characters are stored as numbers corresponding to their <a href="https://en.wikipedia.org/wiki/ASCII">ASCII codes</a>, so adding an integer to a character produces a new character corresponding to the new code value:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// ForAndRanges/AddingIntToChar.kt</span></a>
+<div class="sourceCode" id="cb8"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">// ForAndRanges/AddingIntToChar.kt</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="kw">val</span> <span class="va">ch</span>: <span class="kw">Char</span> = <span class="ch">&#39;a&#39;</span></a>
@@ -204,10 +204,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">z</span></a>
 <a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">true</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">*/</span></a></code></div>
 <p>The second <code>println()</code> shows that you can compare character codes.</p>
 <p>A <code>for</code> loop can iterate over strings directly:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">// ForAndRanges/IterateOverString.kt</span></a>
+<div class="sourceCode" id="cb9"><code class="sourceCode kotlin"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">// ForAndRanges/IterateOverString.kt</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="cf">for</span> (ch <span class="kw">in</span> <span class="st">&quot;Jnskhm &quot;</span>)</a>
@@ -215,10 +215,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb9-6" data-line-number="6">}</a>
 <a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">Kotlin!</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">*/</span></a></code></div>
 <p>When you iterate over a string, <code>ch</code> receives each character in turn.</p>
 <p>The function <code>hasChar()</code> below iterates over the string <code>s</code> and checks whether it contains a given character <code>ch</code>. The <code>return</code> in the middle of the function stops the function when the answer is found:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">// ForAndRanges/HasChar.kt</span></a>
+<div class="sourceCode" id="cb10"><code class="sourceCode kotlin"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">// ForAndRanges/HasChar.kt</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">hasChar</span>(<span class="va">s</span>: <span class="dt">String</span>, <span class="va">ch</span>: <span class="dt">Char</span>): <span class="dt">Boolean</span> {</a>
 <a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="cf">for</span> (c <span class="kw">in</span> s)</a>
@@ -234,10 +234,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb10-14" data-line-number="14"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb10-15" data-line-number="15"><span class="co">true</span></a>
 <a class="sourceLine" id="cb10-16" data-line-number="16"><span class="co">false</span></a>
-<a class="sourceLine" id="cb10-17" data-line-number="17"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb10-17" data-line-number="17"><span class="co">*/</span></a></code></div>
 <p>The next atom shows that <code>hasChar()</code> is unnecessary—you can use built-in syntax instead.</p>
 <p>If you simply want to repeat an action a fixed number of times, you may use <code>repeat</code> instead of a <code>for</code> loop:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// ForAndRanges/Repeat.kt</span></a>
+<div class="sourceCode" id="cb11"><code class="sourceCode kotlin"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// ForAndRanges/Repeat.kt</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb11-4" data-line-number="4">  repeat(<span class="dv">2</span>) {</a>
@@ -247,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">hi!</span></a>
 <a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">hi!</span></a>
-<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="co">*/</span></a></code></div>
 <p><code>repeat</code> is not a keyword, but rather a function from the standard library. We’ll show how it was created much later in the book.</p>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.

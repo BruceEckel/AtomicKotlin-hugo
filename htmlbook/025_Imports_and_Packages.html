@@ -94,11 +94,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>Duplicating code is not just extra work—it also creates multiple identical pieces of code that you must change whenever you make fixes or improvements. Every duplication is a place to make another mistake.</p>
 <p>Kotlin’s <code>import</code> reuses code from other files. One way to use <code>import</code> is to specify a class, function or property name:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">import</span> <span class="im">packagename.ClassName</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">import</span> <span class="im">packagename.ClassName</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">import</span> <span class="im">packagename.functionName</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">import</span> <span class="im">packagename.propertyName</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">import</span> <span class="im">packagename.propertyName</span></a></code></div>
 <p>A <em>package</em> is an associated collection of code; each package is usually designed to solve a particular problem, and often contains multiple functions and classes. For example, let’s import mathematical constants and functions from the <code>kotlin.math</code> library:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// ImportsAndPackages/ImportClass.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// ImportsAndPackages/ImportClass.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">import</span> <span class="im">kotlin.math.PI</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">import</span> <span class="im">kotlin.math.cos</span>  // <span class="im">Cosine</span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"></a>
@@ -111,9 +111,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">3.141592653589793</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">-1.0</span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">1.0</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">*/</span></a></code></div>
 <p>The <code>as</code> keyword allows you to change a name as you import it:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// ImportsAndPackages/ImportNameChange.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// ImportsAndPackages/ImportNameChange.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">import</span> <span class="im">kotlin.math.PI</span> <span class="kw">as</span> <span class="dt">circleRatio</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">import</span> <span class="im">kotlin.math.cos</span> <span class="kw">as</span> <span class="dt">cosine</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"></a>
@@ -126,10 +126,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">3.141592653589793</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">-1.0</span></a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">1.0</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">*/</span></a></code></div>
 <p>Sometimes you want to use multiple third-party libraries that contain classes or functions with the same name. The <code>as</code> keyword allows you to use these by changing names while importing. <code>as</code> is also useful if a library name is poorly chosen or excessively long.</p>
 <p>You can fully qualify an import in the body of your code. In the following example, the code might be less readable due to the explicit package names, but the origin of each element is absolutely clear:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// ImportsAndPackages/FullyQualify.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// ImportsAndPackages/FullyQualify.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  println(kotlin.math.PI)</a>
@@ -140,9 +140,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">3.141592653589793</span></a>
 <a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">-1.0</span></a>
 <a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">1.0</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">*/</span></a></code></div>
 <p>If you want to import everything from a package, use a star:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// ImportsAndPackages/ImportEverything.kt</span></a>
+<div class="sourceCode" id="cb5"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// ImportsAndPackages/ImportEverything.kt</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">import</span> <span class="im">kotlin.math.*</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -154,10 +154,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">2.718281828459045</span></a>
 <a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">3</span></a>
 <a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">2</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">*/</span></a></code></div>
 <p>Note that the <code>kotlin.math</code> package contains a convenient <code>roundToInt()</code> which rounds the <code>Double</code> value to the nearest integer, unlike <code>toInt()</code>, which simply truncates anything after a decimal point.</p>
 <p>So far in this book we haven’t reused any code from our examples, but eventually you’ll want to write code and reuse it elsewhere. To achieve this, create your own package using the <code>package</code> keyword. When you use the <code>package</code> keyword, it must be the first non-comment statement in the file. <code>package</code> is followed by the name of your package, which by convention is all lowercase:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// ImportsAndPackages/PythagoreanTheorem.kt</span></a>
+<div class="sourceCode" id="cb6"><code class="sourceCode kotlin"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">// ImportsAndPackages/PythagoreanTheorem.kt</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">package</span> <span class="im">pythagorean</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">import</span> <span class="im">kotlin.math.sqrt</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"></a>
@@ -167,10 +167,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-8" data-line-number="8">) {</a>
 <a class="sourceLine" id="cb6-9" data-line-number="9">  <span class="kw">fun</span> <span class="fu">hypotenuse</span>() = sqrt(a * a + b * b)</a>
 <a class="sourceLine" id="cb6-10" data-line-number="10">  <span class="kw">fun</span> <span class="fu">area</span>() = a * b / <span class="dv">2</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">}</a></code></pre></div>
+<a class="sourceLine" id="cb6-11" data-line-number="11">}</a></code></div>
 <p>Notice there’s no requirement to name the source-code file anything special (as there is in Java where the file name is the same as the class name).</p>
 <p>Now the elements in the <code>pythagorean</code> package are available using an <code>import</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// ImportsAndPackages/ImportPythagorean.kt</span></a>
+<div class="sourceCode" id="cb7"><code class="sourceCode kotlin"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co">// ImportsAndPackages/ImportPythagorean.kt</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">import</span> <span class="im">pythagorean.RightTriangle</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
@@ -181,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">5.0</span></a>
 <a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">6.0</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">*/</span></a></code></div>
 <p>Package names should be unique, and the convention is to incorporate the reversed-domain name of the package creator. Since our domain name is <code>AtomicKotlin.com</code>, for our package to be part of a distributed library it should be named <code>com.atomickotlin.pythagorean</code> rather than just <code>pythagorean</code>. This helps us avoid name collisions with other libraries that might also use the name <code>pythagorean</code>.</p>
 <p>Kotlin allows you to choose any name for your package, but it’s considered good style for the package name to be identical to the directory name where the package files are located (this will not always be the case for the examples in this book).</p>
 <p class="copy">

@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A <em>string template</em> concisely displays multiple elements within a string.</p>
 </blockquote>
 <p>A string template inserts an identifier’s contents into a string. To use a string template, put a <code>$</code> before the identifier name:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// StringTemplates/StringTemplates.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// StringTemplates/StringTemplates.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">val</span> <span class="va">answer</span> = <span class="dv">42</span></a>
@@ -103,13 +103,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">Found 42!</span></a>
 <a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">printing a $1</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">*/</span></a></code></div>
 <ul>
 <li><p><strong>[1]</strong> <code>$answer</code> substitutes the value of <code>answer</code>.</p></li>
 <li><p><strong>[2]</strong> If what follows the <code>$</code> isn’t recognizable as a program identifier, nothing special happens.</p></li>
 </ul>
 <p>You can also achieve this with string concatenation:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// StringTemplates/StringConcatenation.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// StringTemplates/StringConcatenation.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">val</span> <span class="va">s</span> = <span class="st">&quot;hi</span><span class="sc">\n</span><span class="st">&quot;</span>                  <span class="co">// [1]</span></a>
@@ -121,13 +121,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">first: hi</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">second: 11, third: 3.14</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">*/</span></a></code></div>
 <ul>
 <li><strong>[1]</strong> <code>\n</code> is a newline character inserted into this string.</li>
 </ul>
 <p>Here, we place <code>println()</code>’s argument on two lines to keep the code listing narrow.</p>
 <p>You can evaluate and convert an expression by placing it inside <code>${}</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// StringTemplates/ExpressionInTemplate.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// StringTemplates/ExpressionInTemplate.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">val</span> <span class="va">condition</span> = <span class="kw">true</span></a>
@@ -139,12 +139,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">a</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">11 + 4 = 15</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">*/</span></a></code></div>
 <ul>
 <li><strong>[1]</strong> <code>if(condition) 'a' else 'b'</code> is evaluated and the result is substituted for the entire <code>${}</code> expression.</li>
 </ul>
 <p>To include a special character such as a quote inside a string you can either escape the special character with <code>\</code> (<em>backslash</em>), or use a string literal in triple quotes:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// StringTemplates/TripleQuotes.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// StringTemplates/TripleQuotes.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">val</span> <span class="va">s</span> = <span class="st">&quot;value&quot;</span></a>
@@ -154,7 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">s = &quot;value&quot;.</span></a>
 <a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">s = &quot;value&quot;.</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">*/</span></a></code></div>
 <p>With triple quotes, you insert a value of an expression the same way you do it for a single-quoted string.</p>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.

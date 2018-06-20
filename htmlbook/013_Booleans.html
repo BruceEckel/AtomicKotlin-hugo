@@ -98,7 +98,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>||</code> (or): Produces <code>true</code> if either the expression on the left or right of the operator is <code>true</code>, or if both are <code>true</code>.</p></li>
 </ul>
 <p>In this example, we determine whether a business is open or closed, based on the <code>hour</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Booleans/Booleans1.kt</span></a>
+<div class="sourceCode" id="cb1"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Booleans/Booleans1.kt</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">val</span> <span class="va">hour</span> = <span class="dv">6</span></a>
@@ -115,10 +115,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">Operating hours: 9 - 20</span></a>
 <a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">Open: false</span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">*/</span></a></code></div>
 <p>The <code>if</code> expression in <strong>[1]</strong> Checks whether <code>hour</code> is between opening time and closing time, so we combine the expressions with the Boolean <code>&amp;&amp;</code> (and).</p>
 <p>The <code>if</code> expression can be simplified. The result of the expression <code>if(cond) true else false</code> is just <code>cond</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Booleans/Booleans2.kt</span></a>
+<div class="sourceCode" id="cb2"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Booleans/Booleans2.kt</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">val</span> <span class="va">hour</span> = <span class="dv">6</span></a>
@@ -131,9 +131,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">Operating hours: 9 - 20</span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">Open: false</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">*/</span></a></code></div>
 <p>Let’s reverse the logic and check whether the business is currently closed. The “or” operator <code>||</code> produces <code>true</code> if at least one of the conditions is satisfied:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Booleans/Booleans3.kt</span></a>
+<div class="sourceCode" id="cb3"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// Booleans/Booleans3.kt</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">val</span> <span class="va">hour</span> = <span class="dv">6</span></a>
@@ -146,10 +146,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">/* Output:</span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">Operating hours: 9 - 20</span></a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">Closed: true</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">*/</span></a></code></div>
 <p>Using Boolean operators you can express complicated logic in compact expressions. However, things can easily become confusing. Strive for readability and specify your intentions explicitly.</p>
 <p>Here’s an example of a complicated Boolean expression where different evaluation order produces different results:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Booleans/EvaluationOrder.kt</span></a>
+<div class="sourceCode" id="cb4"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Booleans/EvaluationOrder.kt</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">val</span> <span class="va">sunny</span> = <span class="kw">true</span></a>
@@ -177,7 +177,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">true</span></a>
 <a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">true</span></a>
 <a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co">false</span></a>
-<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">*/</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">*/</span></a></code></div>
 <p>The Boolean expressions are <code>sunny, temp &gt; 50, exercise,</code> and <code>hoursSleep &gt; 7</code>. We read <code>happy1</code> as “It’s sunny <em>and</em> the temperature is greater than 50 <em>or</em> I’ve exercised <em>and</em> had more than 7 hours of sleep.” But does <code>&amp;&amp;</code> have precedence over <code>||</code>, or the opposite?</p>
 <p>The expression in <strong>[1]</strong> uses Kotlin’s default evaluation order. This produces the same result as the expression in <strong>[2]</strong> because, without parentheses, the “ands” are evaluated first, then the “or”. The expression in <strong>[3]</strong> uses parentheses to produce a different result. In <strong>[3]</strong>, we’re only happy if we get at least 7 hours of sleep.</p>
 <p>In this case, parentheses make your intention clear to anyone who reads your code.</p>
