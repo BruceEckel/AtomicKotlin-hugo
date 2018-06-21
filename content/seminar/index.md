@@ -32,8 +32,15 @@ on the first day and sort this out.
 Because this is a first-time experimental seminar, the price is $750 if your
 company is sending you and $250 for individuals.
 
-+ **Travel, location and lodging information** can be found at the
-<a href="http://softwarearchitectureforum.com/" target="_blank">Software Architecture Forum</a> site.
++ **The
+<a href="http://softwarearchitectureforum.com/" target="_blank">Software Architecture Forum</a> site contains
+all the necessary details about your trip:**
+
+    + [Location](http://softwarearchitectureforum.com/location/)
+    + [Travel](http://softwarearchitectureforum.com/travel/)
+    + [Lodging](http://softwarearchitectureforum.com/lodging/)
+    + [Venue](http://softwarearchitectureforum.com/venue/)
+    + [Altitude](http://softwarearchitectureforum.com/altitude/)
 
 Note that the <a href="http://softwarearchitectureforum.com/"
 target="_blank">Software Architecture Forum</a> takes place the week directly
