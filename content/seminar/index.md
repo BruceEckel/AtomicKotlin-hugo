@@ -40,6 +40,29 @@ target="_blank">Software Architecture Forum</a> takes place the week directly
 after the seminar, in case you'd like to spend a second week in Crested Butte
 immersed in fun technical explorations.
 
-<br><br>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfadsecCeAkcuQI6iTPEqjsmBucV8kQNhXsU2af0-vh2K-zpg/viewform?embedded=true" width="600" height="720" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+## Registration
+
+- <p style="font-size:20px">First,
+<a href="https://join.slack.com/t/atomickotlinconf/shared_invite/enQtMzg1NjU1Mjg5ODI4LTUyZjZjZWMwY2ZlZjc1M2M5NGFlOTA1YTk3NGNjNDQzZTQxMDY2ZWJhYjdjZmZlMWJiZjk3MzhkYjgwYjZlMjY">Join the Slack Group</a>
+</p>
+
+This is the central information hub before, during and after the conference. You
+can post any questions about the conference including those about ride sharing
+and group house rentals.
+
+
+- <p style="font-size:20px">Next:
+<form action="https://ti.to/mindview/atomic-kotlin-seminar"
+      method="get" target="_blank">
+    <input type="submit" value="Registration Payment"
+         name="Submit" id="frm1_submit"
+         style="background:#1A4C7D;
+                color: white;
+                cursor:pointer;
+                font-size:20px;
+                padding: 14px 40px;
+                border-radius: 12px;"
+    />
+</form>
+</p>
 
