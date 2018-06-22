@@ -14,16 +14,16 @@ weight: 20
 <p class="toc-entry"><a target="_blank" href="../htmlbook/004_Examples_and_Exercises.html">Examples & Exercises</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/005_Section_I_Programming_Basics.html">Section I: Programming Basics</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/006_Hello_World.html">Hello, World!</a></p>
-<p class="toc-entry"><a target="_blank" href="../htmlbook/007_var_and_val.html">`var` & `val`</a></p>
+<p class="toc-entry"><a target="_blank" href="../htmlbook/007_var_and_val.html"><code>var</code> & <code>val</code></a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/008_Data_Types.html">Data Types</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/009_Functions.html">Functions</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/010_If_Expressions.html">If Expressions</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/011_String_Templates.html">String Templates</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/012_Number_Types.html">Number Types</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/013_Booleans.html">Booleans</a></p>
-<p class="toc-entry"><a target="_blank" href="../htmlbook/014_Repetition_with_while.html">Repetition with `while`</a></p>
+<p class="toc-entry"><a target="_blank" href="../htmlbook/014_Repetition_with_while.html">Repetition with <code>while</code></a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/015_Looping_and_Ranges.html">Looping & Ranges</a></p>
-<p class="toc-entry"><a target="_blank" href="../htmlbook/016_The_in_Keyword.html">The `in` Keyword</a></p>
+<p class="toc-entry"><a target="_blank" href="../htmlbook/016_The_in_Keyword.html">The <code>in</code> Keyword</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/017_Expressions_and_Statements.html">Expressions & Statements</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/018_Summary_1.html">Summary 1</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/019_Section_II_Introduction_to_Objects.html">Section II: Introduction to Objects</a></p>
@@ -36,7 +36,7 @@ weight: 20
 <p class="toc-entry"><a target="_blank" href="../htmlbook/026_Testing.html">Testing</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/027_Exceptions.html">Exceptions</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/028_Lists.html">Lists</a></p>
-<p class="toc-entry"><a target="_blank" href="../htmlbook/029_vararg_Arguments.html">`vararg` Arguments</a></p>
+<p class="toc-entry"><a target="_blank" href="../htmlbook/029_vararg_Arguments.html"><code>vararg</code> Arguments</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/030_Sets.html">Sets</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/031_Maps.html">Maps</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/032_Property_Accessors.html">Property Accessors</a></p>
@@ -45,12 +45,12 @@ weight: 20
 <p class="toc-entry"><a target="_blank" href="../htmlbook/035_Extension_Functions.html">Extension Functions</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/036_Named_and_Default_Arguments.html">Named & Default Arguments</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/037_Overloading.html">Overloading</a></p>
-<p class="toc-entry"><a target="_blank" href="../htmlbook/038_when_Expressions.html">`when` Expressions</a></p>
+<p class="toc-entry"><a target="_blank" href="../htmlbook/038_when_Expressions.html"><code>when</code> Expressions</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/039_Enumerations.html">Enumerations</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/040_Data_Classes.html">Data Classes</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/041_Nullable_Types.html">Nullable Types</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/042_Safe_Calls_and_The_Elvis_Operator.html">Safe Calls & The Elvis Operator</a></p>
-<p class="toc-entry"><a target="_blank" href="../htmlbook/043_Non_null_Assertions.html">Non-`null` Assertions</a></p>
+<p class="toc-entry"><a target="_blank" href="../htmlbook/043_Non_null_Assertions.html">Non-<code>null</code> Assertions</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/044_Extensions_for_Nullable_Types.html">Extensions for Nullable Types</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/045_Introduction_to_Generics.html">Introduction to Generics</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/046_Extension_Properties.html">Extension Properties</a></p>
@@ -63,7 +63,7 @@ weight: 20
 <p class="toc-entry"><a target="_blank" href="../htmlbook/053_Manipulating_Lists.html">Manipulating Lists</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/054_From_Lists_to_Maps.html">From Lists to Maps</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/055_Lambda_with_Receiver.html">Lambda with Receiver</a></p>
-<p class="toc-entry"><a target="_blank" href="../htmlbook/056_The_with_Function.html">The `with()` Function</a></p>
+<p class="toc-entry"><a target="_blank" href="../htmlbook/056_The_with_Function.html">The <code>with()</code> Function</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/057_Library_Helpers.html">Library Helpers</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/058_Sequences.html">Sequences</a></p>
 <p class="toc-entry"><a target="_blank" href="../htmlbook/059_More_Library_Functions.html">More Library Functions</a></p>
