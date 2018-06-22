@@ -3,6 +3,9 @@ title: Book Sample
 weight: 20
 ---
 
+### Please Note: This sample is under development and the formatting and structure are subject to change.
+(The coverage of the sample---sections I and II---will remain the same).
+
 ## Table of Contents
 
 <p class="toc-entry"><a target="_blank" href="../htmlbook/001_How_to_Use_This_Book.html">How to Use This Book</a></p>
