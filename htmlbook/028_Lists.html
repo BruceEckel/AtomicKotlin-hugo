@@ -233,7 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb8-11" data-line-number="11">  second eq listOf(<span class="dv">1</span>, <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb8-12" data-line-number="12">}</a></code></div>
 <p><code>first</code> is an immutable reference (<code>val</code>) to the mutable object produced by <code>mutableListOf(1)</code>. <code>second</code> is aliased to <code>first</code>. <code>second</code> is a reference to a read-only view of that same object; read-only because <code>List&lt;Int&gt;</code> does not include any modification functions. Note that, without the <code>List&lt;Int&gt;</code> type declaration, Kotlin would infer that <code>second</code> was also a reference to a mutable object.</p>
-<p>We’re able to add one more element (<code>2</code>) to the object through the <code>first</code> reference, because <code>first</code> is a reference to a mutable list. Note that <code>second</code> observes these changes—it cannot change the list itself, even though the list does change.</p>
+We’re able to add one more element (<code>2</code>) to the object through the <code>first</code> reference, because <code>first</code> is a reference to a mutable list. Note that <code>second</code> observes these changes—it cannot change the list itself, even though the list does change. <br><br><a href="027_Exceptions.html">Previous</a>          <a href="029_vararg_Arguments.html">Next</a><br>
 <p class="copy">
 ©2018 <a href="http://mindviewllc.com/">Mindview LLC</a>. All Rights Reserved.
 </p>
