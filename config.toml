@@ -67,15 +67,15 @@ googleAnalytics = ""
   url    = "seminar/"
   weight = 50
 
-[[menu.main]]
-  name   = "Example Source Code"
-  url    = "examples/"
-  weight = 60
-
 #[[menu.main]]
-#	name   = "Exercises & Solutions"
-#	url    = "exercises/"
-#	weight = 70
+#  name   = "Example Source Code"
+#  url    = "examples/"
+#  weight = 60
+
+[[menu.main]]
+	name   = "Exercises"
+	url    = "exercises/"
+	weight = 70
 
 [[menu.main]]
 	name   = "About"
