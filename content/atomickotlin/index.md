@@ -4,5 +4,9 @@ type: index
 weight: 10
 ---
 
-If you're on your phone, use the ![](/images/HamburgerMenu.png) menu in the
-upper-left corner for navigation.
+Atomic Kotlin is the book and associated learning resources by Bruce
+Eckel and Svetlana Isakova.
+
+Here is the current version of the cover for the (upcoming) print book:
+
+![](/images/BookCover.png)
