@@ -62,10 +62,10 @@ googleAnalytics = ""
   url    = "printbook/"
   weight = 40
 
-[[menu.main]]
-  name   = "Seminar (Aug 20-24)"
-  url    = "seminar/"
-  weight = 50
+#[[menu.main]]
+#  name   = "Seminar (Aug 20-24)"
+#  url    = "seminar/"
+#  weight = 50
 
 #[[menu.main]]
 #  name   = "Example Source Code"
