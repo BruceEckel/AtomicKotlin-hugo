@@ -29,22 +29,48 @@ for line in r.text.splitlines():
 
 githome = Path(os.environ['GIT_HOME'])
 atomickotlin = githome / "AtomicKotlin" / "MarkDown"
-hugo = githome / "AtomicKotlin-hugo" / "data"
+hugoData = githome / "AtomicKotlin-hugo" / "data"
 
 markdown = sorted([(md.name, md.name[4:-3]) for md in atomickotlin.glob("*.md")])
 
 def test(name):
     for sname, sid  in stepikLessonIDs.items():
         if sname == name:
-            return sname, sid
+            return sname, sid, sname
         if name.startswith("Section_") and name.endswith(sname):
-            return sname, sid
-    return False, False
+            return name, sid, sname
+    return False, False, False
 
 with Path('InStepik.html').open(mode='w') as f:
     for name in markdown:
-        inStepik, sid = test(name[1])
+        inStepik, sid, _ = test(name[1])
         if inStepik:
             print(f"{name[0]} : {inStepik} -> {sid}<br>", file=f)
         else:
             print(f'<span style="background-color: red">{name[0]} not in Stepik</span><br>', file=f)
+
+# for name in markdown:
+#     inStepik, sid, old = test(name[1])
+#     if inStepik:
+#         del stepikLessonIDs[old]
+#         stepikLessonIDs[inStepik] = sid
+
+mdNames = set([md[1] for md in markdown])
+
+lessonIDs = OrderedDict()
+
+for k, v in stepikLessonIDs.items():
+    if v == "0": # It's a section
+        for n in mdNames:
+            if k in n:
+                n = n.replace('_', ': ', 2)
+                n = n.replace('Section: ', 'Section ')
+                n = n.replace('_', ' ')
+                lessonIDs[n] = "0"
+    elif k in mdNames:
+        lessonIDs[k.replace('_', ' ')] = v
+
+if not hugoData.exists():
+    hugoData.mkdir()
+atoms = hugoData / "atomNames.json"
+atoms.write_text(json.dumps(lessonIDs, indent=8))
