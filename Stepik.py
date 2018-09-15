@@ -2,8 +2,6 @@ import requests
 from collections import OrderedDict
 import os
 from pathlib import Path
-import json
-from pprint import pprint
 # To use a password:
 # requests.get('raw.github.com/myfile.txt';, auth=('username', 'passwd'))
 # ghusername = os.environ['GHUSER']
@@ -20,12 +18,6 @@ for line in r.text.splitlines():
     if line:
         k, v = line.split("=")
         stepikLessonIDs[k] = v
-
-# for k, v in stepikLessonIDs.items():
-#     print(f"{k} -> {v}")
-
-# jsonarray = json.dumps(stepikLessonIDs)
-# pprint(jsonarray)
 
 githome = Path(os.environ['GIT_HOME'])
 atomickotlin = githome / "AtomicKotlin" / "MarkDown"
@@ -49,12 +41,6 @@ with Path('InStepik.html').open(mode='w') as f:
         else:
             print(f'<span style="background-color: red">{name[0]} not in Stepik</span><br>', file=f)
 
-# for name in markdown:
-#     inStepik, sid, old = test(name[1])
-#     if inStepik:
-#         del stepikLessonIDs[old]
-#         stepikLessonIDs[inStepik] = sid
-
 mdNames = set([md[1] for md in markdown])
 
 lessonIDs = OrderedDict()
@@ -70,18 +56,28 @@ for k, v in stepikLessonIDs.items():
     elif k in mdNames:
         lessonIDs[k.replace('_', ' ')] = v
 
-json_data = "{\n"
-counter = 0
-for k, v in lessonIDs.items():
-    json_data += f'    "{counter}": {{ "name": "{k}",  "id": "{v}" }},\n'
-    counter += 1
-json_data = json_data.rstrip()
-json_data = json_data.rstrip(',')
-json_data += "\n}"
 
+class Stepik:
+    def __init__(self, name, id):
+        self.name = name
+        self.id = id
+    def json(self):
+        return f'    {{ "name": "{self.name}",  "id": "{self.id}" }},\n'
+
+
+class StepikJSONList:
+    def __init__(self, item_list):
+        self.json_list = "[\n"
+        for item in item_list:
+          self.json_list += item.json()
+    def __str__(self):
+        result = self.json_list.rstrip().rstrip(',')
+        return result + "\n]"
+
+LessonIDList = StepikJSONList([Stepik(nm, id) for nm, id in lessonIDs.items()])
+# print(LessonIDList)
 
 if not hugoData.exists():
     hugoData.mkdir()
 atoms = hugoData / "atomNames.json"
-# atoms.write_text(json.dumps(lessonIDs, indent=8))
-atoms.write_text(json_data)
+atoms.write_text(str(LessonIDList))
