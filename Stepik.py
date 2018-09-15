@@ -2,6 +2,7 @@ import requests
 from collections import OrderedDict
 import os
 from pathlib import Path
+import json
 # To use a password:
 # requests.get('raw.github.com/myfile.txt';, auth=('username', 'passwd'))
 # ghusername = os.environ['GHUSER']
@@ -61,18 +62,23 @@ class Stepik:
     def __init__(self, name, id):
         self.name = name
         self.id = id
+        self.foo = "bar"
     def json(self):
         return f'    {{ "name": "{self.name}",  "id": "{self.id}" }},\n'
 
 
 class StepikJSONList:
     def __init__(self, item_list):
+        self.item_list = item_list
         self.json_list = "[\n"
         for item in item_list:
           self.json_list += item.json()
     def __str__(self):
         result = self.json_list.rstrip().rstrip(',')
         return result + "\n]"
+    def json(self):
+        for item in self.item_list:
+            print(json.dumps(item.__dict__))
 
 LessonIDList = StepikJSONList([Stepik(nm, id) for nm, id in lessonIDs.items()])
 # print(LessonIDList)
@@ -81,3 +87,5 @@ if not hugoData.exists():
     hugoData.mkdir()
 atoms = hugoData / "atomNames.json"
 atoms.write_text(str(LessonIDList))
+
+LessonIDList.json()
