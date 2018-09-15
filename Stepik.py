@@ -70,7 +70,18 @@ for k, v in stepikLessonIDs.items():
     elif k in mdNames:
         lessonIDs[k.replace('_', ' ')] = v
 
+json_data = "{\n"
+counter = 0
+for k, v in lessonIDs.items():
+    json_data += f'    "{counter}": {{ "name": "{k}",  "id": "{v}" }},\n'
+    counter += 1
+json_data = json_data.rstrip()
+json_data = json_data.rstrip(',')
+json_data += "\n}"
+
+
 if not hugoData.exists():
     hugoData.mkdir()
 atoms = hugoData / "atomNames.json"
-atoms.write_text(json.dumps(lessonIDs, indent=8))
+# atoms.write_text(json.dumps(lessonIDs, indent=8))
+atoms.write_text(json_data)
