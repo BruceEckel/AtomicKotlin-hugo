@@ -1,38 +1,57 @@
 import requests
 from collections import OrderedDict
 import os
+import sys
 from pathlib import Path
 import json
 import pprint
+
 # To use a password:
 # requests.get('raw.github.com/myfile.txt';, auth=('username', 'passwd'))
 # ghusername = os.environ['GHUSER']
 # ghpwd = os.environ['GHPWD']
 # r = requests.get(url, auth=(ghusername, ghpwd))
 
-url = 'https://raw.githubusercontent.com/JetBrains/AtomicKotlin/master/resources/stepikLessonIDs.properties?token=AA9JrLAIxCt9tChPNfSEwPLdtCwrghTDks5bqXAgwA%3D%3D'
-githome = Path(os.environ['GIT_HOME'])
+url = "https://raw.githubusercontent.com/JetBrains/AtomicKotlin/master/resources/stepikLessonIDs.properties?token=AA9JrJlStD3fNxWb2DZfvOKXXNxaMieSks5bqo6awA%3D%3D"
+githome = Path(os.environ["GIT_HOME"])
 atomickotlin = githome / "AtomicKotlin" / "MarkDown"
 hugoData = githome / "AtomicKotlin-hugo" / "data"
-# markdown = set([(md.name, md.name[4:-3]) for md in atomickotlin.glob("*.md")])
-markdown = set([md.name[4:-3] for md in atomickotlin.glob("*.md")])
+markdown = set(md.name[4:-3] for md in atomickotlin.glob("*.md"))
+
 
 class StepikLessonID:
     def __init__(self, line):
         assert line.strip(), "Line cannot be empty"
         _name, self.id = line.split("=")
-        if self.id == "0": # It's a section
+        if self.id == "0":  # It's a section
             for md in markdown:
                 if _name in md:
-                    self.name = md.replace('_', ': ', 2).replace('Section: ', 'Section ').replace('_', ' ')
+                    self.name = (
+                        md.replace("_", ": ", 2)
+                        .replace("Section: ", "Section ")
+                        .replace("_", " ")
+                    )
         elif _name in markdown:
-            self.name = _name.replace('_', ' ')
+            self.name = _name.replace("_", " ")
         else:
             self.name = "Not found"
+
     def __repr__(self):
         return str(self.__dict__)
 
-lesson_ids = [StepikLessonID(line) for line in requests.get(url).text.strip().splitlines() if line.strip()]
+
+request = requests.get(url)
+if str(request.status_code).startswith("4"):
+    print(f"Status code: {request.status_code}")
+    sys.exit()
+
+lesson_ids = [
+    StepikLessonID(line) for line in request.text.strip().splitlines() if line.strip()
+]
+
+stepik_names = set(s.name for s in lesson_ids)
+markdown_names = set(md.replace('_', ' ') for md in markdown)
+pprint.pprint(markdown_names - stepik_names)
 
 class StepikEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -41,9 +60,12 @@ class StepikEncoder(json.JSONEncoder):
         # Base class default() raises TypeError:
         return json.JSONEncoder.default(self, obj)
 
+
 if not hugoData.exists():
     hugoData.mkdir()
-(hugoData / "atomNames.json").write_text(json.dumps(lesson_ids, cls=StepikEncoder, indent=2))
+(hugoData / "atomNames.json").write_text(
+    json.dumps(lesson_ids, cls=StepikEncoder, indent=2)
+)
 
 # def test(name):
 #     for sname, sid  in stepikLessonIDs.items():
