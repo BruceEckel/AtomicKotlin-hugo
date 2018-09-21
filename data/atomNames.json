@@ -1,234 +1,407 @@
 [
   {
+    "lesson_name": "Programming_Basics",
     "id": "0",
-    "name": "Section I: Programming Basics"
+    "md_name": "001_Section_I_Programming_Basics.md",
+    "title": "Section I: Programming Basics",
+    "internal_title": "Section I: Programming Basics"
   },
   {
+    "lesson_name": "Hello_World",
     "id": "103796",
-    "name": "Hello World"
+    "md_name": "003_Hello_World.md",
+    "title": "Hello World",
+    "internal_title": "Hello, World!"
   },
   {
+    "lesson_name": "var_and_val",
     "id": "103806",
-    "name": "var and val"
+    "md_name": "004_var_and_val.md",
+    "title": "var and val",
+    "internal_title": "`var` & `val`"
   },
   {
+    "lesson_name": "Data_Types",
     "id": "104305",
-    "name": "Data Types"
+    "md_name": "005_Data_Types.md",
+    "title": "Data Types",
+    "internal_title": "Data Types"
   },
   {
+    "lesson_name": "Functions",
     "id": "104306",
-    "name": "Functions"
+    "md_name": "006_Functions.md",
+    "title": "Functions",
+    "internal_title": "Functions"
   },
   {
+    "lesson_name": "If_Expressions",
     "id": "104307",
-    "name": "If Expressions"
+    "md_name": "007_If_Expressions.md",
+    "title": "If Expressions",
+    "internal_title": "If Expressions"
   },
   {
+    "lesson_name": "String_Templates",
     "id": "104308",
-    "name": "String Templates"
+    "md_name": "008_String_Templates.md",
+    "title": "String Templates",
+    "internal_title": "String Templates"
   },
   {
+    "lesson_name": "Number_Types",
     "id": "104309",
-    "name": "Number Types"
+    "md_name": "009_Number_Types.md",
+    "title": "Number Types",
+    "internal_title": "Number Types"
   },
   {
+    "lesson_name": "Booleans",
     "id": "104310",
-    "name": "Booleans"
+    "md_name": "010_Booleans.md",
+    "title": "Booleans",
+    "internal_title": "Booleans"
   },
   {
+    "lesson_name": "Repetition_with_while",
     "id": "103808",
-    "name": "Repetition with while"
+    "md_name": "011_Repetition_with_while.md",
+    "title": "Repetition with while",
+    "internal_title": "Repetition with `while`"
   },
   {
+    "lesson_name": "Looping_and_Ranges",
     "id": "104311",
-    "name": "Looping and Ranges"
+    "md_name": "012_Looping_and_Ranges.md",
+    "title": "Looping and Ranges",
+    "internal_title": "Looping & Ranges"
   },
   {
+    "lesson_name": "The_in_Keyword",
     "id": "104312",
-    "name": "The in Keyword"
+    "md_name": "013_The_in_Keyword.md",
+    "title": "The in Keyword",
+    "internal_title": "The `in` Keyword"
   },
   {
+    "lesson_name": "Expressions_and_Statements",
     "id": "104313",
-    "name": "Expressions and Statements"
+    "md_name": "014_Expressions_and_Statements.md",
+    "title": "Expressions and Statements",
+    "internal_title": "Expressions & Statements"
   },
   {
+    "lesson_name": "Summary_1",
     "id": "104314",
-    "name": "Summary 1"
+    "md_name": "015_Summary_1.md",
+    "title": "Summary 1",
+    "internal_title": "Summary 1"
   },
   {
+    "lesson_name": "Introduction_to_Objects",
     "id": "0",
-    "name": "Section II: Introduction to Objects"
+    "md_name": "016_Section_II_Introduction_to_Objects.md",
+    "title": "Section II: Introduction to Objects",
+    "internal_title": "Section II: Introduction to Objects"
   },
   {
+    "lesson_name": "Objects_Everywhere",
     "id": "104327",
-    "name": "Objects Everywhere"
+    "md_name": "017_Objects_Everywhere.md",
+    "title": "Objects Everywhere",
+    "internal_title": "Objects Everywhere"
   },
   {
+    "lesson_name": "Creating_Classes",
     "id": "104328",
-    "name": "Creating Classes"
+    "md_name": "018_Creating_Classes.md",
+    "title": "Creating Classes",
+    "internal_title": "Creating Classes"
   },
   {
+    "lesson_name": "Properties",
     "id": "104329",
-    "name": "Properties"
+    "md_name": "019_Properties.md",
+    "title": "Properties",
+    "internal_title": "Properties"
   },
   {
+    "lesson_name": "Constructors",
     "id": "104330",
-    "name": "Constructors"
+    "md_name": "020_Constructors.md",
+    "title": "Constructors",
+    "internal_title": "Constructors"
   },
   {
+    "lesson_name": "Constraining_Visibility",
     "id": "104331",
-    "name": "Constraining Visibility"
+    "md_name": "021_Constraining_Visibility.md",
+    "title": "Constraining Visibility",
+    "internal_title": "Constraining Visibility"
   },
   {
+    "lesson_name": "Imports_and_Packages",
     "id": "104332",
-    "name": "Imports and Packages"
+    "md_name": "022_Imports_and_Packages.md",
+    "title": "Imports and Packages",
+    "internal_title": "Imports & Packages"
   },
   {
+    "lesson_name": "Testing",
     "id": "104333",
-    "name": "Testing"
+    "md_name": "023_Testing.md",
+    "title": "Testing",
+    "internal_title": "Testing"
   },
   {
+    "lesson_name": "Exceptions",
     "id": "104334",
-    "name": "Exceptions"
+    "md_name": "024_Exceptions.md",
+    "title": "Exceptions",
+    "internal_title": "Exceptions"
   },
   {
+    "lesson_name": "Lists",
     "id": "104335",
-    "name": "Lists"
+    "md_name": "025_Lists.md",
+    "title": "Lists",
+    "internal_title": "Lists"
   },
   {
+    "lesson_name": "vararg_Arguments",
     "id": "104336",
-    "name": "vararg Arguments"
+    "md_name": "026_vararg_Arguments.md",
+    "title": "vararg Arguments",
+    "internal_title": "`vararg` Arguments"
   },
   {
+    "lesson_name": "Sets",
     "id": "104337",
-    "name": "Sets"
+    "md_name": "027_Sets.md",
+    "title": "Sets",
+    "internal_title": "Sets"
   },
   {
+    "lesson_name": "Maps",
     "id": "104338",
-    "name": "Maps"
+    "md_name": "028_Maps.md",
+    "title": "Maps",
+    "internal_title": "Maps"
   },
   {
+    "lesson_name": "Property_Accessors",
     "id": "104339",
-    "name": "Property Accessors"
+    "md_name": "029_Property_Accessors.md",
+    "title": "Property Accessors",
+    "internal_title": "Property Accessors"
   },
   {
+    "lesson_name": "Summary_2",
     "id": "104340",
-    "name": "Summary 2"
+    "md_name": "030_Summary_2.md",
+    "title": "Summary 2",
+    "internal_title": "Summary 2"
   },
   {
+    "lesson_name": "Usability",
     "id": "0",
-    "name": "Section III: Usability"
+    "md_name": "031_Section_III_Usability.md",
+    "title": "Section III: Usability",
+    "internal_title": "Section III: Usability"
   },
   {
+    "lesson_name": "Extension_Functions",
     "id": "114524",
-    "name": "Extension Functions"
+    "md_name": "033_Extension_Functions.md",
+    "title": "Extension Functions",
+    "internal_title": "Extension Functions"
   },
   {
+    "lesson_name": "Named_and_Default_Arguments",
     "id": "114526",
-    "name": "Named and Default Arguments"
+    "md_name": "034_Named_and_Default_Arguments.md",
+    "title": "Named and Default Arguments",
+    "internal_title": "Named & Default Arguments"
   },
   {
+    "lesson_name": "Overloading",
     "id": "114528",
-    "name": "Overloading"
+    "md_name": "035_Overloading.md",
+    "title": "Overloading",
+    "internal_title": "Overloading"
   },
   {
+    "lesson_name": "when_Expressions",
     "id": "114529",
-    "name": "when Expressions"
+    "md_name": "036_when_Expressions.md",
+    "title": "when Expressions",
+    "internal_title": "`when` Expressions"
   },
   {
+    "lesson_name": "Enumerations",
     "id": "114532",
-    "name": "Enumerations"
+    "md_name": "037_Enumerations.md",
+    "title": "Enumerations",
+    "internal_title": "Enumerations"
   },
   {
+    "lesson_name": "Data_Classes",
     "id": "114533",
-    "name": "Data Classes"
+    "md_name": "038_Data_Classes.md",
+    "title": "Data Classes",
+    "internal_title": "Data Classes"
   },
   {
+    "lesson_name": "Nullable_Types",
     "id": "114537",
-    "name": "Nullable Types"
+    "md_name": "039_Nullable_Types.md",
+    "title": "Nullable Types",
+    "internal_title": "Nullable Types"
   },
   {
+    "lesson_name": "Safe_Calls_and_The_Elvis_Operator",
     "id": "114540",
-    "name": "Not found"
+    "md_name": "Not found",
+    "title": "Not found"
   },
   {
+    "lesson_name": "Non_null_Assertions",
     "id": "114542",
-    "name": "Non null Assertions"
+    "md_name": "041_Non_null_Assertions.md",
+    "title": "Non null Assertions",
+    "internal_title": "Non-`null` Assertions"
   },
   {
+    "lesson_name": "Extensions_for_Nullable_Types",
     "id": "114544",
-    "name": "Extensions for Nullable Types"
+    "md_name": "042_Extensions_for_Nullable_Types.md",
+    "title": "Extensions for Nullable Types",
+    "internal_title": "Extensions for Nullable Types"
   },
   {
+    "lesson_name": "Introduction_to_Generics",
     "id": "114547",
-    "name": "Introduction to Generics"
+    "md_name": "043_Introduction_to_Generics.md",
+    "title": "Introduction to Generics",
+    "internal_title": "Introduction to Generics"
   },
   {
+    "lesson_name": "Extension_Properties",
     "id": "114549",
-    "name": "Extension Properties"
+    "md_name": "044_Extension_Properties.md",
+    "title": "Extension Properties",
+    "internal_title": "Extension Properties"
   },
   {
+    "lesson_name": "Functional_Programming",
     "id": "0",
-    "name": "Section IV: Functional Programming"
+    "md_name": "045_Section_IV_Functional_Programming.md",
+    "title": "Section IV: Functional Programming",
+    "internal_title": "Section IV: Functional Programming"
   },
   {
+    "lesson_name": "Lambdas",
     "id": "114551",
-    "name": "Lambdas"
+    "md_name": "046_Lambdas.md",
+    "title": "Lambdas",
+    "internal_title": "Lambdas"
   },
   {
+    "lesson_name": "The_Importance_of_Lambdas",
     "id": "114553",
-    "name": "The Importance of Lambdas"
+    "md_name": "047_The_Importance_of_Lambdas.md",
+    "title": "The Importance of Lambdas",
+    "internal_title": "The Importance of Lambdas"
   },
   {
+    "lesson_name": "Operations_on_Collections",
     "id": "114554",
-    "name": "Operations on Collections"
+    "md_name": "048_Operations_on_Collections.md",
+    "title": "Operations on Collections",
+    "internal_title": "Operations on Collections"
   },
   {
+    "lesson_name": "Member_References",
     "id": "114555",
-    "name": "Member References"
+    "md_name": "049_Member_References.md",
+    "title": "Member References",
+    "internal_title": "Member References"
   },
   {
+    "lesson_name": "Function_Types",
     "id": "114556",
-    "name": "Function Types"
+    "md_name": "050_Function_Types.md",
+    "title": "Function Types",
+    "internal_title": "Function Types"
   },
   {
+    "lesson_name": "Manipulating_Lists",
     "id": "114557",
-    "name": "Manipulating Lists"
+    "md_name": "051_Manipulating_Lists.md",
+    "title": "Manipulating Lists",
+    "internal_title": "Manipulating Lists"
   },
   {
+    "lesson_name": "From_Lists_to_Maps",
     "id": "114558",
-    "name": "From Lists to Maps"
+    "md_name": "052_From_Lists_to_Maps.md",
+    "title": "From Lists to Maps",
+    "internal_title": "From Lists to Maps"
   },
   {
+    "lesson_name": "Lambda_with_Receiver",
     "id": "114559",
-    "name": "Lambda with Receiver"
+    "md_name": "053_Lambda_with_Receiver.md",
+    "title": "Lambda with Receiver",
+    "internal_title": "Lambda with Receiver"
   },
   {
+    "lesson_name": "The_with_Function",
     "id": "114560",
-    "name": "The with Function"
+    "md_name": "054_The_with_Function.md",
+    "title": "The with Function",
+    "internal_title": "The `with()` Function"
   },
   {
+    "lesson_name": "Library_Helpers",
     "id": "114561",
-    "name": "Library Helpers"
+    "md_name": "055_Library_Helpers.md",
+    "title": "Library Helpers",
+    "internal_title": "Library Helpers"
   },
   {
+    "lesson_name": "Sequences",
     "id": "114562",
-    "name": "Sequences"
+    "md_name": "056_Sequences.md",
+    "title": "Sequences",
+    "internal_title": "Sequences"
   },
   {
+    "lesson_name": "More_Library_Functions",
     "id": "114563",
-    "name": "More Library Functions"
+    "md_name": "057_More_Library_Functions.md",
+    "title": "More Library Functions",
+    "internal_title": "More Library Functions"
   },
   {
+    "lesson_name": "Functions_Inside_Functions",
     "id": "114564",
-    "name": "Functions Inside Functions"
+    "md_name": "058_Functions_Inside_Functions.md",
+    "title": "Functions Inside Functions",
+    "internal_title": "Functions Inside Functions"
   },
   {
+    "lesson_name": "Folding_Lists",
     "id": "114565",
-    "name": "Folding Lists"
+    "md_name": "059_Folding_Lists.md",
+    "title": "Folding Lists",
+    "internal_title": "Folding Lists"
   },
   {
+    "lesson_name": "Recursion",
     "id": "114566",
-    "name": "Recursion"
+    "md_name": "060_Recursion.md",
+    "title": "Recursion",
+    "internal_title": "Recursion"
   }
 ]
