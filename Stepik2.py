@@ -16,7 +16,6 @@ url = "https://raw.githubusercontent.com/JetBrains/AtomicKotlin/master/resources
 githome = Path(os.environ["GIT_HOME"])
 atomickotlin = githome / "AtomicKotlin" / "MarkDown"
 hugoData = githome / "AtomicKotlin-hugo" / "data"
-# markdown_names = set(md.name[4:-3] for md in atomickotlin.glob("*.md"))
 markdown_names = set(md.name for md in atomickotlin.glob("*.md"))
 
 
@@ -25,31 +24,35 @@ class StepikLessonID:
     def match_lesson_name(lesson_name, id):
         for md_name in markdown_names:
             if lesson_name == md_name[4:-3]:
-                return md_name #, md_name[4:-3].replace("_", " ")
+                return md_name
         if id == "0":  # It's a section
             for md_name in markdown_names:
                 if lesson_name in md_name:
                     return md_name
-                    # return (
-                    #     md_name,
-                    #     md_name[4:-3]
-                    #     .replace("_", ": ", 2)
-                    #     .replace("Section: ", "Section ")
-                    #     .replace("_", " "),
-                    # )
-        return "Not found" #, "Not found"
+        return None
 
     def __init__(self, lesson_line):
         assert lesson_line.strip(), "Line cannot be empty"
         self.lesson_name, self.id = lesson_line.split("=")
         self.md_name = StepikLessonID.match_lesson_name(self.lesson_name, self.id)
-        if self.md_name.endswith(".md"):
-            self.title = (atomickotlin / self.md_name).read_text().splitlines()[0].strip()
+        if self.md_name:
+            self.title = (
+                (atomickotlin / self.md_name).read_text().splitlines()[0].strip()
+            )
         else:
             self.title = "Not Found"
 
-    def __repr__(self):
-        return str(self.__dict__)
+    @staticmethod
+    def show_missing_lessons(lesson_id_list):
+        pass
+
+
+class StepikEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, StepikLessonID):
+            return obj.__dict__
+        # Base class default() raises TypeError:
+        return json.JSONEncoder.default(self, obj)
 
 
 request = requests.get(url)
@@ -61,16 +64,12 @@ lesson_ids = [
     StepikLessonID(line) for line in request.text.strip().splitlines() if line.strip()
 ]
 
-class StepikEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, StepikLessonID):
-            return obj.__dict__
-        # Base class default() raises TypeError:
-        return json.JSONEncoder.default(self, obj)
-
 
 if not hugoData.exists():
     hugoData.mkdir()
 (hugoData / "atomNames.json").write_text(
     json.dumps(lesson_ids, cls=StepikEncoder, indent=2)
 )
+
+
+StepikLessonID.show_missing_lessons(lesson_ids)
