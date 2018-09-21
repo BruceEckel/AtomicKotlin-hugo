@@ -1,9 +1,9 @@
 <ul>
 {{ range .Site.Data.atomNames }}
 {{ if (eq .id "0")}}
-<h2>{{ .name }}</h2>
+<h2>{{ .title }}</h2>
 {{ else }}
-<li><a target="_blank" href="https://stepik.org/lesson/{{ .id }}">{{ .name }}</a></li>
+<li><a target="_blank" href="https://stepik.org/lesson/{{ .id }}">{{ .title | markdownify }}</a></li>
 {{ end }}
 {{ end }}
 </ul>
