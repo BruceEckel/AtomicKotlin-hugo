@@ -1,13 +1,10 @@
-import requests
-from collections import OrderedDict
+import json
 import os
 import sys
 from pathlib import Path
-import json
-import pprint
+import requests
 
 # To use a password:
-# requests.get('raw.github.com/myfile.txt';, auth=('username', 'passwd'))
 # ghusername = os.environ['GHUSER']
 # ghpwd = os.environ['GHPWD']
 # r = requests.get(url, auth=(ghusername, ghpwd))
@@ -41,7 +38,6 @@ class Stepik:
 
     def __init__(self, lesson_line):
         assert lesson_line.strip(), "Line cannot be empty"
-        print(lesson_line)
         self.lesson_name, self.id = lesson_line.split("=")
         self.match, self.md_name = Stepik.match_lesson_name(self.lesson_name, self.id)
         if self.match:
