@@ -404,5 +404,26 @@
     "match": true,
     "md_name": "060_Recursion.md",
     "title": "Recursion"
+  },
+  {
+    "lesson_name": "Section V: Object-Oriented Programming",
+    "id": "0",
+    "match": false,
+    "md_name": "Section V: Object-Oriented Programming",
+    "title": "Section V: Object-Oriented Programming"
+  },
+  {
+    "lesson_name": "Section VI: Power Tools",
+    "id": "0",
+    "match": false,
+    "md_name": "Section VI: Power Tools",
+    "title": "Section VI: Power Tools"
+  },
+  {
+    "lesson_name": "Section VII: Language Interoperability",
+    "id": "0",
+    "match": false,
+    "md_name": "Section VII: Language Interoperability",
+    "title": "Section VII: Language Interoperability"
   }
 ]

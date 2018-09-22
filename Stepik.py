@@ -36,10 +36,12 @@ class Stepik:
             for md_name in Stepik.markdown_names:
                 if lesson_name in md_name:
                     return True, md_name
+            return False, lesson_name
         return False, lesson_name.replace("_", " ")
 
     def __init__(self, lesson_line):
         assert lesson_line.strip(), "Line cannot be empty"
+        print(lesson_line)
         self.lesson_name, self.id = lesson_line.split("=")
         self.match, self.md_name = Stepik.match_lesson_name(self.lesson_name, self.id)
         if self.match:
@@ -55,6 +57,9 @@ class Stepik:
                 for line in request.text.strip().splitlines()
                 if line.strip()
             ]
+            Stepik.__items.append(Stepik("Section V: Object-Oriented Programming=0"))
+            Stepik.__items.append(Stepik("Section VI: Power Tools=0"))
+            Stepik.__items.append(Stepik("Section VII: Language Interoperability=0"))
         return Stepik.__items
 
     @staticmethod
