@@ -1,91 +1,90 @@
 import requests
 from collections import OrderedDict
 import os
+import sys
 from pathlib import Path
 import json
+import pprint
+
 # To use a password:
 # requests.get('raw.github.com/myfile.txt';, auth=('username', 'passwd'))
 # ghusername = os.environ['GHUSER']
 # ghpwd = os.environ['GHPWD']
 # r = requests.get(url, auth=(ghusername, ghpwd))
+githome = Path(os.environ["GIT_HOME"])
+markdown = githome / "AtomicKotlin" / "MarkDown"
+hugo_data = githome / "AtomicKotlin-hugo" / "data"
+hugo_json = hugo_data / "atomNames.json"
 
-url = 'https://raw.githubusercontent.com/JetBrains/AtomicKotlin/master/resources/stepikLessonIDs.properties?token=AA9JrGz28CehT1_sax-80UaRSF5836BWks5bn_1XwA%3D%3D'
-r = requests.get(url)
-
-stepikLessonIDs = OrderedDict()
-
-for line in r.text.splitlines():
-    line = line.strip()
-    if line:
-        k, v = line.split("=")
-        stepikLessonIDs[k] = v
-
-githome = Path(os.environ['GIT_HOME'])
-atomickotlin = githome / "AtomicKotlin" / "MarkDown"
-hugoData = githome / "AtomicKotlin-hugo" / "data"
-
-markdown = sorted([(md.name, md.name[4:-3]) for md in atomickotlin.glob("*.md")])
-
-def test(name):
-    for sname, sid  in stepikLessonIDs.items():
-        if sname == name:
-            return sname, sid, sname
-        if name.startswith("Section_") and name.endswith(sname):
-            return name, sid, sname
-    return False, False, False
-
-with Path('InStepik.html').open(mode='w') as f:
-    for name in markdown:
-        inStepik, sid, _ = test(name[1])
-        if inStepik:
-            print(f"{name[0]} : {inStepik} -> {sid}<br>", file=f)
-        else:
-            print(f'<span style="background-color: red">{name[0]} not in Stepik</span><br>', file=f)
-
-mdNames = set([md[1] for md in markdown])
-
-lessonIDs = OrderedDict()
-
-for k, v in stepikLessonIDs.items():
-    if v == "0": # It's a section
-        for n in mdNames:
-            if k in n:
-                n = n.replace('_', ': ', 2)
-                n = n.replace('Section: ', 'Section ')
-                n = n.replace('_', ' ')
-                lessonIDs[n] = "0"
-    elif k in mdNames:
-        lessonIDs[k.replace('_', ' ')] = v
+url = "https://raw.githubusercontent.com/JetBrains/AtomicKotlin/master/resources/stepikLessonIDs.properties?token=AA9JrGf-04wiPICt4A2oIX3HbhPK_TH1ks5br6S9wA%3D%3D"
+request = requests.get(url)
+if str(request.status_code).startswith("4"):
+    print(f"Status code: {request.status_code}")
+    sys.exit()
 
 
 class Stepik:
-    def __init__(self, name, id):
-        self.name = name
-        self.id = id
-        self.foo = "bar"
-    def json(self):
-        return f'    {{ "name": "{self.name}",  "id": "{self.id}" }},\n'
+    markdown_names = set(md.name for md in markdown.glob("*.md"))
+    __items = None
+
+    @staticmethod
+    def match_lesson_name(lesson_name, id):
+        for md_name in Stepik.markdown_names:
+            if lesson_name == md_name[4:-3]:
+                return True, md_name
+        if id == "0":  # It's a section
+            for md_name in Stepik.markdown_names:
+                if lesson_name in md_name:
+                    return True, md_name
+        return False, lesson_name.replace("_", " ")
+
+    def __init__(self, lesson_line):
+        assert lesson_line.strip(), "Line cannot be empty"
+        self.lesson_name, self.id = lesson_line.split("=")
+        self.match, self.md_name = Stepik.match_lesson_name(self.lesson_name, self.id)
+        if self.match:
+            self.title = (markdown / self.md_name).read_text().splitlines()[0].strip()
+        else:
+            self.title = self.md_name
+
+    @staticmethod
+    def items():
+        if not Stepik.__items:
+            Stepik.__items = [
+                Stepik(line)
+                for line in request.text.strip().splitlines()
+                if line.strip()
+            ]
+        return Stepik.__items
+
+    @staticmethod
+    def show_missing_lessons():
+        def find(md):
+            for stp in Stepik.items():
+                if stp.md_name == md:
+                    return stp
+            return None
+
+        with Path("InStepik.html").open(mode="w") as f:
+            for md in sorted(Stepik.markdown_names):
+                found = find(md)
+                if found:
+                    print(f"{found.title} : {found.id}<br>", file=f)
+                else:
+                    print(
+                        f'<span style="background-color: red">{md}</span><br>', file=f
+                    )
+
+    class Encoder(json.JSONEncoder):
+        def default(self, obj):
+            if isinstance(obj, Stepik):
+                return obj.__dict__
+            # Base class default() raises TypeError:
+            return json.JSONEncoder.default(self, obj)
 
 
-class StepikJSONList:
-    def __init__(self, item_list):
-        self.item_list = item_list
-        self.json_list = "[\n"
-        for item in item_list:
-          self.json_list += item.json()
-    def __str__(self):
-        result = self.json_list.rstrip().rstrip(',')
-        return result + "\n]"
-    def json(self):
-        for item in self.item_list:
-            print(json.dumps(item.__dict__))
+if not hugo_data.exists():
+    hugo_data.mkdir()
+hugo_json.write_text(json.dumps(Stepik.items(), cls=Stepik.Encoder, indent=2))
 
-LessonIDList = StepikJSONList([Stepik(nm, id) for nm, id in lessonIDs.items()])
-# print(LessonIDList)
-
-if not hugoData.exists():
-    hugoData.mkdir()
-atoms = hugoData / "atomNames.json"
-atoms.write_text(str(LessonIDList))
-
-LessonIDList.json()
+Stepik.show_missing_lessons()
