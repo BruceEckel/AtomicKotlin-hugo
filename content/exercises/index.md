@@ -10,8 +10,10 @@ progress while solving them.
 
 To solve the exercises, install IntelliJ IDEA with the Edu Tools plugin by
 following these tutorials:
+
 1. [Installing IntelliJ IDEA and EduTools
 Plugin](https://www.jetbrains.com/help/education/install-edutools-plugin.html).
+
 2. [Opening the Atomic Kotlin course and solving the
 exercises](https://www.jetbrains.com/help/education/learner-start-guide.html?section=Atomic%20Kotlin).
 
