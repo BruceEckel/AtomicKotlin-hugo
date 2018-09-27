@@ -7,6 +7,13 @@
     "title": "Section I: Programming Basics"
   },
   {
+    "lesson_name": "Introduction",
+    "id": "171437",
+    "match": true,
+    "md_name": "002_Introduction.md",
+    "title": "Introduction"
+  },
+  {
     "lesson_name": "Hello_World",
     "id": "103796",
     "match": true,
@@ -35,11 +42,11 @@
     "title": "Functions"
   },
   {
-    "lesson_name": "If_Expressions",
+    "lesson_name": "if_Expressions",
     "id": "104307",
-    "match": false,
-    "md_name": "If Expressions",
-    "title": "If Expressions"
+    "match": true,
+    "md_name": "007_if_Expressions.md",
+    "title": "`if` Expressions"
   },
   {
     "lesson_name": "String_Templates",
@@ -210,6 +217,13 @@
     "title": "Section III: Usability"
   },
   {
+    "lesson_name": "break_and_continue",
+    "id": "171442",
+    "match": true,
+    "md_name": "032_break_and_continue.md",
+    "title": "`break` & `continue`"
+  },
+  {
     "lesson_name": "Extension_Functions",
     "id": "114524",
     "match": true,
@@ -259,11 +273,11 @@
     "title": "Nullable Types"
   },
   {
-    "lesson_name": "Safe_Calls_and_The_Elvis_Operator",
+    "lesson_name": "Safe_Calls_and_the_Elvis_Operator",
     "id": "114540",
-    "match": false,
-    "md_name": "Safe Calls and The Elvis Operator",
-    "title": "Safe Calls and The Elvis Operator"
+    "match": true,
+    "md_name": "040_Safe_Calls_and_the_Elvis_Operator.md",
+    "title": "Safe Calls & the Elvis Operator"
   },
   {
     "lesson_name": "Non_null_Assertions",
@@ -404,6 +418,27 @@
     "match": true,
     "md_name": "060_Recursion.md",
     "title": "Recursion"
+  },
+  {
+    "lesson_name": "Object_Oriented_Programming",
+    "id": "0",
+    "match": true,
+    "md_name": "061_Section_V_Object_Oriented_Programming.md",
+    "title": "Section V: Object-Oriented Programming"
+  },
+  {
+    "lesson_name": "Power_Tools",
+    "id": "0",
+    "match": true,
+    "md_name": "075_Section_VI_Power_Tools.md",
+    "title": "Section VI: Power Tools"
+  },
+  {
+    "lesson_name": "Language_Interoperability",
+    "id": "0",
+    "match": true,
+    "md_name": "095_Section_VII_Language_Interoperability.md",
+    "title": "Section VII: Language Interoperability"
   },
   {
     "lesson_name": "Section V: Object-Oriented Programming",
