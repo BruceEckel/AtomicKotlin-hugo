@@ -53,9 +53,9 @@ class Stepik:
                 for line in request.text.strip().splitlines()
                 if line.strip()
             ]
-            Stepik.__items.append(Stepik("Section V: Object-Oriented Programming=0"))
-            Stepik.__items.append(Stepik("Section VI: Power Tools=0"))
-            Stepik.__items.append(Stepik("Section VII: Language Interoperability=0"))
+            # Stepik.__items.append(Stepik("Section V: Object-Oriented Programming=0"))
+            # Stepik.__items.append(Stepik("Section VI: Power Tools=0"))
+            # Stepik.__items.append(Stepik("Section VII: Language Interoperability=0"))
         return Stepik.__items
 
     @staticmethod
