@@ -13,7 +13,7 @@ googleAnalytics = ""
 	description = "Learning Resources for the Kotlin Programming Language"
 
 	logo = "/images/AtomicKotlin-circle.png"
-	favicon = "/images/favicon.ico"
+	favicon = "/images/favicon.ico?"
 	banner_image = "/images/AtomicKotlinBanner.png"
 
 	permalink = "#"
