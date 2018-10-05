@@ -1,6 +1,6 @@
 ---
 title: eBook Early Access
-weight: 30
+weight: 40
 ---
 
 The early-access edition of Atomic Kotlin is available as
