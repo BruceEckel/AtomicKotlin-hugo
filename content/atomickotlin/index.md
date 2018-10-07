@@ -10,7 +10,7 @@ Eckel and Svetlana Isakova.
 ### Announcement during the October 2018 KotlinConf opening keynote:<br/><br/>
 
 <iframe width="420" height="315"
-src="https://www.youtube.com/embed/PsaFVLr8t4E?t=2366">
+src="https://www.youtube.com/embed/PsaFVLr8t4E?t=2362">
 </iframe>
 
 ### Current version of the cover for the (upcoming) print book:
