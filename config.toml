@@ -53,7 +53,7 @@ googleAnalytics = ""
   weight = 20
 
 [[menu.main]]
-  name   = "Example Source Code"
+  name   = "Examples"
   url    = "examples/"
   weight = 25
 
