@@ -15,14 +15,6 @@ worldwide, and is coauthor of the book *Kotlin in Action*.
 
 Questions? Email Mindview <mindviewinc@gmail.com>
 
-# Standalone Examples
-
-You can compile, run, and test the examples using standalone tools on the
-command line. The example source code can be found in the associated [Github
-Repository](https://github.com/BruceEckel/AtomicKotlinExamples). The README for
-that repository contains complete instructions for configuring and running the
-code.
-
 # Etc.
 
 + If you wish to be informed of future activities, you can sign
