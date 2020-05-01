@@ -12,40 +12,40 @@ Purchasers of the early-access edition receive updates as they become
 available. Purchase instructions are included within each lesson.
 
 ##  Section I: Programming Basics
--   **Introduction**
--   **Hello, World!**
--   **`var` & `val`**
--   **Data Types**
--   **Functions**
--   **`if` Expressions**
--   **String Templates**
--   **Number Types**
--   **Booleans**
--   **Repetition with `while`**
--   **Looping & Ranges**
--   **The `in` Keyword**
--   **Expressions & Statements**
--   **Summary 1**
+-   ***Introduction***
+-   ***Hello, World!***
+-   ***`var` & `val`***
+-   ***Data Types***
+-   ***Functions***
+-   ***`if` Expressions***
+-   ***String Templates***
+-   ***Number Types***
+-   ***Booleans***
+-   ***Repetition with `while`***
+-   ***Looping & Ranges***
+-   ***The `in` Keyword***
+-   ***Expressions & Statements***
+-   ***Summary 1***
 ##  Section II: Introduction to Objects
--   **Objects Everywhere**
--   **Creating Classes**
--   **Properties**
--   **Constructors**
--   **Constraining Visibility**
--   **Packages**
--   **Testing**
--   **Exceptions**
--   **Lists**
--   **Variable Argument Lists**
--   **Sets**
--   **Maps**
--   **Property Accessors**
--   **Summary 2**
+-   ***Objects Everywhere***
+-   ***Creating Classes***
+-   ***Properties***
+-   ***Constructors***
+-   ***Constraining Visibility***
+-   ***Packages***
+-   ***Testing***
+-   ***Exceptions***
+-   ***Lists***
+-   ***Variable Argument Lists***
+-   ***Sets***
+-   ***Maps***
+-   ***Property Accessors***
+-   ***Summary 2***
 ##  Section III: Usability
--   **Extension Functions**
--   **Named & Default Arguments**
--   **Overloading**
--   **`when` Expressions**
+-   ***Extension Functions***
+-   ***Named & Default Arguments***
+-   ***Overloading***
+-   ***`when` Expressions***
 -   Enumerations
 -   Data Classes
 -   Destructuring Declarations
