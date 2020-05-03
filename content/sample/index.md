@@ -7,8 +7,11 @@ The bold & italicized atoms in the table of contents below are included in the
 free sample, so you can become comfortable with the material and ensure it's a
 good fit before buying.
 
-Purchasers of the early-access edition receive updates as they become
-available.
+Most of the atoms marked "(In Progress)" contain significant content; however
+they have not been completed.
+
+If you purchase the early-access edition you will receive updates as they
+become available.
 
 ##  Section I: Programming Basics
 -   ***Introduction***
