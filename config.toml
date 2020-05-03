@@ -48,34 +48,34 @@ googleAnalytics = ""
   weight = 10
 
 [[menu.main]]
-  name   = "Book Contents"
-  url    = "contents/"
+  name   = "Free Sample"
+  url    = "sample/"
   weight = 20
-
-[[menu.main]]
-  name   = "Examples"
-  url    = "examples/"
-  weight = 25
-
-[[menu.main]]
-  name   = "Exercises"
-  url    = "exercises/"
-  weight = 30
 
 [[menu.main]]
   name   = "Early Access"
   url    = "earlyaccess/"
+  weight = 30
+
+[[menu.main]]
+  name   = "Examples"
+  url    = "examples/"
   weight = 40
+
+[[menu.main]]
+  name   = "Exercises"
+  url    = "exercises/"
+  weight = 50
 
 [[menu.main]]
   name   = "Print Book"
   url    = "printbook/"
-  weight = 50
+  weight = 60
 
 #[[menu.main]]
 #  name   = "Seminar (Aug 20-24)"
 #  url    = "seminar/"
-#  weight = 60
+#  weight = 70
 
 [[menu.main]]
 	name   = "About"

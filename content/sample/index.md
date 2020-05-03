@@ -1,15 +1,14 @@
 ---
-title: Book Contents
+title: Free Sample
 weight: 20
 ---
 
-**Note:** The first two sections are available in their entirety so you can
-become comfortable with the material and ensure it's a good fit before buying.
-Sections III and IV provide the first portions of each atom, which are fully
-available as part of the early-access edition.
+The bold & italicized atoms in the table of contents below are included in the
+free sample, so you can become comfortable with the material and ensure it's a
+good fit before buying.
 
 Purchasers of the early-access edition receive updates as they become
-available. Purchase instructions are included within each lesson.
+available.
 
 ##  Section I: Programming Basics
 -   ***Introduction***

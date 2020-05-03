@@ -1,6 +1,6 @@
 ---
 title: Exercises
-weight: 30
+weight: 50
 ---
 
 Each atom in *Atomic Kotlin* is accompanied by 2 to 5 small exercises. These

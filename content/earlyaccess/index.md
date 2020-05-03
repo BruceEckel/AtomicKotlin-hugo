@@ -1,6 +1,6 @@
 ---
 title: eBook Early Access
-weight: 40
+weight: 30
 ---
 
 Currently the book is about 80% complete and we hope to have it finished
