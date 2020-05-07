@@ -1,6 +1,6 @@
 ---
 title: Print Book
-weight: 60
+weight: 70
 ---
 
 The print book will appear sometime after the eBook is complete, and

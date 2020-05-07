@@ -1,6 +1,6 @@
 ---
 title: Exercises
-weight: 50
+weight: 60
 ---
 
 > **NOTE**: The current version of the solutions is significantly out of synch
