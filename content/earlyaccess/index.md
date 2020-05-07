@@ -7,9 +7,9 @@ Currently the book is about 80% complete and we hope to have it finished
 in the next few months. You can see the atoms that are completed and those
 that are still under development [Here](https://www.atomickotlin.com/sample/).
 
-> There are two ways you can get early access to the eBook:
+## There are two ways you can get early access to the eBook:
 
-## Leanpub
+### Leanpub
 
 > [Atomic Kotlin on Leanpub](https://leanpub.com/AtomicKotlin)
 
@@ -20,7 +20,7 @@ that are still under development [Here](https://www.atomickotlin.com/sample/).
 
 Includes an extensive free sample in all formats.
 
-## Stepik
+### Stepik
 
 [The Stepik Platform](https://stepik.org/course/15001) provides a web-based
 experience that allows you to modify and run the book's examples in-place.

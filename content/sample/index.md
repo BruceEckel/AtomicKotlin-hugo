@@ -19,8 +19,9 @@ italicized atoms as well.
 Most of the atoms marked "(In Progress)" contain significant content; however
 they have not been completed.
 
-If you purchase the early-access edition you will receive updates as they
-become available.
+If you purchase the
+[early-access edition](https://www.atomickotlin.com/earlyaccess/) you will
+receive updates as they become available.
 
 ##  Section I: Programming Basics
 -   ***Introduction***
