@@ -4,7 +4,7 @@ type: index
 weight: 10
 ---
 
-Atomic Kotlin is the book and associated learning resources by Bruce
+***Atomic Kotlin*** is the book and associated learning resources by Bruce
 Eckel and Svetlana Isakova.
 
 ### Announcement during the October 2018 KotlinConf opening keynote:<br/><br/>
