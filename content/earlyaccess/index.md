@@ -5,7 +5,7 @@ weight: 40
 
 Currently the book is about 80% complete and we hope to have it finished
 in the next few months. You can see the atoms that are completed and those
-that are still under development [Here](https://www.atomickotlin.com/sample/).
+that are still under development in the [Table of Contents](https://www.atomickotlin.com/contents/).
 
 ## There are two ways you can get early access to the eBook:
 

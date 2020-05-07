@@ -8,7 +8,7 @@ in the [Leanpub Free Sample](https://leanpub.com/AtomicKotlin). The [Stepik
 Free Sample](https://stepik.org/course/15001) includes beginning portions of
 *all* non-bold & italicized atoms.
 
-Most of the atoms marked "(In Progress)" contain significant content; however
+Most of the atoms marked "(In Progress)" contain significant content but
 they have not been completed.
 
 If you purchase the
