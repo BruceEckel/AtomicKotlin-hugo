@@ -32,7 +32,8 @@ Troubleshooting Guide](https://www.jetbrains.com/help/education/troubleshooting-
 If that doesn't solve your problem, please contact the support team as mentioned
 in the guide.
 
-If you finde a mistake in the course content, for example, a test for a
-task produces the wrong result, please report the issue to our issue
-tracker using [This Prefilled
-Form](https://youtrack.jetbrains.com/newIssue?project=EDC&summary=AtomicKotlin%3A%20%3C%3C%20atom%20%2B%20exercise%20%3E%3E&description=%3C%3C%20Describe%20the%20problem%20here%20%3E%3E&c=Subsystem%20Kotlin&c=Assignee%20svtk). Note that you'll need to log in into YouTrack. Thank you!
+If you find a mistake in the course content (for example, a test for a task
+produces the wrong result), please use our issue tracker to report the problem
+with [This Prefilled
+Form](https://youtrack.jetbrains.com/newIssue?project=EDC&summary=AtomicKotlin%3A%20%3C%3C%20atom%20%2B%20exercise%20%3E%3E&description=%3C%3C%20Describe%20the%20problem%20here%20%3E%3E&c=Subsystem%20Kotlin&c=Assignee%20svtk).
+Note that you'll need to log in into YouTrack. Thank you!
