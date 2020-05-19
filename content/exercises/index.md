@@ -3,7 +3,7 @@ title: Exercises
 weight: 60
 ---
 
-> **NOTE**: Most of the exercises starting from the OOP section are unfinished
+> **NOTE**: Most of the exercises beginning at the OOP section are unfinished
 > and are missing placeholders and tests. We're updating the content as soon as it
 > appears.
 
