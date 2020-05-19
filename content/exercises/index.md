@@ -12,7 +12,7 @@ exercises improve your understanding, so we recommend solving them right after
 reading the atom. All exercises can be checked automatically within IntelliJ
 IDEA, and you can see your progress while solving them.
 
-To solve the exercises, install IntelliJ IDEA with the Edu Tools plugin by
+To solve the exercises, install IntelliJ IDEA with the EduTools plugin by
 following these tutorials:
 
 1. [Install IntelliJ IDEA and the EduTools
