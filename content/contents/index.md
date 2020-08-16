@@ -86,31 +86,28 @@ receive updates as they become available.
 -   Class Delegation
 -   Downcasting
 -   Sealed Classes
+-   Type Checking
 -   Nested Classes
--   Inner Classes
 -   Objects
+-   Inner Classes
 -   Companion Objects
--   Object-Oriented Design
 ##  Section VI: Preventing Failure
--   Exception Handling (In Progress)
--   Check Instructions (In Progress)
--   The `Nothing` Type (In Progress)
--   Resource Cleanup (In Progress)
--   Logging (In Progress)
--   Unit Testing (In Progress)
+-   Exception Handling
+-   Check Instructions
+-   The `Nothing` Type
+-   Resource Cleanup
+-   Logging
+-   Unit Testing
 ##  Section VII: Power Tools
--   Lambda with Receiver (In Progress)
--   More Generics (In Progress)
--   The `with()` Function (In Progress)
--   Scope Functions (In Progress)
--   Immutability (In Progress)
--   Hashing (In Progress)
--   Operator Overloading (In Progress)
--   Using Operators (In Progress)
--   Lazy Initialization (In Progress)
--   Late Initialization (In Progress)
--   Property Delegation (In Progress)
--   Property Delegation Tools (In Progress)
+-   Scope Functions
+-   Extension Lambdas
+-   Creating Generics
+-   Operator Overloading
+-   Using Operators
+-   Property Delegation
+-   Property Delegation Tools
+-   Lazy Initialization
+-   Late Initialization
 ##  Appendices
 -   Appendix A: AtomicTest
--   Appendix B: Java Interoperability (In Progress)
+-   Appendix B: Java Interoperability
