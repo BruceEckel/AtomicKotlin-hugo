@@ -5,16 +5,11 @@ weight: 80
 
 ## Initiating a Translation
 
-Contract should include:
-Print Book and Ebook
-AtomicKotlin EDU
+Contract should include agreements for:
+- Print Book
+- Ebook
+- Translation of AtomicKotlin EDU exercises and solutions
 
-
-## Translation Sources
-
-Github Markdown for Leanpub
-
-AtomicKotlin EDU
 
 ## Advance
 
@@ -29,6 +24,12 @@ royalties, that style of negotiation does not appeal to me.
 
 Different countries calculate royalties differently. Please be clear on whether
 your royalty percentage represents the wholesale or retail price of the book.
+
+## Translation Sources
+
+Github Markdown for Leanpub
+
+AtomicKotlin EDU
 
 ## Cover Artwork
 
