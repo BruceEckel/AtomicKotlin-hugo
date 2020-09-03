@@ -3,19 +3,12 @@ title: Table of Contents
 weight: 20
 ---
 
+This shows the table of contents for the completed book.
+
 The bold & italicized atoms in the table of contents below are those included
 in the [Leanpub Free Sample](https://leanpub.com/AtomicKotlin). The [Stepik
 Free Sample](https://stepik.org/course/19590) includes beginning portions of
 *all* non-bold & italicized atoms.
-
-The atoms are complete and the book is under final edit. An additional
-introductory atom "Why Kotlin?" is under development. The
-[Exercises](https://www.atomickotlin.com/exercises/) are being converted into
-the IntelliJ EDU format.
-
-If you purchase the
-[early-access edition](https://www.atomickotlin.com/earlyaccess/) you will
-receive updates as they become available.
 
 ##  Section I: Programming Basics
 -   ***Introduction***
