@@ -19,6 +19,7 @@ receive updates as they become available.
 
 ##  Section I: Programming Basics
 -   ***Introduction***
+-   ***Why Kotlin?***
 -   ***Hello, World!***
 -   ***`var` & `val`***
 -   ***Data Types***
