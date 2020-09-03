@@ -1,2 +1,2 @@
 @echo off
-py -3 open-indexes.py
+python open-indexes.py

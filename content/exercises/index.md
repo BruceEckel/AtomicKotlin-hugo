@@ -1,11 +1,13 @@
 ---
 title: Exercises
-weight: 60
+weight: 70
 ---
 
-> **NOTE**: Most of the exercises beginning at the OOP section are unfinished
-> and are missing placeholders and tests. We're updating the content as soon as it
-> appears.
+> **NOTE**: The exercises beginning at the *Type Checking* atom through the end
+> of the book have not yet been converted to the EDU format. These exercises
+> and solutions are available in text form
+> [here](https://github.com/BruceEckel/AtomicKotlinExercises/releases/latest).
+> Watch this page to find out as the remaining exercises are converted.
 
 Each atom in *Atomic Kotlin* is accompanied by several exercises. These
 exercises improve your understanding, so we recommend solving them right after
