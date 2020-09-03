@@ -19,6 +19,9 @@ Includes an extensive free sample in all formats.
 
 ### Stepik
 
+> There may be a slight delay in updating the Stepik version. If you want
+> it right now, use the Leanpub version.
+
 [The Stepik Platform](https://stepik.org/course/19590) provides a web-based
 experience that allows you to modify and run the book's examples in-place.
 Includes an extensive free sample.
