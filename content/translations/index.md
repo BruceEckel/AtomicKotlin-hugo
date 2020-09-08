@@ -20,6 +20,9 @@ and that you think it's too risky to commit to a high advance.
 Although some publishers will want to connect a higher advance to lower
 royalties, that style of negotiation does not appeal to me.
 
+Please understand that my goal in negotiating a high advance is the ability it
+gives me to finance future projects.
+
 ## Royalties
 
 Different countries calculate royalties differently. Please be clear on whether
