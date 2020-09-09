@@ -13,12 +13,14 @@ Contract should include agreements for:
 
 ## Advance
 
-The advance represents your expectations and commitment to the book. A low
-advance indicates you don't think the book will do that well in your country,
-and that you think it's too risky to commit to a high advance.
+The advance represents your expectations of the book's sales. A low advance
+indicates you don't think the book will do that well in your country.
 
-Although some publishers will want to connect a higher advance to lower
-royalties, that style of negotiation does not appeal to me.
+The advance also represents your commitment to promoting and selling the book.
+A low advance indicates that you are not willing to take that risk.
+
+Some publishers want to connect a higher advance to lower royalties. I do not
+consider the two to be connected.
 
 Please understand that my goal in negotiating a high advance is the ability it
 gives me to finance future projects.
@@ -27,6 +29,9 @@ gives me to finance future projects.
 
 Different countries calculate royalties differently. Please be clear on whether
 your royalty percentage represents the wholesale or retail price of the book.
+Put another way, does the royalty represent a percentage of the cover price
+(retail) or is it a percentage of the price paid to the publisher by the
+distributor or bookseller (wholesale)?
 
 ## Translation Sources
 
