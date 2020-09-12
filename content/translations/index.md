@@ -5,11 +5,15 @@ weight: 80
 
 ## Initiating a Translation
 
-Contract should include agreements for:
+Contract should include translation agreements for:
 - Print Book
 - Ebook
 - Translation of AtomicKotlin EDU exercises and solutions
 
+When there are competing publishers, I will relay the current offer to all
+publishers, including both the advance and the royalties. The decision will
+be made based on the combination of the two, but with a strong weight towards
+the advance.
 
 ## Advance
 
@@ -23,7 +27,8 @@ Some publishers want to connect a higher advance to lower royalties. I do not
 consider the two to be connected.
 
 Please understand that my goal in negotiating a high advance is the ability it
-gives me to finance future projects.
+gives me to finance future projects. Also it's much simpler for me to focus
+on advances.
 
 ## Royalties
 
