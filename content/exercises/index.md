@@ -3,16 +3,10 @@ title: Exercises
 weight: 70
 ---
 
-> **NOTE**: The exercises beginning at the *Type Checking* atom through the end
-> of the book have not yet been converted to the EDU format. These exercises
-> and solutions are available in text form
-> [here](https://github.com/BruceEckel/AtomicKotlinExercises/releases/latest).
-> Watch this page to find out as the remaining exercises are converted.
-
-Each atom in *Atomic Kotlin* is accompanied by several exercises. These
-exercises improve your understanding, so we recommend solving them right after
-reading the atom. All exercises can be checked automatically within IntelliJ
-IDEA, and you can see your progress while solving them.
+Each atom in *Atomic Kotlin* is accompanied by several exercises to cement your
+understanding of the material. We recommend solving the exercises directly
+after reading an atom. All exercises can be checked automatically within
+IntelliJ IDEA, and you can see your progress while solving them.
 
 To solve the exercises, install IntelliJ IDEA with the EduTools plugin by
 following these tutorials:
@@ -39,3 +33,10 @@ produces the wrong result), please use our issue tracker to report the problem
 with [This Prefilled
 Form](https://youtrack.jetbrains.com/newIssue?project=EDC&summary=AtomicKotlin%3A%20%3C%3C%20atom%20%2B%20exercise%20%3E%3E&description=%3C%3C%20Describe%20the%20problem%20here%20%3E%3E&c=Subsystem%20Kotlin&c=Assignee%20svtk).
 Note that you'll need to log in into YouTrack. Thank you!
+
+## Exercises and Solutions in Text Form
+
+If for some reason you are unable to use the exercises and solutions in the
+EduTools format, they are also available in plain text form
+[here](https://github.com/svtk/AtomicKotlinCourse/releases/latest), along with
+Gradle build files.
