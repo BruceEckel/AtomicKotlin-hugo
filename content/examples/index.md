@@ -8,6 +8,5 @@ You can compile, run, and test the examples.
 
 > [Complete instructions for configuring and running the code](https://github.com/BruceEckel/AtomicKotlinExamples/blob/master/README.md#atomic-kotlin-examples).
 
-The examples in the repository are automatically extracted the examples
-directly from the book. The repository includes a test of the code exactly as
-it appears in the book, to verify that it is correct.
+The examples are automatically extracted directly from the book. The repository
+includes tests to verify that the code in the book correct.
