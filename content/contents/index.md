@@ -51,7 +51,7 @@ Free Sample](https://stepik.org/course/19590) includes beginning portions of
 -   Destructuring Declarations
 -   Nullable Types
 -   Safe Calls & the Elvis Operator
--   Non-`null` Assertions
+-   Non-Null Assertions
 -   Extensions for Nullable Types
 -   Introduction to Generics
 -   Extension Properties
@@ -95,8 +95,8 @@ Free Sample](https://stepik.org/course/19590) includes beginning portions of
 -   Logging
 -   Unit Testing
 ##  Section VII: Power Tools
--   Scope Functions
 -   Extension Lambdas
+-   Scope Functions
 -   Creating Generics
 -   Operator Overloading
 -   Using Operators

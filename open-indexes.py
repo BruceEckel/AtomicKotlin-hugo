@@ -1,6 +1,8 @@
 from pathlib import Path
 import os
 
+editor = "code"
+
 base = Path.cwd() / "content"
 
 indexed = {}
@@ -14,9 +16,9 @@ for index in base.rglob("Index.md"):
 
 for wt in sorted(indexed.keys()):
     print(f"{wt}: {indexed[wt].relative_to(base)}")
-    os.system(f"subl {indexed[wt]}")
+    os.system(f"{editor} {indexed[wt]}")
 
 config_toml = Path.cwd() / "config.toml"
 if config_toml.exists():
-    os.system(f"subl {config_toml}")
+    os.system(f"{editor} {config_toml}")
 

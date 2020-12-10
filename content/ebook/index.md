@@ -3,7 +3,7 @@ title: eBook
 weight: 40
 ---
 
-The book was completed September 1, 2020 and is available on the following
+The book was completed December 9, 2020 and is available on the following
 platforms:
 
 ### Leanpub
