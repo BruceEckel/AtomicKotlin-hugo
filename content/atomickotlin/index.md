@@ -23,6 +23,6 @@ Eckel and Svetlana Isakova.
 src="https://www.youtube.com/embed/PsaFVLr8t4E?t=2362">
 </iframe>
 
-### Current version of the cover for the (upcoming) print book:
+### The cover of the print book:
 
 ![Atomic Kotlin Book Cover](/images/BookCover.png)
