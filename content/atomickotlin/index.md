@@ -7,10 +7,10 @@ weight: 10
 ***Atomic Kotlin*** is the book and associated learning resources by Bruce
 Eckel and Svetlana Isakova.
 
+- January 11, 2021: The print book is available.
+
 - December 9, 2020: The eBook is finished and published on
   [Leanpub](https://leanpub.com/AtomicKotlin).
-
-- January 11, 2021: The print book is available.
 
 - We *thought* the book was done before but ended up going over and over it, and
   adding material for Kotlin 1.4. We found lots of things to improve. It's
