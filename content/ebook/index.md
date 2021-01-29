@@ -19,6 +19,6 @@ Includes an extensive free sample in all formats.
 
 ### Stepik
 
-[The Stepik Platform](https://stepik.org/course/19590) provides a web-based
+[The Stepik Platform](https://stepik.org/course/15001) provides a web-based
 experience that allows you to modify and run the book's examples in-place.
-Includes an extensive free sample.
+Includes an [extensive free sample](https://stepik.org/course/19590).
