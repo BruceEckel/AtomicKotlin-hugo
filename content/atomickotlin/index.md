@@ -7,6 +7,10 @@ weight: 10
 ***Atomic Kotlin*** is the book and associated learning resources by Bruce
 Eckel and Svetlana Isakova.
 
+- [Why Learn Kotlin?](https://blog.jetbrains.com/kotlin/2021/04/why-learn-kotlin/)
+
+- [JetBrains Connect, Episode 4 – "Why Kotlin?" with Bruce Eckel and Svetlana Isakova](https://www.youtube.com/watch?v=0V-qp-qpjzU)
+
 - January 11, 2021: The print book is available.
 
 - December 9, 2020: The eBook is finished and published on
