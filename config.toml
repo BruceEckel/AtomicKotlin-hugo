@@ -44,7 +44,7 @@ googleAnalytics = ""
 
 [[menu.main]]
   name   = "Atomic Kotlin"
-  url    = "atomickotlin/"
+  url    = "atomickotlin"
   weight = 10
 
 [[menu.main]]
@@ -59,7 +59,7 @@ googleAnalytics = ""
 
 [[menu.main]]
   name   = "eBook"
-  url    = "ebook/"
+  url    = "ebook"
   weight = 40
 
 [[menu.main]]
@@ -69,18 +69,13 @@ googleAnalytics = ""
 
 [[menu.main]]
   name   = "Examples"
-  url    = "examples/"
+  url    = "examples"
   weight = 60
 
 [[menu.main]]
   name   = "Exercises"
-  url    = "exercises/"
+  url    = "exercises"
   weight = 70
-
-#[[menu.main]]
-#  name   = "Seminar (Aug 20-24)"
-#  url    = "seminar/"
-#  weight = 80
 
 [[menu.main]]
 	name   = "About"
