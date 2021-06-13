@@ -49,12 +49,12 @@ googleAnalytics = ""
 
 [[menu.main]]
   name   = "Table of Contents"
-  url    = "contents/"
+  url    = "contents"
   weight = 20
 
 [[menu.main]]
   name   = "Free Sample"
-  url    = "sample/"
+  url    = "sample"
   weight = 30
 
 [[menu.main]]
@@ -64,7 +64,7 @@ googleAnalytics = ""
 
 [[menu.main]]
   name   = "Print Book"
-  url    = "printbook/"
+  url    = "printbook"
   weight = 50
 
 [[menu.main]]
