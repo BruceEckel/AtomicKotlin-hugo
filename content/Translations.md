@@ -56,3 +56,15 @@ AtomicKotlin EDU
 - Chinese: Active interest from several publishers
 - Russian: Active interest from at least one publisher
 
+## Requesting Printed "Working Copies"
+
+The print copies are not the most up-to-date "source of truth" for this book,
+but rather the Leanpub version is -- that is the one I can easily update and
+should be used for reference (I additionally give read access to the Github
+repository where the markdown version of the book is stored, for publishers who
+want it). So I would rather only give the Leanpub and/or Github version for them
+to work from (also it is expensive, and a hassle for me, to print and send 3
+copies to another country). If you really want a print copy of the book, please
+get it directly through Ingram, which distributes worldwide.
+
+https://www.ingramcontent.com/publishers/distribution
