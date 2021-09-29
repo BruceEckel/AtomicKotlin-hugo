@@ -15,7 +15,7 @@ following these tutorials:
 Plugin](https://www.jetbrains.com/help/education/install-edutools-plugin.html).
 
 2. [Open the Atomic Kotlin course and solve the
-exercises](https://www.jetbrains.com/help/education/learner-start-guide.html?section=Atomic%20Kotlin).
+exercises](https://plugins.jetbrains.com/plugin/10081-edutools/docs/learner-start-guide.html?section=Atomic%20Kotlin).
 
 In the EduTools course, you'll find solutions for all exercises. If you're
 stuck on a task, you can check the hints or peek at the solution---if you do
