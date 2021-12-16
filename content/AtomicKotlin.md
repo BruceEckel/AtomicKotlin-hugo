@@ -27,6 +27,10 @@ Eckel and Svetlana Isakova.
 src="https://www.youtube.com/embed/PsaFVLr8t4E?t=2360">
 </iframe>
 
+### Post from LinkedIn
+
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6873147620798337024" height="671" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+
 ### The cover of the print book:
 
 ![Atomic Kotlin Book Cover](/images/BookCover.png)
